@@ -1,6 +1,11 @@
 # vue-showdown
 
+[![build status](https://travis-ci.org/meteorlxy/vue-showdown.svg?branch=master)](https://travis-ci.org/meteorlxy/vue-showdown)
+[![npm version](https://badge.fury.io/js/vue-showdown.svg)](https://badge.fury.io/js/vue-showdown)
+
 > A very simple vue component for `showdown.js`
+
+[Live Demo](https://meteorlxy.github.io/vue-showdown/)
 
 ## Usage
 

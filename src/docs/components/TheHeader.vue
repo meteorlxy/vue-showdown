@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="jumbotron jumbotron-fluid text-center bg-transparent m-0">
-      <img src="/static/img/logo.png">
+      <img src="static/img/logo.png">
       
       <h1 class="my-4">
         Vue Component for 

@@ -1,9 +1,13 @@
 {
   "name": "vue-showdown",
   "version": "1.0.0",
-  "description": "Vue component of showdown.js",
+  "description": "Vue component for showdown.js",
   "author": "meteorlxy <meteor.lxy@foxmail.com>",
-  "private": true,
+  "keywords": [
+    "vue",
+    "showdown",
+    "markdown"
+  ],
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
