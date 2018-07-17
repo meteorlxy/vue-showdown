@@ -17,7 +17,7 @@ footer: MIT Licensed | vue-showdown
 
 通过 npm / yarn 进行安装
 
-```sh
+```bash
 npm install vue-showdown
 # 或者
 yarn add vue-showdown
@@ -71,11 +71,7 @@ Vue.component('VueShowdown', VueShowdown)
 
 ### 输入你的 Markdown 代码：
 
-<textarea
-  class="markdown-input"
-  placeholder="输入你的 Markdown 代码"
-  :rows="rows"
-  v-model="markdownText"/>
+<textarea class="markdown-input" placeholder="Input your markdown here" :rows="rows" v-model="markdownText"/>
 
 ### 输出解析后的 HTML ：
 

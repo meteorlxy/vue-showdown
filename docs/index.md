@@ -17,7 +17,7 @@ footer: MIT Licensed | vue-showdown
 
 Install via npm / yarn
 
-```sh
+```bash
 npm install vue-showdown
 # OR
 yarn add vue-showdown
@@ -71,11 +71,7 @@ Then use `vue-showdown` as a vue component directly
 
 ### Input your markdown here:
 
-<textarea
-  class="markdown-input"
-  placeholder="Input your markdown here"
-  :rows="rows"
-  v-model="markdownText"/>
+<textarea class="markdown-input" placeholder="Input your markdown here" :rows="rows" v-model="markdownText"/>
 
 ### Output HTML here:
 

@@ -48,11 +48,5 @@ module.exports = {
         // ]
       }
     }
-  },
-  chainWebpack(config) {
-    config.resolve
-      .set('symlinks', true)
-      .alias
-        .set('vue-showdown', path.resolve(__dirname, '../../src'))
   }
 }
