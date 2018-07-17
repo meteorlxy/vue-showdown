@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue-showdown dev</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: none;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <p>Input:</p>
+    <textarea :rows="5" v-model="markdownInput"></textarea>
+
+    <p>Output:</p>
+    <vue-showdown :markdown="markdownInput" :options="options"></vue-showdown>
+
+    <hr>
+    
+    <p>Options:</p>
+    <ul>
+      <li v-for="opt in Object.keys(options)">
+        <span>{{ opt }}</span>
+
+        <input type="checkbox" v-model="options[opt]">
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

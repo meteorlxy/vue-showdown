@@ -1,24 +1,24 @@
 language: node_js
 node_js: stable
+git:
+  depth: false
+branches:
+  only:
+    - dev
 
 # S: Build Lifecycle
 install:
-  - npm install
+  - yarn
 
 script:
-  - npm run build-docs
+  - yarn docs:build
 
 after_success:
-  - cd ./gh-pages
+  - cd ./docs-dist
   - git init
-  - git config user.name "meteorlxy"
-  - git config user.email "meteor.lxy@foxmail.com"
+  - git config user.name "${GH_USER_NAME}"
+  - git config user.email "${GH_USER_EMAIL}"
   - git add .
-  - git commit -m "Build docs $(date +%Y%m%d%H%M)"
+  - git commit -m "Build $(date +%Y%m%d%H%M)"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REPO}" master:gh-pages
 # E: Build LifeCycle
-
-branches:
-  only:
-    - master
-    
