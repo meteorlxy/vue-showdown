@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  base: '/vue-showdown/',
   dest: 'docs-dist',
   locales: {
     '/': {
