@@ -8,7 +8,7 @@ features:
   details: Parse markdown text in client side with the power of showdown.js.
 - title: Vue component
   details: Wrapped showdown.js as a Vue component, and you can use it easily.
-footer: MIT Licensed | vue-showdown
+footer: MIT Licensed | Copyright © 2018-present meteorlxy
 ---
 
 ## Easy to use

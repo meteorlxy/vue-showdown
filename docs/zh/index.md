@@ -8,7 +8,7 @@ features:
   details: 通过showdown.js在客户端解析markdown代码
 - title: Vue component
   details: 将showdown.js包装成Vue组件，你可以快速使用它
-footer: MIT Licensed | vue-showdown
+footer: MIT Licensed | Copyright © 2018-present meteorlxy
 ---
 
 ## 使用方法
