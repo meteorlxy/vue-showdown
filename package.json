@@ -20,7 +20,7 @@
     "build": "rimraf dist && rollup --config scripts/rollup.config.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "lint": "eslint --fix --ext .js,.vue src script"
+    "lint": "eslint --fix --ext .js,.vue src scripts docs"
   },
   "dependencies": {
     "showdown": "^1.8.6",
