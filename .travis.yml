@@ -15,6 +15,7 @@ script:
 
 after_success:
   - cd ./docs-dist
+  - echo ${GH_CNAME} > CNAME
   - git init
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "${GH_USER_EMAIL}"
