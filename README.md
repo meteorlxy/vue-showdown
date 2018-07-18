@@ -5,7 +5,7 @@
 
 Use showdown as a vue component
 
-See [docs](https://meteorlxy.github.io/vue-showdown) here
+See [docs](https://vue-showdown.js.org) here
 
 ## Develop
 
