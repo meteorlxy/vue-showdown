@@ -28,24 +28,32 @@ module.exports = {
         selectText: 'Languages',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
-        // nav: [
-        //   {
-        //     text: 'Guide',
-        //     link: '/guide/',
-        //   }
-        // ]
+        nav: [
+          {
+            text: 'Guide',
+            link: '/guide/',
+          },
+          {
+            text: 'Playground',
+            link: '/playground/',
+          }
+        ]
       },
       '/zh/': {
         label: '简体中文',
         selectText: '选择语言',
         editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新',
-        // nav: [
-        //   {
-        //     text: '指南',
-        //     link: '/zh/guide/',
-        //   }
-        // ]
+        nav: [
+          {
+            text: '指南',
+            link: '/zh/guide/',
+          },
+          {
+            text: 'Playground',
+            link: '/zh/playground/',
+          }
+        ]
       }
     }
   }

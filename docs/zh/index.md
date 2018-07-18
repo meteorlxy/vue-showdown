@@ -1,8 +1,8 @@
 ---
 home: true
 heroImage: /logo.png
-# actionText: 开始使用 →
-# actionLink: /guide/
+actionText: 试一下 →
+actionLink: /zh/playground/
 features:
 - title: Showdown
   details: 通过showdown.js在客户端解析markdown代码
@@ -66,61 +66,3 @@ Vue.component('VueShowdown', VueShowdown)
   <vue-showdown markdown="## markdown text"/>
 </div>
 ```
-
-## Playground
-
-### 输入你的 Markdown 代码：
-
-<textarea class="markdown-input" placeholder="Input your markdown here" :rows="rows" v-model="markdownText"/>
-
-### 输出解析后的 HTML ：
-
-<section class="markdown-output">
-  <VueShowdown :markdown="markdownText"/>
-</section>
-
-<script>
-export default {
-  data () {
-    return {
-      markdownText: '### Hello, Vue Showdown! \n\n输入你的 Markdown 代码，立即得到相应的 HTML ！'
-    }
-  },
-
-  computed: {
-    contentRows () {
-      return this.markdownText.split('\n').length - 1
-    },
-
-    rows () {
-      return this.contentRows < 3 ? 5 : this.contentRows + 2
-    },
-  }
-}
-</script>
-
-<style lang="stylus" scoped>
-@import '~@default-theme/styles/config.styl'
-
-.markdown-input
-  resize none
-  outline none
-  width 100%
-  padding 15px
-  font-size 16px
-  background-color #fafbfc
-  border 1px solid $borderColor
-  border-radius 5px
-  box-sizing border-box
-  &:focus
-    background-color #ffffff
-    box-shadow 0 0 1px 1px lighten($accentColor, 50%)
-  &::placeholder
-    color $textLightColor
-.markdown-output
-  padding 15px
-  margin-bottom 15px
-  background-color #fafbfc
-  border 1px solid $borderColor
-  border-radius 5px
-</style>
