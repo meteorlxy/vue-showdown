@@ -11,58 +11,29 @@ features:
 footer: MIT Licensed | Copyright © 2018-present meteorlxy
 ---
 
-## 使用方法
+## 快速使用
 
-### NPM
-
-通过 npm / yarn 进行安装
-
-```bash
-npm install vue-showdown
-# 或者
-yarn add vue-showdown
-```
-
-在你的 js 文件中引入
+引入并使用 vue-showdown
 
 ```js
-// 通过 Vue.use() 可以设置默认配置 options
 import Vue from 'vue'
 import VueShowdown from 'vue-showdown'
 
 Vue.use(VueShowdown, {
-  /**
-   * 设置 showdown.js 的默认配置
-   * @see https://github.com/showdownjs/showdown#valid-options
-   */
+  emoji: true
 })
-
-// 或者: 作为 Vue 组件引入
-import Vue from 'vue'
-import { VueShowdown } from 'vue-showdown'
-
-Vue.component('VueShowdown', VueShowdown)
 ```
 
-现在，你可以在你的 Vue 单文件组件中使用 `VueShowdown`
+在你的 Vue 单文件组件中使用 `VueShowdown`
 
 ```vue
-<VueShowdown markdown="## markdown text"/>
+<VueShowdown markdown="`vue-showdown` 可以快速使用 :kissing_heart:"/>
 ```
 
-### 浏览器
+Result
 
-通过`<script>`标签，在`vue.js`之后引入
+<VueShowdown markdown="`vue-showdown` 可以快速使用 :kissing_heart:" :options="{ emoji: true }"/>
 
-```html
-<script src="path/to/dist/vue.min.js"></script>
-<script src="path/to/dist/vue-showdown.min.js"></script>
-```
+---
 
-然后就可以直接使用`vue-showdown`组件了
-
-```html
-<div id="#app">
-  <vue-showdown markdown="## markdown text"/>
-</div>
-```
+查看详细[使用指南](./guide/) :point_left:

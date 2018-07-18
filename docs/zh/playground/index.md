@@ -4,17 +4,17 @@ sidebar: auto
 
 # Playground :running:
 
-## Input your markdown here
+## 输入你的 Markdown 代码
 
-<textarea class="markdown-input" placeholder="Input your markdown here" :rows="rows" v-model="markdownText"/>
+<textarea class="markdown-input" placeholder="在这里输入你的 Markdown 代码" :rows="rows" v-model="markdownText"/>
 
-## Output HTML here
+## 输出 HTML
 
 <section class="markdown-output">
   <VueShowdown :markdown="markdownText" :options="options"/>
 </section>
 
-## Set showdown options
+## 设置 showdown 的 options
 
 <ul class="markdown-options">
   <li v-for="opt in Object.keys(options)">

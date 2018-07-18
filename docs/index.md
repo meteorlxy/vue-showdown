@@ -36,4 +36,4 @@ Result
 
 ---
 
-See the detailed [guide](./guide/)
+See the detailed [guide](./guide/) :point_left:
