@@ -24,17 +24,8 @@ function distPath (...args) {
   return rootPath('dist', ...args)
 }
 
-/**
- * Join relative path from static directory (for output filename)
- * @param {string} args
- */
-function assetsPath (...args) {
-  return path.posix.join('static', ...args)
-}
-
 module.exports = {
   rootPath,
   srcPath,
-  distPath,
-  assetsPath
+  distPath
 }
