@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
   dest: 'docs-dist',
   locales: {
@@ -31,11 +29,11 @@ module.exports = {
         nav: [
           {
             text: 'Guide',
-            link: '/guide/',
+            link: '/guide/'
           },
           {
             text: 'Playground',
-            link: '/playground/',
+            link: '/playground/'
           }
         ]
       },
@@ -47,11 +45,11 @@ module.exports = {
         nav: [
           {
             text: '指南',
-            link: '/zh/guide/',
+            link: '/zh/guide/'
           },
           {
             text: 'Playground',
-            link: '/zh/playground/',
+            link: '/zh/playground/'
           }
         ]
       }
