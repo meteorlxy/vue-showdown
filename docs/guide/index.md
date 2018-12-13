@@ -23,7 +23,9 @@ Import in your js files
 import Vue from 'vue'
 import VueShowdown from 'vue-showdown'
 
-Vue.use(VueShowdown, options /* optional */) // set the default options here
+const options = {} // set the default showdown options
+
+Vue.use(VueShowdown, options /* optional */)
 
 // OR: import as a Vue component
 import Vue from 'vue'
@@ -110,3 +112,38 @@ Options of showdown. Docs [here](https://github.com/showdownjs/showdown#valid-op
 ::: tip
 The props `options` will override the default options set by `Vue.use()`.
 :::
+
+#### extensions
+
+Due to the fact that `showdown` is bundled inside this library, it is not possible to load extensions using the deprecated way (adding the extensions to the library and referencing them in the `extensions` option). So, to be able to add an extension it has to be defined in the `options.extensions` object.
+
+```js
+// extensions inside `options` object
+const extension = () => {
+  return [ ... ]
+}
+const options = {
+  // as object
+  extensions: {
+    extension
+  },
+  // OR: as array
+  extensions: [ extension ]
+}
+
+// load the extension as a Vue plugin
+import Vue from 'vue'
+import VueShowdown from 'vue-showdown'
+
+Vue.use(VueShowdown, options)
+
+// OR: as a Vue component
+Vue.component('component-name', {
+  data: function () {
+    return {
+      options
+    }
+  },
+  template: '<vue-showdown markdown="## markdown text" :options="options"/>'
+})
+```

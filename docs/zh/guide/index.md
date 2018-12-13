@@ -45,7 +45,7 @@ Vue.component('VueShowdown', VueShowdown) // 在使用时通过 props 设置 opt
 
 ### Browser
 
-在 `vue.js` 后面直接通过 `<script>` 引入 
+在 `vue.js` 后面直接通过 `<script>` 引入
 
 ```html
 <script src="path/to/dist/vue.min.js"></script>
@@ -110,3 +110,7 @@ Vue.component('VueShowdown', VueShowdown) // 在使用时通过 props 设置 opt
 ::: tip 提示
 通过 props 设置的 options 将会覆盖通过 `Vue.use()` 设置的默认 options。
 :::
+
+#### extensions
+
+TO BE TRANSLATED
