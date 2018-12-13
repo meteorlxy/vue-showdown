@@ -72,6 +72,7 @@ export default {
      * @property {boolean=false} completeHTMLDocument
      * @property {boolean=false} metadata
      * @property {boolean=false} splitAdjacentBlockquotes
+     * @property {(Object={}|Function[])} extensions
      */
     options: {
       type: Object,
