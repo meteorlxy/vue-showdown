@@ -23,7 +23,7 @@
     "lint": "eslint --fix --ext .js,.vue src scripts docs/.vuepress"
   },
   "dependencies": {
-    "showdown": "^1.8.6",
+    "showdown": "^1.9.0",
     "vue": "^2.5.16"
   },
   "devDependencies": {
