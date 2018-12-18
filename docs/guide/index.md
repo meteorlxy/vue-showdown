@@ -113,37 +113,33 @@ Options of showdown. Docs [here](https://github.com/showdownjs/showdown#valid-op
 The props `options` will override the default options set by `Vue.use()`.
 :::
 
-#### extensions
+## Extensions
 
-Due to the fact that `showdown` is bundled inside this library, it is not possible to load extensions using the deprecated way (adding the extensions to the library and referencing them in the `extensions` option). So, to be able to add an extension it has to be defined in the `options.extensions` object.
+You can also load extensions of showdown in the `options` object:
+
+- In `Vue.use()` as default options
+- In `options` props of `vue-showdown` component
+
+See [official docs about extensions](https://github.com/showdownjs/showdown#extensions)
+
+### Example
+
+```sh
+npm install showdown-twitter
+# OR
+yarn add showdown-twitter
+```
 
 ```js
-// extensions inside `options` object
-const extension = () => {
-  return [ ... ]
-}
-const options = {
-  // as object
-  extensions: {
-    extension
-  },
-  // OR: as array
-  extensions: [ extension ]
-}
-
-// load the extension as a Vue plugin
 import Vue from 'vue'
 import VueShowdown from 'vue-showdown'
+import 'showdown-twitter'
 
-Vue.use(VueShowdown, options)
-
-// OR: as a Vue component
-Vue.component('component-name', {
-  data: function () {
-    return {
-      options
-    }
-  },
-  template: '<vue-showdown markdown="## markdown text" :options="options"/>'
+Vue.use(VueShowdown, {
+  extensions: ['twitter']
 })
+```
+
+```vue
+<VueShowdown markdown="## markdown text" :options="{ extensions: ['twitter'] }"/>
 ```

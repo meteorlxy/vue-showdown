@@ -111,6 +111,33 @@ Vue.component('VueShowdown', VueShowdown) // 在使用时通过 props 设置 opt
 通过 props 设置的 options 将会覆盖通过 `Vue.use()` 设置的默认 options。
 :::
 
-#### extensions
+## Extensions
 
-TO BE TRANSLATED
+通过 `options` 对象，可以加载 showdown 的 extensions：
+
+- 通过 `Vue.use()` 的默认 options 加载
+- 通过 `vue-showdown` 组件的 `options` prop 加载
+
+查看 [showdown extensions 官方文档](https://github.com/showdownjs/showdown#extensions)
+
+### 例子
+
+```sh
+npm install showdown-twitter
+# 或者
+yarn add showdown-twitter
+```
+
+```js
+import Vue from 'vue'
+import VueShowdown from 'vue-showdown'
+import 'showdown-twitter'
+
+Vue.use(VueShowdown, {
+  extensions: ['twitter']
+})
+```
+
+```vue
+<VueShowdown markdown="## markdown text" :options="{ extensions: ['twitter'] }"/>
+```
