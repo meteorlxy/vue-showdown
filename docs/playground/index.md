@@ -16,10 +16,12 @@ sidebar: auto
 
 ## Set showdown options
 
-<ul class="markdown-options">
+<ul class="showdown-options">
   <li v-for="opt in Object.keys(options)">
-    <input type="checkbox" v-model="options[opt]">
     <span>{{ opt }}</span>
+    <input
+      v-model="options[opt]"
+      :type="typeof options[opt] === 'boolean' ? 'checkbox' : 'text'">
   </li>
 </ul>
 
@@ -78,7 +80,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~@default-theme/styles/config.styl'
+@import '~@app/style/config.styl'
 
 .markdown-input
   resize none
@@ -102,7 +104,4 @@ export default {
   background-color #fafbfc
   border 1px solid $borderColor
   border-radius 5px
-.markdown-options
-  padding 0
-  list-style-type none
 </style>

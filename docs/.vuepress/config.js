@@ -1,25 +1,41 @@
 module.exports = {
   dest: 'docs-dist',
+
   locales: {
     '/': {
       lang: 'en-US',
       title: 'Vue Showdown',
       description: 'Use showdown.js in Vue',
     },
+
     '/zh/': {
       lang: 'zh-CN',
       title: 'Vue Showdown',
       description: '在 Vue 中快速使用 showdown.js',
     },
   },
+
   head: [
     ['link', { rel: 'icon', href: `/logo.png` }],
   ],
-  serviceWorker: true,
+
+  conentLoading: true,
+
+  plugins: {
+    '@vuepress/plugin-back-to-top': true,
+    '@vuepress/plugin-pwa': {
+      serviceWorker: true,
+      updatePopup: true
+    },
+  },
+
   themeConfig: {
     repo: 'meteorlxy/vue-showdown',
+
     editLinks: true,
+
     docsDir: 'docs',
+
     locales: {
       '/': {
         label: 'English',
@@ -37,6 +53,7 @@ module.exports = {
           },
         ],
       },
+
       '/zh/': {
         label: '简体中文',
         selectText: '选择语言',
