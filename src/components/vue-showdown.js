@@ -72,24 +72,31 @@ export default {
      * @property {boolean} completeHTMLDocument
      * @property {boolean} metadata
      * @property {boolean} splitAdjacentBlockquotes
-     *
-     * Showdown extensions
-     *
-     * @see https://github.com/showdownjs/showdown#extensions
-     *
-     * @property {(Object|(Function|string)[])} extensions
      */
     options: {
       type: Object,
       required: false,
       default: () => ({}),
     },
+
+    /**
+     * Showdown extensions
+     *
+     * @see https://github.com/showdownjs/showdown#extensions
+     */
+    extensions: {
+      type: [Object, Array],
+      required: false,
+      default: null,
+    },
   },
 
   computed: {
     converter () {
       // converter instance of showdown
-      const converter = new showdown.Converter()
+      const converter = new showdown.Converter({
+        extensions: this.extensions || undefined,
+      })
 
       // set flavor of this instance
       if (this.flavor !== null) {

@@ -72,7 +72,43 @@ Vue.component('VueShowdown', VueShowdown)
 </div>
 ```
 
-## Props
+## 插件选项
+
+```js
+import Vue from 'vue'
+import VueShowdown from 'vue-showdown'
+
+Vue.use(VueShowdown, {
+  // 在这里设置插件选项
+})
+```
+
+### flavor
+
+设置 showdown 的默认 flavor。查看[文档](https://github.com/showdownjs/showdown#flavors)。
+
+- 类型： `string`
+- 默认值： `null`
+- 可能的值： `'original', 'vanilla', 'github'`
+
+::: tip
+这里的 `flavor` 将会通过 `showdown.setFlavor()` 设置为全局 flavor。
+:::
+
+### options
+
+设置 showdown 的默认 options。查看[文档](https://github.com/showdownjs/showdown#valid-options)。
+
+- type: `Object`
+- default: `{}`
+
+::: tip
+这里的 `options` 将会通过 `showdown.setOption()` 设置为全局 options。
+
+注意这里的 `showdown.setOption()` 将会在 `showdown.setFlavor()` 之后调用，意味着将会覆盖 flavor 本身的默认配置。
+:::
+
+## 组件 Props
 
 ### markdown
 
@@ -106,15 +142,19 @@ Vue.component('VueShowdown', VueShowdown)
 
 ### flavor
 
-设置 showdown 的 flavor。查看 [文档](https://github.com/showdownjs/showdown#flavors).
+设置 showdown 的 flavor。查看 [文档](https://github.com/showdownjs/showdown#flavors)。
 
 - 类型： `string`
-- 默认值： `'vanilla'`
+- 默认值： `null`
 - 可用的值： `'original', 'vanilla', 'github'`
+
+::: tip
+如果你通过 props 设置 `flavor`，那么所有的 options 都会被重置为 flavor 的默认值，这意味着你通过 `Vue.use()` 设置的默认 options 也将被覆盖。
+:::
 
 ### options
 
-设置 showdown 的 options。查看 [文档](https://github.com/showdownjs/showdown#valid-options).
+设置 showdown 的 options。查看 [文档](https://github.com/showdownjs/showdown#valid-options)。
 
 - 类型： `Object`
 - 默认值： `{}`
@@ -123,47 +163,18 @@ Vue.component('VueShowdown', VueShowdown)
 通过 props 设置的 options 将会覆盖通过 `Vue.use()` 设置的默认 options。
 :::
 
+### extensions
+
+设置 showdown 的 extensions。查看 [文档](https://github.com/showdownjs/showdown#extensions)。
+
+- 类型： `[Object, Array]`
+- 默认值： `null`
+
+::: tip 提示
+前往章节 [进阶用法 - Extensions](./#extensions-2) 查看使用细节。
+:::
+
 ## 进阶用法
-
-### Extensions
-
-通过 `options` 对象，可以加载 showdown 的 extensions：
-
-- 通过 `Vue.use()` 的默认 options 加载
-- 通过 `vue-showdown` 组件的 `options` prop 加载
-
-查看 [showdown extensions 官方文档](https://github.com/showdownjs/showdown#extensions)
-
-```js
-import Vue from 'vue'
-import VueShowdown from 'vue-showdown'
-
-const myExt= () => {
-  // ...
-}
-
-Vue.use(VueShowdown, {
-  extensions: [myExt]
-})
-```
-
-```vue
-<template>
-  <VueShowdown markdown="## markdown text" :options="{ extensions: [this.myExt] }"/>
-</template>
-
-<script>
-export default {
-  data () {
-    return {
-      myExt: () => {
-        // ...
-      }
-    }
-  },
-}
-</script>
-```
 
 ### Showdown library
 
@@ -176,4 +187,55 @@ import VueShowdown, { showdown } from 'vue-showdown'
 showdown.setFlavor('github')
 
 Vue.use(VueShowdown)
+```
+
+### Extensions
+
+根据 [showdown extensions 官方文档](https://github.com/showdownjs/showdown/wiki/extensions)，目前无法设置全局默认 extensions。
+
+所以目前只能通过 `VueShowdown` 组件的 `extensions` prop 来传入 extensions。
+
+```vue
+<template>
+  <VueShowdown
+    markdown="## markdown text"
+    :extensions="[this.myExt]"/>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      myExt: () => [{
+        type: 'lang',
+        regex: /markdown/g,
+        replace: 'showdown',
+      }],
+    }
+  },
+}
+</script>
+```
+
+或者，你可以通过 `showdown.extension()` 全局注册 extensions，然后在 `extension` prop 中直接通过注册的名称引入。
+
+```js
+import Vue from 'vue'
+import VueShowdown, { showdown } from 'vue-showdown'
+
+showdown.extension('myext', () => [{
+  type: 'lang',
+  regex: /markdown/g,
+  replace: 'showdown',
+}])
+
+Vue.use(VueShowdown)
+```
+
+```vue
+<template>
+  <VueShowdown
+    markdown="## markdown text"
+    :extensions="['myext']"/>
+</template>
 ```

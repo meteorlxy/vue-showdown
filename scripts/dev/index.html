@@ -28,8 +28,26 @@
 
     <vue-showdown
       :markdown="markdownInput"
-      :options="options">
+      :options="options"
+      :extensions="extensions">
     </vue-showdown>
+
+    <hr>
+
+    <p>Extensions:</p>
+
+    <ul>
+      <li
+        v-for="ext in validExtensions"
+        :key="ext">
+        <span>{{ ext }}</span>
+
+        <input
+          v-model="extensions"
+          type="checkbox"
+          :value="ext">
+      </li>
+    </ul>
 
     <hr>
     

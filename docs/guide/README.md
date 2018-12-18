@@ -72,7 +72,41 @@ Then use `vue-showdown` as a vue component directly
 </div>
 ```
 
-## Props
+## Plugin Options
+
+```js
+import Vue from 'vue'
+import VueShowdown from 'vue-showdown'
+
+Vue.use(VueShowdown, {
+  // Plugin options here
+})
+```
+
+### flavor
+
+Default flavor of showdown. Docs [here](https://github.com/showdownjs/showdown#flavors).
+
+- type: `string`
+- default: `null`
+- possible values: `'original', 'vanilla', 'github'`
+
+::: tip
+The `flavor` here will be set globally by `showdown.setFlavor()`.
+:::
+
+### options
+
+Default options of showdown. Docs [here](https://github.com/showdownjs/showdown#valid-options).
+
+- type: `Object`
+- default: `{}`
+
+::: tip
+The `options` here will be set globally by `showdown.setOption()` after `showdown.setFlavor()`, which will override the flavor's options.
+:::
+
+## Component Props
 
 ### markdown
 
@@ -109,8 +143,12 @@ The HTML tag of the markdown wrapper. Similar to [vue-router's tag](https://rout
 Flavor of showdown. Docs [here](https://github.com/showdownjs/showdown#flavors).
 
 - type: `string`
-- default: `'vanilla'`
+- default: `null`
 - possible values: `'original', 'vanilla', 'github'`
+
+::: tip
+If you set `flavor` via props, all the options will be reset to the flavor's options, which will override the default options you set by `Vue.use()`.
+:::
 
 ### options
 
@@ -120,50 +158,23 @@ Options of showdown. Docs [here](https://github.com/showdownjs/showdown#valid-op
 - default: `{}`
 
 ::: tip
-The props `options` will override the default options set by `Vue.use()`.
+The `options` prop will override the default options set by `Vue.use()`.
+
+If you also set `flavor` prop, the `options` prop will override the flavor's options, too.
+:::
+
+### extensions
+
+Extensions of showdown. Docs [here](https://github.com/showdownjs/showdown#extensions).
+
+- type: `[Object, Array]`
+- default: `null`
+
+::: tip
+Check the [Advance - Extensions](./#extensions-2) section for details.
 :::
 
 ## Advance
-
-### Extensions
-
-You can also load extensions of showdown in the `options` object:
-
-- In `Vue.use()` as default options
-- In `options` props of `vue-showdown` component
-
-See [official docs about extensions](https://github.com/showdownjs/showdown#extensions)
-
-```js
-import Vue from 'vue'
-import VueShowdown from 'vue-showdown'
-
-const myExt = () => {
-  // ...
-}
-
-Vue.use(VueShowdown, {
-  extensions: [myExt]
-})
-```
-
-```vue
-<template>
-  <VueShowdown markdown="## markdown text" :options="{ extensions: [this.myExt] }"/>
-</template>
-
-<script>
-export default {
-  data () {
-    return {
-      myExt: () => {
-        // ...
-      }
-    }
-  },
-}
-</script>
-```
 
 ### Showdown library
 
@@ -176,4 +187,55 @@ import VueShowdown, { showdown } from 'vue-showdown'
 showdown.setFlavor('github')
 
 Vue.use(VueShowdown)
+```
+
+### Extensions
+
+According to the [official docs about extensions](https://github.com/showdownjs/showdown/wiki/extensions), there is no way to set default extensions globally for now.
+
+So the only way to set extensions is via the `extensions` prop of the `VueShowdown` component.
+
+```vue
+<template>
+  <VueShowdown
+    markdown="## markdown text"
+    :extensions="[this.myExt]"/>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      myExt: () => [{
+        type: 'lang',
+        regex: /markdown/g,
+        replace: 'showdown',
+      }],
+    }
+  },
+}
+</script>
+```
+
+Alternatively, you can register extensions globally via `showdown.extension()`, and reference it in the `extension` prop directly by the name that you registered.
+
+```js
+import Vue from 'vue'
+import VueShowdown, { showdown } from 'vue-showdown'
+
+showdown.extension('myext', () => [{
+  type: 'lang',
+  regex: /markdown/g,
+  replace: 'showdown',
+}])
+
+Vue.use(VueShowdown)
+```
+
+```vue
+<template>
+  <VueShowdown
+    markdown="## markdown text"
+    :extensions="['myext']"/>
+</template>
 ```

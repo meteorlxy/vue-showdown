@@ -1,5 +1,11 @@
 import Vue from 'vue'
-import VueShowdown from 'vue-showdown'
+import VueShowdown, { showdown } from 'vue-showdown'
+
+showdown.extension('replaceMarkdownByShowdown', () => [{
+  type: 'lang',
+  regex: /markdown/g,
+  replace: 'showdown',
+}])
 
 Vue.use(VueShowdown)
 
@@ -12,9 +18,16 @@ new Vue({
 ## Vue-showdown dev
 
 - [ ] tasklists
-- [ ] ghMentions @meteorlxy
-- [x] emoji :tada:
-- [x] simplifiedAutoLink https://vue-showdown.js.org`,
+- [ ] ghMentions: @meteorlxy
+- [x] emoji: :tada:
+- [x] simplifiedAutoLink: https://vue-showdown.js.org
+- [ ] replaceMarkdownByShowdown: 'markdown' will be replaced by 'showdown'`,
+
+      validExtensions: [
+        'replaceMarkdownByShowdown',
+      ],
+
+      extensions: [],
 
       options: {
         omitExtraWLInCodeBlocks: false,

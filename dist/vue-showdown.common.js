@@ -5148,12 +5148,6 @@ var VueShowdownComponent = {
      * @property {boolean} completeHTMLDocument
      * @property {boolean} metadata
      * @property {boolean} splitAdjacentBlockquotes
-     *
-     * Showdown extensions
-     *
-     * @see https://github.com/showdownjs/showdown#extensions
-     *
-     * @property {(Object|(Function|string)[])} extensions
      */
     options: {
       type: Object,
@@ -5161,12 +5155,25 @@ var VueShowdownComponent = {
       default: function _default() {
         return {};
       }
+    },
+
+    /**
+     * Showdown extensions
+     *
+     * @see https://github.com/showdownjs/showdown#extensions
+     */
+    extensions: {
+      type: [Object, Array],
+      required: false,
+      default: null
     }
   },
   computed: {
     converter: function converter() {
       // converter instance of showdown
-      var converter = new showdown.Converter(); // set flavor of this instance
+      var converter = new showdown.Converter({
+        extensions: this.extensions || undefined
+      }); // set flavor of this instance
 
       if (this.flavor !== null) {
         converter.setFlavor(this.flavor);
