@@ -8,7 +8,7 @@ const VueShowdown = {
     }
     Vue.component('VueShowdown', VueShowdownComponent)
   },
-  VueShowdown: VueShowdownComponent
+  VueShowdown: VueShowdownComponent,
 }
 
 export default VueShowdown

@@ -41,8 +41,8 @@ new Vue({
         underline: false,
         completeHTMLDocument: false,
         metadata: false,
-        splitAdjacentBlockquotes: false
-      }
+        splitAdjacentBlockquotes: false,
+      },
     }
-  }
+  },
 })

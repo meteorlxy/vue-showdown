@@ -9,11 +9,11 @@ const webpackDevConfig = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   entry: {
-    app: './scripts/dev/index.js'
+    app: './scripts/dev/index.js',
   },
   output: {
     path: utils.distPath(),
-    filename: '[name].js'
+    filename: '[name].js',
   },
   devServer: {
     contentBase: false,
@@ -21,14 +21,14 @@ const webpackDevConfig = {
     compress: true,
     host: process.platform === 'win32' ? 'localhost' : '0.0.0.0',
     port: 8000,
-    quiet: true
+    quiet: true,
   },
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
       'vue-showdown': utils.srcPath(),
-      'vue$': 'vue/dist/vue.esm.js'
-    }
+      'vue$': 'vue/dist/vue.esm.js',
+    },
   },
   module: {
     rules: [
@@ -38,16 +38,16 @@ const webpackDevConfig = {
         loader: 'eslint-loader',
         exclude: /node_modules/,
         options: {
-          fix: true
-        }
+          fix: true,
+        },
       },
 
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
-    ]
+        loader: 'babel-loader',
+      },
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -55,8 +55,8 @@ const webpackDevConfig = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'scripts/dev/index.html',
-      inject: true
-    })
+      inject: true,
+    }),
   ],
   node: {
     Buffer: false,
@@ -67,8 +67,8 @@ const webpackDevConfig = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    child_process: 'empty'
-  }
+    child_process: 'empty',
+  },
 }
 
 module.exports = new Promise((resolve, reject) => {
@@ -80,8 +80,8 @@ module.exports = new Promise((resolve, reject) => {
       webpackDevConfig.devServer.port = port
       webpackDevConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-          messages: [`Webpack dev server is listening: http://${webpackDevConfig.devServer.host}:${port}`]
-        }
+          messages: [`Webpack dev server is listening: http://${webpackDevConfig.devServer.host}:${port}`],
+        },
       }))
       resolve(webpackDevConfig)
     }

@@ -8,20 +8,20 @@ const utils = require('./utils')
 export default [
   {
     file: 'vue-showdown.js',
-    format: 'umd'
+    format: 'umd',
   },
   {
     file: 'vue-showdown.min.js',
-    format: 'umd'
+    format: 'umd',
   },
   {
     file: 'vue-showdown.common.js',
-    format: 'cjs'
+    format: 'cjs',
   },
   {
     file: 'vue-showdown.esm.js',
-    format: 'es'
-  }
+    format: 'es',
+  },
 ].map(opts => {
   const config = {
     input: utils.srcPath('index.js'),
@@ -29,13 +29,13 @@ export default [
       file: opts.file,
       format: opts.format,
       dir: utils.distPath(),
-      name: 'VueShowdown'
+      name: 'VueShowdown',
     },
     plugins: [
       resolve(),
       cjs(),
-      babel()
-    ]
+      babel(),
+    ],
   }
   if (/min\.js$/.test(opts.file)) {
     config.plugins.push(uglify())

@@ -4,16 +4,16 @@ module.exports = {
     '/': {
       lang: 'en-US',
       title: 'Vue Showdown',
-      description: 'Use showdown.js in Vue'
+      description: 'Use showdown.js in Vue',
     },
     '/zh/': {
       lang: 'zh-CN',
       title: 'Vue Showdown',
-      description: '在 Vue 中快速使用 showdown.js'
-    }
+      description: '在 Vue 中快速使用 showdown.js',
+    },
   },
   head: [
-    ['link', { rel: 'icon', href: `/logo.png` }]
+    ['link', { rel: 'icon', href: `/logo.png` }],
   ],
   serviceWorker: true,
   themeConfig: {
@@ -29,13 +29,13 @@ module.exports = {
         nav: [
           {
             text: 'Guide',
-            link: '/guide/'
+            link: '/guide/',
           },
           {
             text: 'Playground',
-            link: '/playground/'
-          }
-        ]
+            link: '/playground/',
+          },
+        ],
       },
       '/zh/': {
         label: '简体中文',
@@ -45,14 +45,14 @@ module.exports = {
         nav: [
           {
             text: '指南',
-            link: '/zh/guide/'
+            link: '/zh/guide/',
           },
           {
             text: 'Playground',
-            link: '/zh/playground/'
-          }
-        ]
-      }
-    }
-  }
+            link: '/zh/playground/',
+          },
+        ],
+      },
+    },
+  },
 }

@@ -10,7 +10,7 @@ export default {
     markdown: {
       type: String,
       required: false,
-      default: null
+      default: null,
     },
 
     /**
@@ -19,7 +19,7 @@ export default {
     tag: {
       type: String,
       required: false,
-      default: 'div'
+      default: 'div',
     },
 
     /**
@@ -31,7 +31,7 @@ export default {
       type: String,
       required: false,
       default: 'vanilla',
-      validator: flavor => ['original', 'vanilla', 'github'].includes(flavor)
+      validator: flavor => ['original', 'vanilla', 'github'].includes(flavor),
     },
 
     /**
@@ -84,8 +84,8 @@ export default {
       required: false,
       default () {
         return Object.create(null)
-      }
-    }
+      },
+    },
   },
 
   computed: {
@@ -97,14 +97,14 @@ export default {
     },
     outputHtml () {
       return this.converter ? this.converter.makeHtml(this.inputMarkdown) : ''
-    }
+    },
   },
 
   render (h) {
     return h(this.tag, {
       domProps: {
-        innerHTML: this.outputHtml
-      }
+        innerHTML: this.outputHtml,
+      },
     })
-  }
+  },
 }

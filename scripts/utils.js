@@ -27,5 +27,5 @@ function distPath (...args) {
 module.exports = {
   rootPath,
   srcPath,
-  distPath
+  distPath,
 }

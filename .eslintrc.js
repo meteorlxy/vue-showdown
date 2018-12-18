@@ -2,7 +2,9 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   extends: [
-    'standard'
-  ]
+    'standard',
+  ],
+  rules: {
+    'comma-dangle': ['error', 'always-multiline'],
+  },
 }
-  
