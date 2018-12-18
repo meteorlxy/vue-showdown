@@ -23,7 +23,9 @@ Import in your js files
 import Vue from 'vue'
 import VueShowdown from 'vue-showdown'
 
-Vue.use(VueShowdown, options /* optional */) // set the default options here
+const options = {} // set the default showdown options
+
+Vue.use(VueShowdown, options /* optional */)
 
 // OR: import as a Vue component
 import Vue from 'vue'
@@ -110,3 +112,34 @@ Options of showdown. Docs [here](https://github.com/showdownjs/showdown#valid-op
 ::: tip
 The props `options` will override the default options set by `Vue.use()`.
 :::
+
+## Extensions
+
+You can also load extensions of showdown in the `options` object:
+
+- In `Vue.use()` as default options
+- In `options` props of `vue-showdown` component
+
+See [official docs about extensions](https://github.com/showdownjs/showdown#extensions)
+
+### Example
+
+```sh
+npm install showdown-twitter
+# OR
+yarn add showdown-twitter
+```
+
+```js
+import Vue from 'vue'
+import VueShowdown from 'vue-showdown'
+import 'showdown-twitter'
+
+Vue.use(VueShowdown, {
+  extensions: ['twitter']
+})
+```
+
+```vue
+<VueShowdown markdown="## markdown text" :options="{ extensions: ['twitter'] }"/>
+```

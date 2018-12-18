@@ -72,6 +72,12 @@ export default {
      * @property {boolean=false} completeHTMLDocument
      * @property {boolean=false} metadata
      * @property {boolean=false} splitAdjacentBlockquotes
+     *
+     * Showdown extensions
+     *
+     * @see https://github.com/showdownjs/showdown#extensions
+     *
+     * @property {(Object|(Function|string)[])} extensions
      */
     options: {
       type: Object,

@@ -3,8 +3,8 @@ import VueShowdownComponent from './components/vue-showdown'
 
 const VueShowdown = {
   install (Vue, options = {}) {
-    for (const opt of Object.entries(options)) {
-      showdown.setOption(opt[0], opt[1])
+    for (const [key, value] of Object.entries(options)) {
+      showdown.setOption(key, value)
     }
     Vue.component('VueShowdown', VueShowdownComponent)
   },
