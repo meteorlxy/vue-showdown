@@ -30,8 +30,8 @@ export default {
     flavor: {
       type: String,
       required: false,
-      default: 'vanilla',
-      validator: flavor => ['original', 'vanilla', 'github'].includes(flavor),
+      default: null,
+      validator: flavor => [null, 'original', 'vanilla', 'github'].includes(flavor),
     },
 
     /**
@@ -39,39 +39,39 @@ export default {
      *
      * @see https://github.com/showdownjs/showdown#valid-options
      *
-     * @property {boolean=false} omitExtraWLInCodeBlocks
-     * @property {boolean=false} noHeaderId
-     * @property {boolean=false} customizedHeaderId
-     * @property {boolean=false} ghCompatibleHeaderId
-     * @property {boolean=false} prefixHeaderId
-     * @property {boolean=false} rawPrefixHeaderId
-     * @property {boolean=false} rawHeaderId
-     * @property {boolean=false} parseImgDimensions
-     * @property {number=1} headerLevelStart
-     * @property {boolean=false} simplifiedAutoLink
-     * @property {boolean=false} excludeTrailingPunctuationFromURLs
-     * @property {boolean=false} literalMidWordUnderscores
-     * @property {boolean=false} literalMidWordAsterisks
-     * @property {boolean=false} strikethrough
-     * @property {boolean=false} tables
-     * @property {boolean=false} tablesHeaderId
-     * @property {boolean=false} ghCodeBlocks
-     * @property {boolean=false} tasklists
-     * @property {boolean=false} smoothLivePreview
-     * @property {boolean=false} smartIndentationFix
-     * @property {boolean=false} disableForced4SpacesIndentedSublists
-     * @property {boolean=false} simpleLineBreaks
-     * @property {boolean=false} requireSpaceBeforeHeadingText
-     * @property {boolean=false} ghMentions
-     * @property {string=https://github.com/{u}} ghMentionsLink
-     * @property {boolean=true} encodeEmails
-     * @property {boolean=false} openLinksInNewWindow
-     * @property {boolean=false} backslashEscapesHTMLTags
-     * @property {boolean=false} emoji
-     * @property {boolean=false} underline
-     * @property {boolean=false} completeHTMLDocument
-     * @property {boolean=false} metadata
-     * @property {boolean=false} splitAdjacentBlockquotes
+     * @property {boolean} omitExtraWLInCodeBlocks
+     * @property {boolean} noHeaderId
+     * @property {boolean} customizedHeaderId
+     * @property {boolean} ghCompatibleHeaderId
+     * @property {boolean} prefixHeaderId
+     * @property {boolean} rawPrefixHeaderId
+     * @property {boolean} rawHeaderId
+     * @property {boolean} parseImgDimensions
+     * @property {number} headerLevelStart
+     * @property {boolean} simplifiedAutoLink
+     * @property {boolean} excludeTrailingPunctuationFromURLs
+     * @property {boolean} literalMidWordUnderscores
+     * @property {boolean} literalMidWordAsterisks
+     * @property {boolean} strikethrough
+     * @property {boolean} tables
+     * @property {boolean} tablesHeaderId
+     * @property {boolean} ghCodeBlocks
+     * @property {boolean} tasklists
+     * @property {boolean} smoothLivePreview
+     * @property {boolean} smartIndentationFix
+     * @property {boolean} disableForced4SpacesIndentedSublists
+     * @property {boolean} simpleLineBreaks
+     * @property {boolean} requireSpaceBeforeHeadingText
+     * @property {boolean} ghMentions
+     * @property {String} ghMentionsLink
+     * @property {boolean} encodeEmails
+     * @property {boolean} openLinksInNewWindow
+     * @property {boolean} backslashEscapesHTMLTags
+     * @property {boolean} emoji
+     * @property {boolean} underline
+     * @property {boolean} completeHTMLDocument
+     * @property {boolean} metadata
+     * @property {boolean} splitAdjacentBlockquotes
      *
      * Showdown extensions
      *
@@ -82,19 +82,32 @@ export default {
     options: {
       type: Object,
       required: false,
-      default () {
-        return Object.create(null)
-      },
+      default: () => ({}),
     },
   },
 
   computed: {
     converter () {
-      return new showdown.Converter(this.options)
+      // converter instance of showdown
+      const converter = new showdown.Converter()
+
+      // set flavor of this instance
+      if (this.flavor !== null) {
+        converter.setFlavor(this.flavor)
+      }
+
+      // set options of this instance (override flavor)
+      for (const [key, value] of Object.entries(this.options)) {
+        converter.setOption(key, value)
+      }
+
+      return converter
     },
+
     inputMarkdown () {
       return this.markdown === null ? this.$slots.default[0].text : this.markdown
     },
+
     outputHtml () {
       return this.converter ? this.converter.makeHtml(this.inputMarkdown) : ''
     },

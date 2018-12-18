@@ -7,26 +7,30 @@ const utils = require('./utils')
 
 export default [
   {
-    file: 'vue-showdown.js',
+    input: 'index.common.js',
+    output: 'vue-showdown.js',
     format: 'umd',
   },
   {
-    file: 'vue-showdown.min.js',
+    input: 'index.common.js',
+    output: 'vue-showdown.min.js',
     format: 'umd',
   },
   {
-    file: 'vue-showdown.common.js',
+    input: 'index.common.js',
+    output: 'vue-showdown.common.js',
     format: 'cjs',
   },
   {
-    file: 'vue-showdown.esm.js',
+    input: 'index.js',
+    output: 'vue-showdown.esm.js',
     format: 'es',
   },
 ].map(opts => {
   const config = {
-    input: utils.srcPath('index.js'),
+    input: utils.srcPath(opts.input),
     output: {
-      file: opts.file,
+      file: opts.output,
       format: opts.format,
       dir: utils.distPath(),
       name: 'VueShowdown',

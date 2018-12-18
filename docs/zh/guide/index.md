@@ -23,7 +23,15 @@ yarn add vue-showdown
 import Vue from 'vue'
 import VueShowdown from 'vue-showdown'
 
-Vue.use(VueShowdown, options /* 可选参数 */) // 可以在这里设置默认 options
+// Vue.use() 的第二个参数是可选的
+Vue.use(VueShowdown, {
+  // 设置 showdown 默认 flavor
+  flavor: 'github',
+  // 设置 showdown 默认 options （会覆盖上面 flavor 的 options）
+  options: {
+    emoji: false,
+  },
+})
 
 // 或者： 作为 Vue 组件引入
 import Vue from 'vue'
@@ -111,7 +119,9 @@ Vue.component('VueShowdown', VueShowdown) // 在使用时通过 props 设置 opt
 通过 props 设置的 options 将会覆盖通过 `Vue.use()` 设置的默认 options。
 :::
 
-## Extensions
+## 进阶用法
+
+### Extensions
 
 通过 `options` 对象，可以加载 showdown 的 extensions：
 
@@ -120,24 +130,46 @@ Vue.component('VueShowdown', VueShowdown) // 在使用时通过 props 设置 opt
 
 查看 [showdown extensions 官方文档](https://github.com/showdownjs/showdown#extensions)
 
-### 例子
-
-```sh
-npm install showdown-twitter
-# 或者
-yarn add showdown-twitter
-```
-
 ```js
 import Vue from 'vue'
 import VueShowdown from 'vue-showdown'
-import 'showdown-twitter'
+
+const myExt= () => {
+  // ...
+}
 
 Vue.use(VueShowdown, {
-  extensions: ['twitter']
+  extensions: [myExt]
 })
 ```
 
 ```vue
-<VueShowdown markdown="## markdown text" :options="{ extensions: ['twitter'] }"/>
+<template>
+  <VueShowdown markdown="## markdown text" :options="{ extensions: [this.myExt] }"/>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      myExt: () => {
+        // ...
+      }
+    }
+  },
+}
+</script>
+```
+
+### Showdown library
+
+你可以从 `vue-showdown` 中导入 `showdown` ，以便进行进阶配置。
+
+```js
+import Vue from 'vue'
+import VueShowdown, { showdown } from 'vue-showdown'
+
+showdown.setFlavor('github')
+
+Vue.use(VueShowdown)
 ```

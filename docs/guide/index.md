@@ -23,9 +23,15 @@ Import in your js files
 import Vue from 'vue'
 import VueShowdown from 'vue-showdown'
 
-const options = {} // set the default showdown options
-
-Vue.use(VueShowdown, options /* optional */)
+// the second parameter of Vue.use() is optional
+Vue.use(VueShowdown, {
+  // set default flavor of showdown
+  flavor: 'github',
+  // set default options of showdown (will override the flavor options)
+  options: {
+    emoji: false,
+  },
+})
 
 // OR: import as a Vue component
 import Vue from 'vue'
@@ -113,7 +119,9 @@ Options of showdown. Docs [here](https://github.com/showdownjs/showdown#valid-op
 The props `options` will override the default options set by `Vue.use()`.
 :::
 
-## Extensions
+## Advance
+
+### Extensions
 
 You can also load extensions of showdown in the `options` object:
 
@@ -122,24 +130,46 @@ You can also load extensions of showdown in the `options` object:
 
 See [official docs about extensions](https://github.com/showdownjs/showdown#extensions)
 
-### Example
-
-```sh
-npm install showdown-twitter
-# OR
-yarn add showdown-twitter
-```
-
 ```js
 import Vue from 'vue'
 import VueShowdown from 'vue-showdown'
-import 'showdown-twitter'
+
+const myExt = () => {
+  // ...
+}
 
 Vue.use(VueShowdown, {
-  extensions: ['twitter']
+  extensions: [myExt]
 })
 ```
 
 ```vue
-<VueShowdown markdown="## markdown text" :options="{ extensions: ['twitter'] }"/>
+<template>
+  <VueShowdown markdown="## markdown text" :options="{ extensions: [this.myExt] }"/>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      myExt: () => {
+        // ...
+      }
+    }
+  },
+}
+</script>
+```
+
+### Showdown library
+
+You can also import `showdown` itself from `vue-showdown` for advance usages.
+
+```js
+import Vue from 'vue'
+import VueShowdown, { showdown } from 'vue-showdown'
+
+showdown.setFlavor('github')
+
+Vue.use(VueShowdown)
 ```

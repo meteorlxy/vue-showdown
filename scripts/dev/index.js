@@ -8,7 +8,14 @@ new Vue({
   el: '#app',
   data () {
     return {
-      markdownInput: 'vue-showdown dev',
+      markdownInput: `\
+## Vue-showdown dev
+
+- [ ] tasklists
+- [ ] ghMentions @meteorlxy
+- [x] emoji :tada:
+- [x] simplifiedAutoLink https://vue-showdown.js.org`,
+
       options: {
         omitExtraWLInCodeBlocks: false,
         noHeaderId: false,
