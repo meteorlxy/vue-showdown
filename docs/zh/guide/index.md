@@ -37,13 +37,17 @@ Vue.use(VueShowdown, {
 import Vue from 'vue'
 import { VueShowdown } from 'vue-showdown'
 
-Vue.component('VueShowdown', VueShowdown) // 在使用时通过 props 设置 options
+Vue.component('VueShowdown', VueShowdown)
 ```
 
 接下来，你就可以在你的单文件组件中通过`VueShowdown`来使用了
 
 ```vue
-<VueShowdown markdown="## markdown text"/>
+<!-- 通过 props 来设置 options -->
+<VueShowdown
+  markdown="## markdown text"
+  flavor="github"
+  :options="{ emoji: true }"/>
 ```
 
 ::: tip 提示

@@ -37,13 +37,17 @@ Vue.use(VueShowdown, {
 import Vue from 'vue'
 import { VueShowdown } from 'vue-showdown'
 
-Vue.component('VueShowdown', VueShowdown) // set options via props
+Vue.component('VueShowdown', VueShowdown)
 ```
 
 Then use `VueShowdown` in your vue SFC
 
 ```vue
-<VueShowdown markdown="## markdown text"/>
+<!-- set options via props -->
+<VueShowdown
+  markdown="## markdown text"
+  flavor="github"
+  :options="{ emoji: true }"/>
 ```
 
 ::: tip

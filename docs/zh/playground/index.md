@@ -11,7 +11,9 @@ sidebar: auto
 ## 输出 HTML
 
 <section class="markdown-output">
-  <VueShowdown :markdown="markdownText" :options="options"/>
+  <VueShowdown
+    :markdown="markdownText"
+    :options="options"/>
 </section>
 
 ## 设置 showdown 的 options
@@ -30,6 +32,7 @@ export default {
   data () {
     return {
       markdownText: '### Hello, Vue Showdown! :tada: \n\n输入你的 Markdown 代码，立即得到相应的 HTML！\n\n开启下面的`emoji`选项，启用emoji解析！ :smile:',
+
       options: {
         omitExtraWLInCodeBlocks: false,
         noHeaderId: false,
@@ -62,8 +65,8 @@ export default {
         underline: false,
         completeHTMLDocument: false,
         metadata: false,
-        splitAdjacentBlockquotes: false
-      }
+        splitAdjacentBlockquotes: false,
+      },
     }
   },
 

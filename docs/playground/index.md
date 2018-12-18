@@ -11,7 +11,9 @@ sidebar: auto
 ## Output HTML here
 
 <section class="markdown-output">
-  <VueShowdown :markdown="markdownText" :options="options"/>
+  <VueShowdown
+    :markdown="markdownText"
+    :options="options"/>
 </section>
 
 ## Set showdown options
@@ -30,6 +32,7 @@ export default {
   data () {
     return {
       markdownText: '### Hello, Vue Showdown! :tada: \n\nInput your markdown here and get the HTML right now!\n\nSet the `emoji` option below to enable emoji parsing! :smile:',
+
       options: {
         omitExtraWLInCodeBlocks: false,
         noHeaderId: false,
@@ -62,8 +65,8 @@ export default {
         underline: false,
         completeHTMLDocument: false,
         metadata: false,
-        splitAdjacentBlockquotes: false
-      }
+        splitAdjacentBlockquotes: false,
+      },
     }
   },
 
