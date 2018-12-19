@@ -1,0 +1,10 @@
+.vscode/
+docs/
+scripts/
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitattributes
+.travis.yml
+yarn.lock
