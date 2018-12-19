@@ -19,8 +19,6 @@ module.exports = {
     ['link', { rel: 'icon', href: `/logo.png` }],
   ],
 
-  conentLoading: true,
-
   plugins: {
     '@vuepress/plugin-back-to-top': true,
     '@vuepress/plugin-pwa': {
