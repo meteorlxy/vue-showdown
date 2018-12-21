@@ -23,9 +23,11 @@
     "docs:build": "vuepress build docs",
     "lint": "eslint --fix --ext .js,.vue src scripts docs/.vuepress"
   },
+  "peerDependencies": {
+    "vue": "2.x"
+  },
   "dependencies": {
-    "showdown": "^1.9.0",
-    "vue": "^2.5.16"
+    "showdown": "^1.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
