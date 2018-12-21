@@ -41,7 +41,7 @@ export default [
       babel(),
     ],
   }
-  if (/min\.js$/.test(opts.file)) {
+  if (/min\.js$/.test(opts.output)) {
     config.plugins.push(uglify())
   }
   return config
