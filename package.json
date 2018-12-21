@@ -11,6 +11,7 @@
   "main": "dist/vue-showdown.common.js",
   "module": "dist/vue-showdown.esm.js",
   "browser": "dist/vue-showdown.min.js",
+  "unpkg": "dist/vue-showdown.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/meteorlxy/vue-showdown.git"
