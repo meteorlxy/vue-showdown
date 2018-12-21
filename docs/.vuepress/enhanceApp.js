@@ -1,4 +1,4 @@
-import VueShowdown from 'vue-showdown'
+import VueShowdown from '../../dist/vue-showdown.esm'
 
 export default ({ Vue }) => {
   Vue.use(VueShowdown)

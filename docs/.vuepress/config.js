@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
   dest: 'docs-dist',
 
@@ -72,8 +70,4 @@ module.exports = {
       },
     },
   },
-
-  chainWebpack (config) {
-    config.resolve.alias.set('vue-showdown$', path.resolve(__dirname, '../../dist/vue-showdown.esm.js'))
-  }
 }
