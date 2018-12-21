@@ -10,11 +10,17 @@ export default [
     input: 'index.common.js',
     output: 'vue-showdown.js',
     format: 'umd',
+    globals: {
+      showdown: 'showdown',
+    },
   },
   {
     input: 'index.common.js',
     output: 'vue-showdown.min.js',
     format: 'umd',
+    globals: {
+      showdown: 'showdown',
+    },
   },
   {
     input: 'index.common.js',
@@ -34,7 +40,9 @@ export default [
       format: opts.format,
       dir: utils.distPath(),
       name: 'VueShowdown',
+      globals: opts.globals,
     },
+    external: ['showdown'],
     plugins: [
       resolve(),
       cjs(),

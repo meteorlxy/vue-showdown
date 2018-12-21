@@ -35,7 +35,7 @@ Vue.use(VueShowdown, {
 
 // 或者： 作为 Vue 组件引入
 import Vue from 'vue'
-import { VueShowdown } from 'vue-showdown'
+import { VueShowdown } from 'vue-showdown' // 记得引入 vue-showdown 的 esm 文件，即 vue-showdown.esm.js
 
 Vue.component('VueShowdown', VueShowdown)
 ```
@@ -57,19 +57,24 @@ Vue.component('VueShowdown', VueShowdown)
 
 ### Browser
 
-在 `vue.js` 后面直接通过 `<script>` 引入
+在 `vue.js` 后面直接通过 `<script>` 引入。然后可以将 `vue-showdown` 直接作为 Vue 组件使用。
 
 ```html
-<script src="path/to/dist/vue.min.js"></script>
-<script src="path/to/dist/vue-showdown.min.js"></script>
-```
+<body>
+  <div id="#app">
+    <vue-showdown markdown="## markdown text"/>
+  </div>
 
-然后可以直接作为 Vue 组件使用 `vue-showdown`
+  <script src="https://unpkg.com/vue@2.5.21/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/showdown@1.9.0/dist/showdown.min.js"></script>
+  <script src="https://unpkg.com/vue-showdown@2.3.0/dist/vue-showdown.min.js"></script>
 
-```html
-<div id="#app">
-  <vue-showdown markdown="## markdown text"/>
-</div>
+  <script>
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
 ```
 
 ## 插件选项
@@ -189,6 +194,40 @@ showdown.setFlavor('github')
 Vue.use(VueShowdown)
 ```
 
+::: tip
+如果你在通过 `vue-showdown` 引入 `showdown` 时 (`import { showdown } from 'vue-showdown'`) 发生错误，你可以尝试以下方式：
+
+- 设置 alias，将 `vue-showdown` 指向 `vue-showdown.esm.js`。如果你使用 webpack ，那么就类似于 `vue.esm.js` 的设置：
+
+  ```js
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      'vue-showdown$': 'vue-showdown/dist/vue-showdown.esm.js',
+    },
+  }
+  ```
+
+  或者你直接引入 `vue-showdown.esm.js` 文件：
+
+  ```js
+  import { showdown } from 'vue-showdown/dist/vue-showdown.esm'
+  ```
+
+- 通过 `VueShowdown.showdown` 使用 `showdown`:
+
+  ```js
+  import VueShowdown from 'vue-showdown'
+  const showdown = VueShowdown.showdown
+  ```
+
+- 直接引入 `showdown` 。由于 `vue-showdown` 依赖于 `showdown` 运行，所以在你通过 `npm install vue-showdown` 安装 `vue-showdown` 后，你就可以直接使用 `showdown`：
+
+  ```js
+  import showdown from 'showdown'
+  ```
+:::
+
 ### Extensions
 
 根据 [showdown extensions 官方文档](https://github.com/showdownjs/showdown/wiki/extensions)，目前无法设置全局默认 extensions。
@@ -222,6 +261,9 @@ export default {
 ```js
 import Vue from 'vue'
 import VueShowdown, { showdown } from 'vue-showdown'
+// OR:
+// import showdown from 'showdown'
+// import VueShowdown from 'vue-showdown'
 
 showdown.extension('myext', () => [{
   type: 'lang',

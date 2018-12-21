@@ -35,7 +35,7 @@ Vue.use(VueShowdown, {
 
 // OR: import as a Vue component
 import Vue from 'vue'
-import { VueShowdown } from 'vue-showdown'
+import { VueShowdown } from 'vue-showdown' // remember to import the esm build of vue-showdown, i.e. vue-showdown.esm.js
 
 Vue.component('VueShowdown', VueShowdown)
 ```
@@ -57,19 +57,24 @@ vue-showdown also provides [UMD](https://github.com/umdjs/umd), [CommonJS](http:
 
 ### Browser
 
-Direct `<script>` import after `vue.js`
+Direct `<script>` import after `vue.js`. Then use `vue-showdown` as a vue component directly.
 
 ```html
-<script src="path/to/dist/vue.min.js"></script>
-<script src="path/to/dist/vue-showdown.min.js"></script>
-```
+<body>
+  <div id="#app">
+    <vue-showdown markdown="## markdown text"/>
+  </div>
 
-Then use `vue-showdown` as a vue component directly
+  <script src="https://unpkg.com/vue@2.5.21/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/showdown@1.9.0/dist/showdown.min.js"></script>
+  <script src="https://unpkg.com/vue-showdown@2.3.0/dist/vue-showdown.min.js"></script>
 
-```html
-<div id="#app">
-  <vue-showdown markdown="## markdown text"/>
-</div>
+  <script>
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
 ```
 
 ## Plugin Options
@@ -189,6 +194,40 @@ showdown.setFlavor('github')
 Vue.use(VueShowdown)
 ```
 
+::: tip
+If you meet trouble with `import { showdown } from 'vue-showdown'`, try one of these:
+
+- You can set something like webpack alias to import the esm build (like `vue` does):
+
+  ```js
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      'vue-showdown$': 'vue-showdown/dist/vue-showdown.esm.js',
+    },
+  }
+  ```
+
+  Or you can import the esm build of `vue-showdown` directly:
+
+  ```js
+  import { showdown } from 'vue-showdown/dist/vue-showdown.esm'
+  ```
+
+- Get `showdown` from `VueShowdown.showdown`:
+
+  ```js
+  import VueShowdown from 'vue-showdown'
+  const showdown = VueShowdown.showdown
+  ```
+
+- Import `showdown` directly. `vue-showdown` will auto import `showdown` of course, so you can import `showdown` anywhere if you have installed `vue-showdown`:
+
+  ```js
+  import showdown from 'showdown'
+  ```
+:::
+
 ### Extensions
 
 According to the [official docs about extensions](https://github.com/showdownjs/showdown/wiki/extensions), there is no way to set default extensions globally for now.
@@ -222,6 +261,9 @@ Alternatively, you can register extensions globally via `showdown.extension()`, 
 ```js
 import Vue from 'vue'
 import VueShowdown, { showdown } from 'vue-showdown'
+// OR:
+// import showdown from 'showdown'
+// import VueShowdown from 'vue-showdown'
 
 showdown.extension('myext', () => [{
   type: 'lang',
