@@ -691,6 +691,11 @@
   version "10.5.2"
   resolved "https://registry.npmjs.org/@types/node/-/node-10.5.2.tgz#f19f05314d5421fe37e74153254201a7bf00a707"
 
+"@types/showdown@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@types/showdown/-/showdown-1.9.0.tgz#067b2971ad187616a8bebdc8ef8c09dbc2b6306a"
+  integrity sha512-cuHxSSFewrbjwGlE6+Puk4jDF5vtkPv0IpDGMlvOR1Sk5SqZo9HHANQNRSP7Rf/nlZpB04bzRZ/Epxz4/UA2hQ==
+
 "@vue/babel-preset-app@^3.1.1":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@vue/babel-preset-app/-/babel-preset-app-3.2.0.tgz#a443acdbd34f66d7645db271d9ac58fbe4fe870d"

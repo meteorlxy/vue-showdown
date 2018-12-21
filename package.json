@@ -12,6 +12,7 @@
   "module": "dist/vue-showdown.esm.js",
   "browser": "dist/vue-showdown.min.js",
   "unpkg": "dist/vue-showdown.min.js",
+  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/meteorlxy/vue-showdown.git"
@@ -33,6 +34,7 @@
     "@babel/core": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "@types/showdown": "^1.9.0",
     "@vuepress/plugin-back-to-top": "^1.0.0-alpha.0",
     "@vuepress/plugin-pwa": "^1.0.0-alpha.0",
     "babel-eslint": "^9.0.0",
