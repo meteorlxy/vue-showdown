@@ -238,7 +238,7 @@ So the only way to set extensions is via the `extensions` prop of the `VueShowdo
 <template>
   <VueShowdown
     markdown="## markdown text"
-    :extensions="[this.myExt]"/>
+    :extensions="[myExt]"/>
 </template>
 
 <script>

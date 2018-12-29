@@ -238,7 +238,7 @@ Vue.use(VueShowdown)
 <template>
   <VueShowdown
     markdown="## markdown text"
-    :extensions="[this.myExt]"/>
+    :extensions="[myExt]"/>
 </template>
 
 <script>
