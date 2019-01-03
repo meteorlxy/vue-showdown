@@ -1,15 +1,49 @@
-# Vue Showdown
+<p align="center">
+  <a href="https://vue-showdown.js.org" target="_blank">
+    <img width="220" src="https://vue-showdown.js.org/logo.png" alt="Vue Showdown logo">
+  </a>
+</p>
 
-[![build status](https://travis-ci.org/meteorlxy/vue-showdown.svg?branch=master)](https://travis-ci.org/meteorlxy/vue-showdown)
-[![npm version](https://badge.fury.io/js/vue-showdown.svg)](https://badge.fury.io/js/vue-showdown)
+<h1 align="center">
+  Vue Showdown
+</h1>
 
-Use showdown as a vue component
+<p align="center">
+  <a href="https://circleci.com/gh/meteorlxy/vue-showdown/tree/master" target="_blank">
+    <img src="https://img.shields.io/circleci/project/github/meteorlxy/vue-showdown/master.svg?logo=circleci">
+  </a>
 
-See [docs](https://vue-showdown.js.org) here
+  <a href="https://www.npmjs.com/package/vue-showdown" target="_blank">
+    <img src="https://img.shields.io/node/v/vue-showdown/latest.svg?logo=npm">
+  </a>
 
-## Develop
+  <img src="https://img.shields.io/bundlephobia/min/vue-showdown.svg">
+
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/github/license/meteorlxy/vue-showdown.svg">
+  </a>
+</p>
+
+## Introduction
+
+Use [showdown](https://github.com/showdownjs/showdown) as a Vue component
+
+## Usage
+
+See [__Live Demo and Docs__](https://vue-showdown.js.org)
+
+## Contributing
+
+Feel free to submit Issues and PRs if you meet any problems or have any ideas.
+
+### Develop
 
 ```sh
+# Clone this repo
+git clone https://github.com/meteorlxy/vue-showdown
+cd vue-showdown
+# Install dependencies (suggest to use Yarn, while NPM is OK, too)
 yarn
-yarn dev # dev-server
+# Start the dev-server
+yarn dev
 ```
