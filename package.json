@@ -22,7 +22,7 @@
     "build": "rimraf dist && rollup --config scripts/rollup.config.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "lint": "eslint --fix --ext .js,.vue src scripts docs/.vuepress"
+    "lint": "eslint --ext .js,.vue src scripts docs/.vuepress"
   },
   "peerDependencies": {
     "vue": "2.x"

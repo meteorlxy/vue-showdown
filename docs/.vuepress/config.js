@@ -23,7 +23,7 @@ module.exports = {
     '@vuepress/plugin-back-to-top': true,
     '@vuepress/plugin-pwa': {
       serviceWorker: true,
-      updatePopup: true
+      updatePopup: true,
     },
   },
 
