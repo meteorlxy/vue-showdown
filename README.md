@@ -14,10 +14,16 @@
   </a>
 
   <a href="https://www.npmjs.com/package/vue-showdown" target="_blank">
-    <img src="https://img.shields.io/node/v/vue-showdown/latest.svg?logo=npm">
+    <img src="https://img.shields.io/npm/v/vue-showdown/latest.svg?logo=npm">
   </a>
 
-  <img src="https://img.shields.io/bundlephobia/min/vue-showdown.svg">
+  <a href="https://unpkg.com/vue-showdown/dist/vue-showdown.min.js" target="_blank">
+    <img src="https://img.badgesize.io/https://unpkg.com/vue-showdown/dist/vue-showdown.min.js.svg?label=min%20size">
+  </a>
+
+  <a href="https://unpkg.com/vue-showdown/dist/vue-showdown.min.js" target="_blank">
+    <img src="https://img.badgesize.io/https://unpkg.com/vue-showdown/dist/vue-showdown.min.js.svg?compression=gzip">
+  </a>
 
   <a href="./LICENSE">
     <img src="https://img.shields.io/github/license/meteorlxy/vue-showdown.svg">
