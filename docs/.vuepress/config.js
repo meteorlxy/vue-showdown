@@ -1,6 +1,4 @@
 module.exports = {
-  dest: 'docs-dist',
-
   locales: {
     '/': {
       lang: 'en-US',

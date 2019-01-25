@@ -21,7 +21,7 @@
     "dev": "webpack-dev-server --inline --hide-modules --config scripts/webpack.config.js",
     "build": "rimraf dist && rollup --config scripts/rollup.config.js",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "docs:build": "vuepress build docs --dest docs-dist",
     "lint": "eslint --ext .js,.vue src scripts docs/.vuepress"
   },
   "peerDependencies": {
