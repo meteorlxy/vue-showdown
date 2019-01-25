@@ -18,11 +18,11 @@
   </a>
 
   <a href="https://unpkg.com/vue-showdown/dist/vue-showdown.min.js" target="_blank">
-    <img src="https://img.badgesize.io/https://unpkg.com/vue-showdown/dist/vue-showdown.min.js.svg?label=min%20size">
+    <img src="https://img.badgesize.io/meteorlxy/vue-showdown/master/dist/vue-showdown.min.js.svg?label=min%20size">
   </a>
 
   <a href="https://unpkg.com/vue-showdown/dist/vue-showdown.min.js" target="_blank">
-    <img src="https://img.badgesize.io/https://unpkg.com/vue-showdown/dist/vue-showdown.min.js.svg?compression=gzip">
+    <img src="https://img.badgesize.io/meteorlxy/vue-showdown/master/dist/vue-showdown.min.js.svg?compression=gzip">
   </a>
 
   <a href="./LICENSE">
