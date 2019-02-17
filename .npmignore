@@ -1,10 +1,12 @@
+.circleci/
 .vscode/
 docs/
+docs-dist/
+logo/
 scripts/
 .babelrc
 .editorconfig
 .eslintignore
 .eslintrc.js
 .gitattributes
-.travis.yml
 yarn.lock
