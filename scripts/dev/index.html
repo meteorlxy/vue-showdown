@@ -29,8 +29,25 @@
     <vue-showdown
       :markdown="markdownInput"
       :options="options"
-      :extensions="extensions">
+      :extensions="extensions"
+      :vue-template="props.vueTemplate">
     </vue-showdown>
+
+    <hr>
+
+    <p>Props:</p>
+
+    <ul>
+      <li
+        v-for="prop in Object.keys(props)"
+        :key="prop"
+      >
+        <span>{{ prop }}</span>
+        <input
+          v-model="props[prop]"
+          :type="typeof props[prop] === 'boolean' ? 'checkbox' : 'text'">
+      </li>
+    </ul>
 
     <hr>
 

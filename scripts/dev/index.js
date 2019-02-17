@@ -21,11 +21,20 @@ new Vue({
 - [ ] ghMentions: @meteorlxy
 - [x] emoji: :tada:
 - [x] simplifiedAutoLink: https://vue-showdown.js.org
-- [ ] replaceMarkdownByShowdown: 'markdown' will be replaced by 'showdown'`,
+- [ ] replaceMarkdownByShowdown: 'markdown' will be replaced by 'showdown'
+
+<VueShowdown markdown="## Enable \`vueTemplate\` to parse vue template"/>
+
+<span v-for="n in 5"> {{ n }}</span>
+`,
 
       validExtensions: [
         'replaceMarkdownByShowdown',
       ],
+
+      props: {
+        vueTemplate: false,
+      },
 
       extensions: [],
 
