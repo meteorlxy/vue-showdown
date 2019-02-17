@@ -179,6 +179,19 @@ Extensions of showdown. Docs [here](https://github.com/showdownjs/showdown#exten
 Check the [Advance - Extensions](./#extensions-2) section for details.
 :::
 
+### vueTemplate <Badge text="v2.4.0+"/>
+
+Treat the parsed HTML string as vue template. This will allow you to use vue template syntax in your markdown.
+
+- type: `Boolean`
+- default: `false`
+
+::: warning ATTENSION
+If you set it to `true`, you have to use the full (runtime + compiler) build of Vue, as we need to compile templates on the client. See [Runtime + Compiler vs. Runtime-only](https://vuejs.org/v2/guide/installation.html#Runtime-Compiler-vs-Runtime-only).
+
+If you have similar request as [#5](https://github.com/meteorlxy/vue-showdown/issues/5), you can enable this feature.
+:::
+
 ## Advance
 
 ### Showdown library

@@ -13,13 +13,30 @@ sidebar: auto
 <section class="markdown-output">
   <VueShowdown
     :markdown="markdownText"
-    :options="options"/>
+    :options="options"
+    :vue-template="props.vueTemplate"/>
 </section>
+
+## Set vue-showdown props
+
+<ul class="vue-showdown-props">
+  <li
+    v-for="prop in Object.keys(props)"
+    :key="prop"
+  >
+    <span>{{ prop }}</span>
+    <input
+      v-model="props[prop]"
+      :type="typeof props[prop] === 'boolean' ? 'checkbox' : 'text'">
+  </li>
+</ul>
 
 ## Set showdown options
 
 <ul class="showdown-options">
-  <li v-for="opt in Object.keys(options)">
+  <li
+    v-for="opt in Object.keys(options)"
+    :key="opt">
     <span>{{ opt }}</span>
     <input
       v-model="options[opt]"
@@ -31,7 +48,20 @@ sidebar: auto
 export default {
   data () {
     return {
-      markdownText: '### Hello, Vue Showdown! :tada: \n\nInput your markdown here and get the HTML right now!\n\nSet the `emoji` option below to enable emoji parsing! :smile:',
+      markdownText: `\
+### Hello, Vue Showdown! :tada:
+
+Input your markdown here and get the HTML right now!
+
+Set the \`emoji\` option below to enable emoji parsing! :smile:
+
+Set the \`vueTemplate\` prop below to enable vue template parsing!
+
+<span v-for="n in 5" :key="n" v-text="n"/>`,
+
+      props: {
+        vueTemplate: false,
+      },
 
       options: {
         omitExtraWLInCodeBlocks: false,

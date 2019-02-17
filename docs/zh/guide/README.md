@@ -179,6 +179,19 @@ Vue.use(VueShowdown, {
 前往章节 [进阶用法 - Extensions](./#extensions-2) 查看使用细节。
 :::
 
+### vueTemplate <Badge text="v2.4.0+"/>
+
+将解析后的 HTML 字符串当作 Vue 模板，允许你在 Markdown 中使用 Vue 模板语法。
+
+- 类型： `Boolean`
+- 默认值： `false`
+
+::: warning 注意
+如果你设置该 prop 为 `true`，你需要使用 Vue 完整版（运行时 + 编译器），因为我们需要在客户端编译模板。查看 [运行时 + 编译器 vs. 只包含运行时](https://cn.vuejs.org/v2/guide/installation.html#%E8%BF%90%E8%A1%8C%E6%97%B6-%E7%BC%96%E8%AF%91%E5%99%A8-vs-%E5%8F%AA%E5%8C%85%E5%90%AB%E8%BF%90%E8%A1%8C%E6%97%B6)。
+
+当你有类似 [#5](https://github.com/meteorlxy/vue-showdown/issues/5) 的需求时，可以尝试使用该功能。
+:::
+
 ## 进阶用法
 
 ### Showdown library

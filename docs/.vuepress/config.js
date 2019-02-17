@@ -25,6 +25,10 @@ module.exports = {
     },
   },
 
+  alias: {
+    'vue$': 'vue/dist/vue.esm.js',
+  },
+
   themeConfig: {
     repo: 'meteorlxy/vue-showdown',
 
