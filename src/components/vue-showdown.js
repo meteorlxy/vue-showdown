@@ -89,6 +89,15 @@ export default {
       required: false,
       default: null,
     },
+
+    /**
+     * Treat the HTML string as Vue template. Require full build of Vue (runtime + complier)
+     */
+    vueTemplate: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
 
   computed: {
@@ -121,6 +130,12 @@ export default {
   },
 
   render (h) {
+    if (this.vueTemplate) {
+      return h({
+        template: `<${this.tag}>${this.outputHtml}</${this.tag}>`,
+      })
+    }
+
     return h(this.tag, {
       domProps: {
         innerHTML: this.outputHtml,
