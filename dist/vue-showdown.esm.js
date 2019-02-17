@@ -130,6 +130,15 @@ var VueShowdownComponent = {
       type: [Object, Array],
       required: false,
       default: null
+    },
+
+    /**
+     * Treat the HTML string as Vue template. Require full build of Vue (runtime + complier)
+     */
+    vueTemplate: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -164,6 +173,12 @@ var VueShowdownComponent = {
     }
   },
   render: function render(h) {
+    if (this.vueTemplate) {
+      return h({
+        template: "<".concat(this.tag, ">").concat(this.outputHtml, "</").concat(this.tag, ">")
+      });
+    }
+
     return h(this.tag, {
       domProps: {
         innerHTML: this.outputHtml

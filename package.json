@@ -1,6 +1,6 @@
 {
   "name": "vue-showdown",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "author": "Xinyu Liu <meteor.lxy@foxmail.com> (https://www.meteorlxy.cn)",
   "license": "MIT",
   "description": "Use showdown as a vue component",
