@@ -41,6 +41,7 @@ export default [
       dir: utils.distPath(),
       name: 'VueShowdown',
       globals: opts.globals,
+      banner: utils.banner,
     },
     external: ['showdown'],
     plugins: [
