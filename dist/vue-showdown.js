@@ -1,3 +1,12 @@
+/*!
+ * vue-showdown - Use showdown as a vue component
+ *
+ * @version v2.4.1
+ * @link https://vue-showdown.js.org
+ * @license MIT
+ * @copyright 2018-2019 meteorlxy
+ */
+
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('showdown')) :
   typeof define === 'function' && define.amd ? define(['showdown'], factory) :
@@ -5,44 +14,6 @@
 }(this, (function (showdown) { 'use strict';
 
   showdown = showdown && showdown.hasOwnProperty('default') ? showdown['default'] : showdown;
-
-  function _slicedToArray(arr, i) {
-    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
-  }
-
-  function _arrayWithHoles(arr) {
-    if (Array.isArray(arr)) return arr;
-  }
-
-  function _iterableToArrayLimit(arr, i) {
-    var _arr = [];
-    var _n = true;
-    var _d = false;
-    var _e = undefined;
-
-    try {
-      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-        _arr.push(_s.value);
-
-        if (i && _arr.length === i) break;
-      }
-    } catch (err) {
-      _d = true;
-      _e = err;
-    } finally {
-      try {
-        if (!_n && _i["return"] != null) _i["return"]();
-      } finally {
-        if (_d) throw _e;
-      }
-    }
-
-    return _arr;
-  }
-
-  function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance");
-  }
 
   var VueShowdownComponent = {
     name: 'VueShowdown',
@@ -158,14 +129,8 @@
         } // set options of this instance (override flavor)
 
 
-        var _arr = Object.entries(this.options);
-
-        for (var _i = 0; _i < _arr.length; _i++) {
-          var _arr$_i = _slicedToArray(_arr[_i], 2),
-              key = _arr$_i[0],
-              value = _arr$_i[1];
-
-          converter.setOption(key, value);
+        for (var key in this.options) {
+          converter.setOption(key, this.options[key]);
         }
 
         return converter;
@@ -206,14 +171,8 @@
       } // set default options (override flavor)
 
 
-      var _arr = Object.entries(options);
-
-      for (var _i = 0; _i < _arr.length; _i++) {
-        var _arr$_i = _slicedToArray(_arr[_i], 2),
-            key = _arr$_i[0],
-            value = _arr$_i[1];
-
-        showdown.setOption(key, value);
+      for (var key in options) {
+        showdown.setOption(key, options[key]);
       } // register vue-showdown component globally
 
 
