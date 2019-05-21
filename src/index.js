@@ -12,8 +12,8 @@ const VueShowdown = {
     }
 
     // set default options (override flavor)
-    for (const key in this.options) {
-      showdown.setOption(key, this.options[key])
+    for (const key in options) {
+      showdown.setOption(key, options[key])
     }
 
     // register vue-showdown component globally
