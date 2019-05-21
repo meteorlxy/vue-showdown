@@ -113,8 +113,8 @@ export default {
       }
 
       // set options of this instance (override flavor)
-      for (const [key, value] of Object.entries(this.options)) {
-        converter.setOption(key, value)
+      for (const key in this.options) {
+        converter.setOption(key, this.options[key])
       }
 
       return converter
