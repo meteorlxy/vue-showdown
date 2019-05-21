@@ -1,7 +1,8 @@
 {
   "name": "vue-showdown",
   "version": "2.4.0",
-  "author": "Xinyu Liu <meteor.lxy@foxmail.com> (https://www.meteorlxy.cn)",
+  "author": "meteorlxy <meteor.lxy@foxmail.com> (https://www.meteorlxy.cn)",
+  "homepage": "https://vue-showdown.js.org",
   "license": "MIT",
   "description": "Use showdown as a vue component",
   "keywords": [
@@ -22,7 +23,8 @@
     "build": "rimraf dist && rollup --config scripts/rollup.config.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs --dest docs-dist",
-    "lint": "eslint --ext .js,.vue src scripts docs/.vuepress"
+    "lint": "eslint --ext .js,.vue src scripts docs/.vuepress",
+    "version": "yarn build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
   },
   "peerDependencies": {
     "vue": "2.x"
@@ -39,6 +41,7 @@
     "@vuepress/plugin-pwa": "^1.0.0-alpha.30",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.2",
+    "conventional-changelog-cli": "^2.0.21",
     "eslint": "^5.5.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-loader": "^2.1.0",
