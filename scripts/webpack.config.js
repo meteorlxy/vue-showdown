@@ -27,6 +27,7 @@ const webpackDevConfig = {
     extensions: ['.js', '.vue'],
     alias: {
       'vue-showdown': utils.srcPath(),
+      /* eslint-disable-next-line quote-props */
       'vue$': 'vue/dist/vue.esm.js',
     },
   },
