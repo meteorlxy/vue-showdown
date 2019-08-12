@@ -26,7 +26,7 @@ module.exports = {
   },
 
   alias: {
-    'vue$': 'vue/dist/vue.esm.js',
+    vue$: 'vue/dist/vue.esm.js',
   },
 
   themeConfig: {
@@ -51,6 +51,10 @@ module.exports = {
             text: 'Playground',
             link: '/playground/',
           },
+          {
+            text: 'Changelog',
+            link: 'https://github.com/meteorlxy/vue-showdown/blob/master/CHANGELOG.md',
+          },
         ],
       },
 
@@ -67,6 +71,10 @@ module.exports = {
           {
             text: 'Playground',
             link: '/zh/playground/',
+          },
+          {
+            text: 'Changelog',
+            link: 'https://github.com/meteorlxy/vue-showdown/blob/master/CHANGELOG.md',
           },
         ],
       },
