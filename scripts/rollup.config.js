@@ -36,9 +36,8 @@ export default [
   const config = {
     input: utils.srcPath(opts.input),
     output: {
-      file: opts.output,
+      file: utils.distPath(opts.output),
       format: opts.format,
-      dir: utils.distPath(),
       name: 'VueShowdown',
       globals: opts.globals,
       banner: utils.banner,
