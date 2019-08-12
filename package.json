@@ -21,10 +21,21 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --hide-modules --config scripts/webpack.config.js",
     "build": "rimraf dist && rollup --config scripts/rollup.config.js",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs --dest docs-dist",
+    "dev:docs": "vuepress dev docs",
+    "build:docs": "vuepress build docs --dest docs-dist",
     "lint": "eslint --ext .js,.vue src scripts docs/.vuepress",
     "version": "yarn build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "peerDependencies": {
     "vue": "2.x"
@@ -37,46 +48,35 @@
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@types/showdown": "^1.9.0",
-    "@vuepress/plugin-back-to-top": "^1.0.0-alpha.30",
-    "@vuepress/plugin-pwa": "^1.0.0-alpha.30",
-    "babel-eslint": "^9.0.0",
+    "@vuepress/plugin-back-to-top": "^1.0.0",
+    "@vuepress/plugin-pwa": "^1.0.0",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.2",
     "conventional-changelog-cli": "^2.0.21",
-    "eslint": "^5.5.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-loader": "^2.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^1.2.1",
-    "lint-staged": "^7.2.0",
+    "husky": "^3.0.3",
+    "lint-staged": "^9.2.1",
     "portfinder": "^1.0.13",
     "rimraf": "^2.6.2",
-    "rollup": "^0.65.2",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-commonjs": "^9.1.6",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-uglify": "^5.0.2",
-    "vuepress": "^1.0.0-alpha.30",
+    "rollup": "^1.19.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "vuepress": "^1.0.0",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
   },
   "engines": {
     "node": ">=8.0.0"
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
