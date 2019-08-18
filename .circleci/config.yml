@@ -32,7 +32,7 @@ jobs:
           command: yarn build
       - run:
           name: Build Docs
-          command: yarn docs:build
+          command: yarn build:docs
   lint:
     executor: node
     steps:
