@@ -7,10 +7,34 @@
  * @copyright 2018-2020 meteorlxy
  */
 
-import { Converter, setFlavor, setOption } from 'showdown';
-import * as showdown from 'showdown';
-export { showdown };
-import { defineComponent, computed, Text, h } from 'vue';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var showdown = require('showdown');
+var vue = require('vue');
+
+function _interopNamespace(e) {
+  if (e && e.__esModule) return e;
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () {
+            return e[k];
+          }
+        });
+      }
+    });
+  }
+  n['default'] = e;
+  return Object.freeze(n);
+}
+
+var showdown__namespace = /*#__PURE__*/_interopNamespace(showdown);
 
 /**
  * The VueShowdown component
@@ -35,7 +59,7 @@ import { defineComponent, computed, Text, h } from 'vue';
  *
  * @public
  */
-const VueShowdown = defineComponent({
+const VueShowdown = vue.defineComponent({
     name: 'VueShowdown',
     props: {
         /**
@@ -95,8 +119,8 @@ const VueShowdown = defineComponent({
     },
     setup(props, { slots }) {
         // the showdown converter instance ref
-        const converter = computed(() => {
-            const instance = new Converter({
+        const converter = vue.computed(() => {
+            const instance = new showdown.Converter({
                 extensions: props.extensions || undefined,
             });
             if (props.flavor !== null) {
@@ -108,7 +132,7 @@ const VueShowdown = defineComponent({
             return instance;
         });
         // the raw markdown string
-        const inputMarkdown = computed(() => {
+        const inputMarkdown = vue.computed(() => {
             var _a;
             // from props
             if (props.markdown !== null) {
@@ -116,19 +140,19 @@ const VueShowdown = defineComponent({
             }
             // from default slot
             const slot = (_a = slots.default) === null || _a === void 0 ? void 0 : _a.call(slots)[0];
-            if ((slot === null || slot === void 0 ? void 0 : slot.type) === Text) {
+            if ((slot === null || slot === void 0 ? void 0 : slot.type) === vue.Text) {
                 return slot.children;
             }
             // fall back to empty string
             return '';
         });
         // the parsed HTML string
-        const outputHtml = computed(() => converter.value.makeHtml(inputMarkdown.value));
+        const outputHtml = vue.computed(() => converter.value.makeHtml(inputMarkdown.value));
         return () => props.vueTemplate
-            ? h({
+            ? vue.h({
                 template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
             })
-            : h(props.tag, {
+            : vue.h(props.tag, {
                 innerHTML: outputHtml.value,
             });
     },
@@ -152,16 +176,18 @@ const VueShowdownPlugin = {
     install(app, { flavor = null, options = {} } = {}) {
         // set default flavor
         if (flavor !== null) {
-            setFlavor(flavor);
+            showdown.setFlavor(flavor);
         }
         // set default options (override flavor)
         Object.entries(options).forEach(([key, value]) => {
-            setOption(key, value);
+            showdown.setOption(key, value);
         });
         // register vue-showdown component globally
         app.component('VueShowdown', VueShowdown);
     },
 };
 
-export default VueShowdownPlugin;
-export { VueShowdown, VueShowdownPlugin };
+exports.showdown = showdown__namespace;
+exports.VueShowdown = VueShowdown;
+exports.VueShowdownPlugin = VueShowdownPlugin;
+exports.default = VueShowdownPlugin;

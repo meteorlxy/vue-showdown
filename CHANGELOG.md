@@ -1,3 +1,12 @@
+# [3.0.0](https://github.com/meteorlxy/vue-showdown/compare/v2.4.1...v3.0.0) (2020-12-17)
+
+
+### Features
+
+* migrate to vue 3 ([c747e20](https://github.com/meteorlxy/vue-showdown/commit/c747e2080bdfe2331f1a326894a050e760edb809))
+
+
+
 ## [2.4.1](https://github.com/meteorlxy/vue-showdown/compare/v2.4.0...v2.4.1) (2019-05-21)
 
 

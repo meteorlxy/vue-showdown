@@ -1,6 +1,6 @@
 {
   "name": "vue-showdown",
-  "version": "2.4.1",
+  "version": "3.0.0",
   "description": "Use showdown as a vue component",
   "keywords": [
     "vue",
