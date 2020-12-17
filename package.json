@@ -27,7 +27,7 @@
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
     "lint": "eslint --ext .js,.ts .",
-    "version": "yarn build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
+    "version": "yarn lint && yarn build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
   },
   "husky": {
     "hooks": {
