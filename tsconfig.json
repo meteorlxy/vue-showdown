@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "vue-showdown": ["src/index.ts"]
+    }
+  },
+  "include": ["./src", "./dev", "./docs/.vuepress/**/*", "./vite.config.ts"]
+}

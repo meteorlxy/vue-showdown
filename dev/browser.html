@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue-showdown dev</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      textarea {
+        resize: none;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p>Input:</p>
+
+      <textarea
+        v-model="markdownInput"
+        :rows="markdownInput.split('\n').length + 2"
+      >
+      </textarea>
+
+      <p>Output:</p>
+
+      <vue-showdown
+        :markdown="markdownInput"
+        :extensions="['replaceMarkdownByShowdown']"
+      ></vue-showdown>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.x/dist/vue.global.prod.js"></script>
+    <script src="https://unpkg.com/showdown@1.x/dist/showdown.min.js"></script>
+    <script src="https://unpkg.com/vue-showdown@3.x/vue-showdown.min.js"></script>
+    <script>
+      const app = Vue.createApp({
+        setup() {
+          const markdownInput = Vue.ref('');
+          return { markdownInput };
+        },
+      });
+      app.use(VueShowdownPlugin);
+
+      showdown.extension('replaceMarkdownByShowdown', () => [
+        {
+          type: 'lang',
+          regex: /markdown/g,
+          replace: 'showdown',
+        },
+      ]);
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>

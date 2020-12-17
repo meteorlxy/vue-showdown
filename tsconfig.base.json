@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM", "ES2020"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "newLine": "lf",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "ES2018"
+  }
+}

@@ -6,7 +6,12 @@ sidebar: auto
 
 ## Input your markdown here
 
-<textarea class="markdown-input" placeholder="Input your markdown here" :rows="rows" v-model="markdownText"/>
+<textarea
+ class="markdown-input"
+ placeholder="Input your markdown here"
+ :rows="rows"
+ v-model="markdownText"
+/>
 
 ## Output HTML here
 
@@ -44,11 +49,10 @@ sidebar: auto
   </li>
 </ul>
 
-<script>
-export default {
-  data () {
-    return {
-      markdownText: `\
+<script setup>
+import { computed, reactive, ref } from 'vue'
+
+const markdownText = ref(`\
 ### Hello, Vue Showdown! :tada:
 
 Input your markdown here and get the HTML right now!
@@ -57,84 +61,48 @@ Set the \`emoji\` option below to enable emoji parsing! :smile:
 
 Set the \`vueTemplate\` prop below to enable vue template parsing!
 
-<span v-for="n in 5" :key="n" v-text="n"/>`,
+<span v-for="n in 5" :key="n" v-text="n"/>`)
 
-      props: {
-        vueTemplate: false,
-      },
+const props = reactive({
+  vueTemplate: false,
+})
 
-      options: {
-        omitExtraWLInCodeBlocks: false,
-        noHeaderId: false,
-        prefixHeaderId: false,
-        rawPrefixHeaderId: false,
-        ghCompatibleHeaderId: false,
-        rawHeaderId: false,
-        headerLevelStart: false,
-        parseImgDimensions: false,
-        simplifiedAutoLink: false,
-        excludeTrailingPunctuationFromURLs: false,
-        literalMidWordUnderscores: false,
-        literalMidWordAsterisks: false,
-        strikethrough: false,
-        tables: false,
-        tablesHeaderId: false,
-        ghCodeBlocks: true,
-        tasklists: false,
-        smoothLivePreview: false,
-        smartIndentationFix: false,
-        disableForced4SpacesIndentedSublists: false,
-        simpleLineBreaks: false,
-        requireSpaceBeforeHeadingText: false,
-        ghMentions: false,
-        ghMentionsLink: 'https://github.com/{u}',
-        encodeEmails: true,
-        openLinksInNewWindow: false,
-        backslashEscapesHTMLTags: false,
-        emoji: false,
-        underline: false,
-        completeHTMLDocument: false,
-        metadata: false,
-        splitAdjacentBlockquotes: false,
-      },
-    }
-  },
+const options = reactive({
+  omitExtraWLInCodeBlocks: false,
+  noHeaderId: false,
+  prefixHeaderId: false,
+  rawPrefixHeaderId: false,
+  ghCompatibleHeaderId: false,
+  rawHeaderId: false,
+  headerLevelStart: false,
+  parseImgDimensions: false,
+  simplifiedAutoLink: false,
+  excludeTrailingPunctuationFromURLs: false,
+  literalMidWordUnderscores: false,
+  literalMidWordAsterisks: false,
+  strikethrough: false,
+  tables: false,
+  tablesHeaderId: false,
+  ghCodeBlocks: true,
+  tasklists: false,
+  smoothLivePreview: false,
+  smartIndentationFix: false,
+  disableForced4SpacesIndentedSublists: false,
+  simpleLineBreaks: false,
+  requireSpaceBeforeHeadingText: false,
+  ghMentions: false,
+  ghMentionsLink: 'https://github.com/{u}',
+  encodeEmails: true,
+  openLinksInNewWindow: false,
+  backslashEscapesHTMLTags: false,
+  emoji: false,
+  underline: false,
+  completeHTMLDocument: false,
+  metadata: false,
+  splitAdjacentBlockquotes: false,
+})
 
-  computed: {
-    contentRows () {
-      return this.markdownText.split('\n').length - 1
-    },
+const contentRows = computed(() => markdownText.value.split('\n').length - 1)
 
-    rows () {
-      return this.contentRows < 3 ? 5 : this.contentRows + 2
-    },
-  }
-}
+const rows = computed(() => contentRows.value < 3 ? 5 : contentRows.value + 2)
 </script>
-
-<style lang="stylus" scoped>
-@import '~@app/style/config.styl'
-
-.markdown-input
-  resize none
-  outline none
-  width 100%
-  margin 15px 0
-  padding 15px
-  font-size 16px
-  background-color #fdfdfd
-  border 1px solid $borderColor
-  border-radius 5px
-  box-sizing border-box
-  &:focus
-    background-color #ffffff
-    box-shadow 0 0 1px 1px lighten($accentColor, 50%)
-  &::placeholder
-    color $textLightColor
-.markdown-output
-  padding 10px 15px
-  margin 15px 0
-  background-color #fafbfc
-  border 1px solid $borderColor
-  border-radius 5px
-</style>

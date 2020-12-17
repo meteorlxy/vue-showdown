@@ -1,3 +1,4 @@
-docs-dist/
 dist/
+.cache/
+.temp/
 !.vuepress/

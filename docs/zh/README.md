@@ -4,37 +4,40 @@ heroImage: /logo.png
 actionText: 试一下 →
 actionLink: /zh/playground/
 features:
-- title: Showdown
-  details: 通过showdown.js在客户端解析markdown代码
-- title: Vue component
-  details: 将showdown.js包装成Vue组件，你可以快速使用它
+  - title: Showdown
+    details: 通过showdown.js在客户端解析markdown代码
+  - title: Vue component
+    details: 将showdown.js包装成Vue组件，你可以快速使用它
 footer: MIT Licensed | Copyright © 2018-present meteorlxy
 ---
 
 ## 快速使用
 
-引入并使用 vue-showdown
+引入并使用：
 
 ```js
-import Vue from 'vue'
-import VueShowdown from 'vue-showdown'
+import { createApp } from 'vue';
+import { VueShowdownPlugin } from 'vue-showdown';
+import App from './App.vue';
 
-Vue.use(VueShowdown, {
+const app = createApp(App);
+
+app.use(VueShowdownPlugin, {
   options: {
-    emoji: true
-  }
-})
+    emoji: true,
+  },
+});
 ```
 
-在你的 Vue 单文件组件中使用 `VueShowdown`
+在你的 Vue 单文件组件中使用 `VueShowdown` 组件：
 
 ```vue
-<VueShowdown markdown="`vue-showdown` 可以快速使用 :kissing_heart:"/>
+<VueShowdown markdown="`vue-showdown` 可以快速使用 :kissing_heart:" />
 ```
 
 Result
 
-<VueShowdown markdown="`vue-showdown` 可以快速使用 :kissing_heart:" :options="{ emoji: true }"/>
+<VueShowdown markdown="`vue-showdown` 可以快速使用 :kissing_heart:" />
 
 ---
 

@@ -16,63 +16,77 @@ npm install vue-showdown
 yarn add vue-showdown
 ```
 
-Import in your js files
+Import vue-showdown as a vue plugin:
 
 ```js
 // import as a Vue plugin
-import Vue from 'vue'
-import VueShowdown from 'vue-showdown'
+import { createApp } from 'vue';
+import { VueShowdownPlugin } from 'vue-showdown';
 
-// the second parameter of Vue.use() is optional
-Vue.use(VueShowdown, {
+const app = createApp();
+
+// the second parameter of app.use() is optional
+app.use(VueShowdownPlugin, {
   // set default flavor of showdown
   flavor: 'github',
   // set default options of showdown (will override the flavor options)
   options: {
     emoji: false,
   },
-})
-
-// OR: import as a Vue component
-import Vue from 'vue'
-import { VueShowdown } from 'vue-showdown' // remember to import the esm build of vue-showdown, i.e. vue-showdown.esm.js
-
-Vue.component('VueShowdown', VueShowdown)
+});
 ```
 
-Then use `VueShowdown` in your vue SFC
+Or import vue-showdown as a vue component:
+
+```js
+// import as a Vue component
+import { createApp } from 'vue';
+import { VueShowdown } from 'vue-showdown';
+
+const app = createApp();
+
+app.component('VueShowdown', VueShowdown);
+```
+
+Then use `<VueShowdown />` in your vue SFC:
 
 ```vue
 <!-- set options via props -->
 <VueShowdown
   markdown="## markdown text"
   flavor="github"
-  :options="{ emoji: true }"/>
+  :options="{ emoji: true }"
+/>
 ```
 
 ::: tip
-vue-showdown also provides [UMD](https://github.com/umdjs/umd), [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1) and [ES Module](http://exploringjs.com/es6/ch_modules.html) builds as vue does. Go to the [Vue document](https://vuejs.org/v2/guide/installation.html#Terms) for more details.
+vue-showdown also provides [UMD](https://github.com/umdjs/umd), [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1) and [ES Module](http://exploringjs.com/es6/ch_modules.html) builds as vue does. Go to the [Vue document](https://v3.vuejs.org/guide/installation.html#explanation-of-different-builds) for more details.
 :::
-
 
 ### Browser
 
-Direct `<script>` import after `vue.js`. Then use `vue-showdown` as a vue component directly.
+Direct `<script>` import after `vue.js` and `showdown.js`. Then use `vue-showdown` as a vue plugin / component.
 
 ```html
 <body>
   <div id="#app">
-    <vue-showdown markdown="## markdown text"/>
+    <vue-showdown markdown="## markdown text" />
   </div>
 
-  <script src="https://unpkg.com/vue@2.5.21/dist/vue.min.js"></script>
-  <script src="https://unpkg.com/showdown@1.9.0/dist/showdown.min.js"></script>
-  <script src="https://unpkg.com/vue-showdown@2.3.0/dist/vue-showdown.min.js"></script>
+  <script src="https://unpkg.com/vue@3.x/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/showdown@1.x/dist/showdown.min.js"></script>
+  <script src="https://unpkg.com/vue-showdown@3.x/vue-showdown.min.js"></script>
 
   <script>
-    new Vue({
-      el: '#app'
-    })
+    const app = Vue.createApp();
+
+    // as vue plugin
+    app.use(VueShowdownPlugin);
+
+    // OR: as vue component
+    app.component('VueShowdown', VueShowdown);
+
+    app.mount('#app');
   </script>
 </body>
 ```
@@ -80,21 +94,23 @@ Direct `<script>` import after `vue.js`. Then use `vue-showdown` as a vue compon
 ## Plugin Options
 
 ```js
-import Vue from 'vue'
-import VueShowdown from 'vue-showdown'
+import { createApp } from 'vue';
+import { VueShowdownPlugin } from 'vue-showdown';
 
-Vue.use(VueShowdown, {
+const app = createApp();
+
+app.use(VueShowdownPlugin, {
   // Plugin options here
-})
+});
 ```
 
 ### flavor
 
 Default flavor of showdown. Docs [here](https://github.com/showdownjs/showdown#flavors).
 
-- type: `string`
+- type: `string | null`
 - default: `null`
-- possible values: `'original', 'vanilla', 'github'`
+- possible values: `'github' | 'original' | 'ghost' | 'vanilla' | 'allOn'`
 
 ::: tip
 The `flavor` here will be set globally by `showdown.setFlavor()`.
@@ -117,11 +133,11 @@ The `options` here will be set globally by `showdown.setOption()` after `showdow
 
 The raw markdown content to parse.
 
-- type: `string`
+- type: `string | null`
 - default: `null`
 
 ```vue
-<VueShowdown markdown="# Hello, world!"/>
+<VueShowdown markdown="# Hello, world!" />
 <!-- renders as -->
 <div>
   <h1>Hello, world!</h1>
@@ -136,7 +152,7 @@ The HTML tag of the markdown wrapper. Similar to [vue-router's tag](https://rout
 - default: `'div'`
 
 ```vue
-<VueShowdown markdown="# Hello, world!" tag="span"/>
+<VueShowdown markdown="# Hello, world!" tag="span" />
 <!-- renders as -->
 <span>
   <h1>Hello, world!</h1>
@@ -147,12 +163,12 @@ The HTML tag of the markdown wrapper. Similar to [vue-router's tag](https://rout
 
 Flavor of showdown. Docs [here](https://github.com/showdownjs/showdown#flavors).
 
-- type: `string`
+- type: `string | null`
 - default: `null`
-- possible values: `'original', 'vanilla', 'github'`
+- possible values: `'github' | 'original' | 'ghost' | 'vanilla' | 'allOn'`
 
 ::: tip
-If you set `flavor` via props, all the options will be reset to the flavor's options, which will override the default options you set by `Vue.use()`.
+If you set `flavor` via props, all the options will be reset to the flavor's options, which will override the default options you set by `app.use()`.
 :::
 
 ### options
@@ -163,7 +179,7 @@ Options of showdown. Docs [here](https://github.com/showdownjs/showdown#valid-op
 - default: `{}`
 
 ::: tip
-The `options` prop will override the default options set by `Vue.use()`.
+The `options` prop will override the default options set by `app.use()`.
 
 If you also set `flavor` prop, the `options` prop will override the flavor's options, too.
 :::
@@ -172,14 +188,14 @@ If you also set `flavor` prop, the `options` prop will override the flavor's opt
 
 Extensions of showdown. Docs [here](https://github.com/showdownjs/showdown#extensions).
 
-- type: `[Object, Array]`
+- type: `Array | null`
 - default: `null`
 
 ::: tip
-Check the [Advance - Extensions](./#extensions-2) section for details.
+Check the [Advance - Extensions](./#extensions-1) section for details.
 :::
 
-### vueTemplate <Badge text="v2.4.0+"/>
+### vueTemplate
 
 Treat the parsed HTML string as vue template. This will allow you to use vue template syntax in your markdown.
 
@@ -187,7 +203,7 @@ Treat the parsed HTML string as vue template. This will allow you to use vue tem
 - default: `false`
 
 ::: warning ATTENSION
-If you set it to `true`, you have to use the full (runtime + compiler) build of Vue, as we need to compile templates on the client. See [Runtime + Compiler vs. Runtime-only](https://vuejs.org/v2/guide/installation.html#Runtime-Compiler-vs-Runtime-only).
+If you set it to `true`, you have to use the full (runtime + compiler) build of Vue, as we need to compile templates on the client. See [Runtime + Compiler vs. Runtime-only](https://v3.vuejs.org/guide/installation.html#runtime-compiler-vs-runtime-only).
 
 If you have similar request as [#5](https://github.com/meteorlxy/vue-showdown/issues/5), you can enable this feature.
 :::
@@ -199,47 +215,15 @@ If you have similar request as [#5](https://github.com/meteorlxy/vue-showdown/is
 You can also import `showdown` itself from `vue-showdown` for advance usages.
 
 ```js
-import Vue from 'vue'
-import VueShowdown, { showdown } from 'vue-showdown'
+import { createApp } from 'vue';
+import { VueShowdownPlugin, showdown } from 'vue-showdown';
 
-showdown.setFlavor('github')
+const app = createApp();
 
-Vue.use(VueShowdown)
+showdown.setFlavor('github');
+
+app.use(VueShowdown);
 ```
-
-::: tip
-If you meet trouble with `import { showdown } from 'vue-showdown'`, try one of these:
-
-- You can set something like webpack alias to import the esm build (like `vue` does):
-
-  ```js
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      'vue-showdown$': 'vue-showdown/dist/vue-showdown.esm.js',
-    },
-  }
-  ```
-
-  Or you can import the esm build of `vue-showdown` directly:
-
-  ```js
-  import { showdown } from 'vue-showdown/dist/vue-showdown.esm'
-  ```
-
-- Get `showdown` from `VueShowdown.showdown`:
-
-  ```js
-  import VueShowdown from 'vue-showdown'
-  const showdown = VueShowdown.showdown
-  ```
-
-- Import `showdown` directly. `vue-showdown` will auto import `showdown` of course, so you can import `showdown` anywhere if you have installed `vue-showdown`:
-
-  ```js
-  import showdown from 'showdown'
-  ```
-:::
 
 ### Extensions
 
@@ -249,48 +233,49 @@ So the only way to set extensions is via the `extensions` prop of the `VueShowdo
 
 ```vue
 <template>
-  <VueShowdown
-    markdown="## markdown text"
-    :extensions="[myExt]"/>
+  <VueShowdown markdown="## markdown text" :extensions="[myExt]" />
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      myExt: () => [{
-        type: 'lang',
-        regex: /markdown/g,
-        replace: 'showdown',
-      }],
-    }
+import { defineComponent } from 'vue';
+
+const myExt = () => [
+  {
+    type: 'lang',
+    regex: /markdown/g,
+    replace: 'showdown',
   },
-}
+];
+
+export default defineComponent({
+  setup() {
+    return { myExt };
+  },
+});
 </script>
 ```
 
 Alternatively, you can register extensions globally via `showdown.extension()`, and reference it in the `extension` prop directly by the name that you registered.
 
 ```js
-import Vue from 'vue'
-import VueShowdown, { showdown } from 'vue-showdown'
-// OR:
-// import showdown from 'showdown'
-// import VueShowdown from 'vue-showdown'
+import { createApp } from 'vue';
+import { VueShowdownPlugin, showdown } from 'vue-showdown';
 
-showdown.extension('myext', () => [{
-  type: 'lang',
-  regex: /markdown/g,
-  replace: 'showdown',
-}])
+const app = createApp();
 
-Vue.use(VueShowdown)
+showdown.extension('myExt', () => [
+  {
+    type: 'lang',
+    regex: /markdown/g,
+    replace: 'showdown',
+  },
+]);
+
+app.use(VueShowdownPlugin);
 ```
 
 ```vue
 <template>
-  <VueShowdown
-    markdown="## markdown text"
-    :extensions="['myext']"/>
+  <VueShowdown markdown="## markdown text" :extensions="['myExt']" />
 </template>
 ```
