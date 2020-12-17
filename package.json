@@ -63,7 +63,7 @@
     "@vuepress/plugin-pwa-popup": "2.0.0-alpha.9",
     "@vuepress/utils": "2.0.0-alpha.7",
     "eslint": "^7.15.0",
-    "prettier": "^2.1.2",
+    "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.35.1",
     "rollup-plugin-dts": "^2.0.1",
