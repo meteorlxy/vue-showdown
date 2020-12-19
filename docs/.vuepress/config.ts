@@ -38,7 +38,7 @@ const config: UserConfig<DefaultThemeOptions> = {
           {
             text: 'Changelog',
             link:
-              'https://github.com/meteorlxy/vue-showdown/blob/master/CHANGELOG.md',
+              'https://github.com/meteorlxy/vue-showdown/blob/main/CHANGELOG.md',
           },
         ],
         selectLanguageName: 'English',
@@ -61,7 +61,7 @@ const config: UserConfig<DefaultThemeOptions> = {
           {
             text: 'Changelog',
             link:
-              'https://github.com/meteorlxy/vue-showdown/blob/master/CHANGELOG.md',
+              'https://github.com/meteorlxy/vue-showdown/blob/main/CHANGELOG.md',
           },
         ],
         selectLanguageName: '简体中文',
