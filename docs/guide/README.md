@@ -222,7 +222,7 @@ const app = createApp();
 
 showdown.setFlavor('github');
 
-app.use(VueShowdown);
+app.use(VueShowdownPlugin);
 ```
 
 ### Extensions

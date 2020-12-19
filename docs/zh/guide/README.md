@@ -99,7 +99,7 @@ import { VueShowdownPlugin } from 'vue-showdown';
 
 const app = createApp();
 
-app.use(VueShowdown, {
+app.use(VueShowdownPlugin, {
   // 在这里设置插件选项
 });
 ```
@@ -222,7 +222,7 @@ const app = createApp();
 
 showdown.setFlavor('github');
 
-app.use(VueShowdown);
+app.use(VueShowdownPlugin);
 ```
 
 ### Extensions
