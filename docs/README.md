@@ -1,8 +1,12 @@
 ---
 home: true
 heroImage: /logo.png
-actionText: Try it →
-actionLink: /playground/
+actions:
+  - text: Guide
+    link: /guide/
+    type: secondary
+  - text: Try it →
+    link: /playground/
 features:
   - title: Showdown
     details: Parse markdown text in client side with the power of showdown.js.

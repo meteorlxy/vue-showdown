@@ -1,8 +1,12 @@
 ---
 home: true
 heroImage: /logo.png
-actionText: 试一下 →
-actionLink: /zh/playground/
+actions:
+  - text: 指南
+    link: /zh/guide/
+    type: secondary
+  - text: 试一下 →
+    link: /zh/playground/
 features:
   - title: Showdown
     details: 通过showdown.js在客户端解析markdown代码

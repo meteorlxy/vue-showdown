@@ -1,23 +1,14 @@
-import { join } from 'path';
-import { cachedRead } from 'vite';
+import { resolve } from 'path';
 import type { UserConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
 const config: UserConfig = {
-  root: __dirname,
+  root: resolve(__dirname, 'dev'),
   alias: {
     'vue': 'vue/dist/vue.esm-bundler.js',
-    'vue-showdown': '/src/index.ts',
+    'vue-showdown': resolve(__dirname, 'src'),
   },
-  configureServer: ({ app }) => {
-    app.use(async (ctx, next) => {
-      await next();
-
-      if (ctx.url === '/index.html') {
-        await cachedRead(ctx, join(__dirname, 'dev/index.html'));
-        ctx.status = 200;
-      }
-    });
-  },
+  plugins: [vue()],
 };
 
 export default config;
