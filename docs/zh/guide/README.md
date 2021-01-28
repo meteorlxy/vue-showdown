@@ -4,6 +4,10 @@ sidebar: auto
 
 # 指南 :rocket:
 
+::: warning
+当前文档仅适用于 Vue 3 。如果你正在使用 Vue 2 ，前往 [这里](https://github.com/meteorlxy/vue-showdown/tree/v2/docs/zh/guide) 查看对应文档。
+:::
+
 ## 开始使用
 
 ### NPM

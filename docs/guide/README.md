@@ -4,6 +4,10 @@ sidebar: auto
 
 # Guide :rocket:
 
+::: warning
+This guide is for Vue 3 only. If you're using Vue 2, please check out the docs [here](https://github.com/meteorlxy/vue-showdown/tree/v2/docs/guide).
+:::
+
 ## Getting Started
 
 ### NPM

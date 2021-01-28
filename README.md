@@ -34,9 +34,11 @@
   </a>
 </p>
 
+> Current branch is for Vue 3 only. If you are using Vue 2, please check out [v2 branch](https://github.com/meteorlxy/vue-showdown/tree/v2).
+
 ## Introduction
 
-Use [showdown](https://github.com/showdownjs/showdown) as a Vue component
+Use [showdown](https://github.com/showdownjs/showdown) as a Vue component.
 
 ## Usage
 
