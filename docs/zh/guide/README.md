@@ -4,6 +4,10 @@ sidebar: auto
 
 # 指南 :rocket:
 
+::: warning
+该文档仅适用于 Vue 2 。
+:::
+
 ## 开始使用
 
 ### NPM
@@ -11,9 +15,9 @@ sidebar: auto
 通过 npm 或 yarn 安装
 
 ```bash
-npm install vue-showdown
+npm install vue-showdown@2
 # 或者
-yarn add vue-showdown
+yarn add vue-showdown@2
 ```
 
 在你的 JS 文件中引入
@@ -65,9 +69,9 @@ Vue.component('VueShowdown', VueShowdown)
     <vue-showdown markdown="## markdown text"/>
   </div>
 
-  <script src="https://unpkg.com/vue@2.5.21/dist/vue.min.js"></script>
-  <script src="https://unpkg.com/showdown@1.9.0/dist/showdown.min.js"></script>
-  <script src="https://unpkg.com/vue-showdown@2.3.0/dist/vue-showdown.min.js"></script>
+  <script src="https://unpkg.com/vue@2.x/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/showdown@1.x/dist/showdown.min.js"></script>
+  <script src="https://unpkg.com/vue-showdown@2.x/dist/vue-showdown.min.js"></script>
 
   <script>
     new Vue({

@@ -4,6 +4,10 @@ sidebar: auto
 
 # Guide :rocket:
 
+::: warning
+This guide is for Vue 2 only.
+:::
+
 ## Getting Started
 
 ### NPM
@@ -11,9 +15,9 @@ sidebar: auto
 Install via npm / yarn
 
 ```bash
-npm install vue-showdown
+npm install vue-showdown@2
 # OR
-yarn add vue-showdown
+yarn add vue-showdown@2
 ```
 
 Import in your js files
@@ -65,9 +69,9 @@ Direct `<script>` import after `vue.js`. Then use `vue-showdown` as a vue compon
     <vue-showdown markdown="## markdown text"/>
   </div>
 
-  <script src="https://unpkg.com/vue@2.5.21/dist/vue.min.js"></script>
-  <script src="https://unpkg.com/showdown@1.9.0/dist/showdown.min.js"></script>
-  <script src="https://unpkg.com/vue-showdown@2.3.0/dist/vue-showdown.min.js"></script>
+  <script src="https://unpkg.com/vue@2.x/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/showdown@1.x/dist/showdown.min.js"></script>
+  <script src="https://unpkg.com/vue-showdown@2.x/dist/vue-showdown.min.js"></script>
 
   <script>
     new Vue({
