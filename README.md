@@ -56,8 +56,8 @@ git clone https://github.com/meteorlxy/vue-showdown
 cd vue-showdown
 
 # Install dependencies
-yarn
+npm i
 
 # Start the dev-server
-yarn dev
+npm run dev
 ```

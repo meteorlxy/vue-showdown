@@ -12,12 +12,10 @@ sidebar: auto
 
 ### NPM
 
-通过 npm 或 yarn 安装
+通过 npm 安装
 
 ```bash
 npm install vue-showdown
-# 或者
-yarn add vue-showdown
 ```
 
 将 vue-showdown 作为 Vue 插件引入：

@@ -12,12 +12,10 @@ This guide is for Vue 3 only. If you're using Vue 2, please check out the docs [
 
 ### NPM
 
-Install via npm / yarn
+Install via npm
 
 ```bash
 npm install vue-showdown
-# OR
-yarn add vue-showdown
 ```
 
 Import vue-showdown as a vue plugin:
