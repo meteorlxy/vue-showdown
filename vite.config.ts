@@ -1,14 +1,14 @@
 import { resolve } from 'path';
-import type { UserConfig } from 'vite';
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
-const config: UserConfig = {
+export default defineConfig({
   root: resolve(__dirname, 'dev'),
-  alias: {
-    'vue': 'vue/dist/vue.esm-bundler.js',
-    'vue-showdown': resolve(__dirname, 'src'),
+  resolve: {
+    alias: {
+      'vue': 'vue/dist/vue.esm-bundler.js',
+      'vue-showdown': resolve(__dirname, 'src'),
+    },
   },
   plugins: [vue()],
-};
-
-export default config;
+});
