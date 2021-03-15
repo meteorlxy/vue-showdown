@@ -61,3 +61,7 @@ npm i
 # Start the dev-server
 npm run dev
 ```
+
+## LICENSE
+
+[MIT](https://github.com/meteorlxy/vue-showdown/blob/master/LICENSE) &copy; [@meteorlxy](https://github.com/meteorlxy) & [Contributors](https://github.com/meteorlxy/vue-showdown/graphs/contributors)
