@@ -29,6 +29,7 @@ export const VueShowdownPlugin: Plugin = {
     });
 
     // register vue-showdown component globally
+    // eslint-disable-next-line vue/match-component-file-name
     app.component('VueShowdown', VueShowdown);
   },
 };
