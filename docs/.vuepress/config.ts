@@ -1,7 +1,8 @@
-import type { UserConfig, DefaultThemeOptions } from 'vuepress';
+import { defineUserConfig } from 'vuepress';
+import type { DefaultThemeOptions } from '@vuepress/theme-default';
 import { path } from '@vuepress/utils';
 
-const config: UserConfig<DefaultThemeOptions> = {
+export default defineUserConfig<DefaultThemeOptions>({
   head: [['link', { rel: 'icon', href: `/logo.png` }]],
 
   locales: {
@@ -115,6 +116,4 @@ const config: UserConfig<DefaultThemeOptions> = {
       },
     ],
   ],
-};
-
-export default config;
+});
