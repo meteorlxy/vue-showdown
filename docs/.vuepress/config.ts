@@ -1,8 +1,9 @@
-import { defineUserConfig } from 'vuepress';
+import type { ViteBundlerOptions } from '@vuepress/bundler-vite';
+import { defineUserConfig } from '@vuepress/cli';
 import type { DefaultThemeOptions } from '@vuepress/theme-default';
 import { path } from '@vuepress/utils';
 
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
   head: [['link', { rel: 'icon', href: `/logo.png` }]],
 
   locales: {
@@ -16,6 +17,19 @@ export default defineUserConfig<DefaultThemeOptions>({
       lang: 'zh-CN',
       title: 'Vue Showdown',
       description: '在 Vue 中快速使用 showdown.js',
+    },
+  },
+
+  bundler: '@vuepress/vite',
+
+  bundlerConfig: {
+    viteOptions: {
+      // TODO: remove this temp fix
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      ssr: {
+        noExternal: ['@vuepress/client', '@vuepress/plugin-pwa'],
+      },
     },
   },
 
@@ -96,8 +110,8 @@ export default defineUserConfig<DefaultThemeOptions>({
 
   alias: {
     // enable template compiler
-    'vue$': 'vue/dist/vue.esm-bundler.js',
-    'vue-showdown$': path.resolve(__dirname, '../../src/index.ts'),
+    'vue': 'vue/dist/vue.esm-bundler.js',
+    'vue-showdown': path.resolve(__dirname, '../../src/index.ts'),
   },
 
   clientAppEnhanceFiles: path.resolve(__dirname, './clientAppEnhance.ts'),
