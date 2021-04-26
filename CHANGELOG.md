@@ -1,3 +1,12 @@
+# [3.1.0](https://github.com/meteorlxy/vue-showdown/compare/v3.0.0...v3.1.0) (2021-04-26)
+
+
+### Features
+
+* support vueTemplateData ([04b74e5](https://github.com/meteorlxy/vue-showdown/commit/04b74e5cf959644a35dbc50cc917c2dd2370cba4))
+
+
+
 # [3.0.0](https://github.com/meteorlxy/vue-showdown/compare/v2.4.1...v3.0.0) (2020-12-17)
 
 

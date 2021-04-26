@@ -1,7 +1,7 @@
-import { ShowdownOptions, ShowdownExtension } from 'showdown';
 import * as showdown from 'showdown';
 export { showdown };
-import { DefineComponent, PropType, VNode, RendererNode, RendererElement, ComponentOptionsMixin, VNodeProps, AllowedComponentProps, ComponentCustomProps, Plugin } from 'vue';
+import * as vue from 'vue';
+import { PropType, Plugin } from 'vue';
 
 /**
  * The VueShowdown component
@@ -26,7 +26,7 @@ import { DefineComponent, PropType, VNode, RendererNode, RendererElement, Compon
  *
  * @public
  */
-declare const VueShowdown: DefineComponent<{
+declare const VueShowdown: vue.DefineComponent<{
     /**
      * Raw markdown content
      */
@@ -49,7 +49,7 @@ declare const VueShowdown: DefineComponent<{
      * @see https://github.com/showdownjs/showdown#flavors
      */
     flavor: {
-        type: PropType<"github" | "original" | "ghost" | "vanilla" | "allOn" | null>;
+        type: PropType<showdown.Flavor | null>;
         required: false;
         default: null;
     };
@@ -59,7 +59,7 @@ declare const VueShowdown: DefineComponent<{
      * @see https://github.com/showdownjs/showdown#valid-options
      */
     options: {
-        type: PropType<ShowdownOptions>;
+        type: PropType<showdown.ShowdownOptions>;
         required: false;
         default: () => {};
     };
@@ -69,7 +69,7 @@ declare const VueShowdown: DefineComponent<{
      * @see https://github.com/showdownjs/showdown#extensions
      */
     extensions: {
-        type: PropType<(string | (() => ShowdownExtension | ShowdownExtension[]) | ShowdownExtension | ShowdownExtension[])[] | null | undefined>;
+        type: PropType<Required<(string | (() => showdown.ShowdownExtension | showdown.ShowdownExtension[]) | showdown.ShowdownExtension | showdown.ShowdownExtension[])[] | null | undefined>>;
         required: false;
         default: null;
     };
@@ -81,22 +81,32 @@ declare const VueShowdown: DefineComponent<{
         required: false;
         default: boolean;
     };
-}, () => VNode<RendererNode, RendererElement, {
+    /**
+     * Define data which is available in the Vue template. Require `vueTemplate` to be enabled
+     */
+    vueTemplateData: {
+        type: ObjectConstructor;
+        required: false;
+        default: () => {};
+    };
+}, () => vue.VNode<vue.RendererNode, vue.RendererElement, {
     [key: string]: any;
-}>, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<{
-    extensions: (string | (() => ShowdownExtension | ShowdownExtension[]) | ShowdownExtension | ShowdownExtension[])[] | null | undefined;
+}>, unknown, {}, {}, vue.ComponentOptionsMixin, vue.ComponentOptionsMixin, Record<string, any>, string, vue.VNodeProps & vue.AllowedComponentProps & vue.ComponentCustomProps, Readonly<{
+    extensions: Required<(string | (() => showdown.ShowdownExtension | showdown.ShowdownExtension[]) | showdown.ShowdownExtension | showdown.ShowdownExtension[])[] | null | undefined>;
     markdown: string | null;
     tag: string;
-    flavor: "github" | "original" | "ghost" | "vanilla" | "allOn" | null;
-    options: ShowdownOptions;
+    flavor: showdown.Flavor | null;
+    options: showdown.ShowdownOptions;
     vueTemplate: boolean;
+    vueTemplateData: Record<string, any>;
 } & {}>, {
-    extensions: (string | (() => ShowdownExtension | ShowdownExtension[]) | ShowdownExtension | ShowdownExtension[])[] | null | undefined;
+    extensions: Required<(string | (() => showdown.ShowdownExtension | showdown.ShowdownExtension[]) | showdown.ShowdownExtension | showdown.ShowdownExtension[])[] | null | undefined>;
     markdown: string | null;
     tag: string;
-    flavor: "github" | "original" | "ghost" | "vanilla" | "allOn" | null;
-    options: ShowdownOptions;
+    flavor: showdown.Flavor | null;
+    options: showdown.ShowdownOptions;
     vueTemplate: boolean;
+    vueTemplateData: Record<string, any>;
 }>;
 
 /**

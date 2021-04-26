@@ -1,13 +1,12 @@
 /*!
  * vue-showdown - Use showdown as a vue component
  *
- * @version v3.0.0
+ * @version v3.1.0
  * @link https://vue-showdown.js.org
  * @license MIT
- * @copyright 2018-2020 meteorlxy
+ * @copyright 2018-2021 meteorlxy
  */
 
-import { Converter, setFlavor, setOption } from 'showdown';
 import * as showdown from 'showdown';
 export { showdown };
 import { defineComponent, computed, Text, h } from 'vue';
@@ -92,11 +91,19 @@ const VueShowdown = defineComponent({
             required: false,
             default: false,
         },
+        /**
+         * Define data which is available in the Vue template. Require `vueTemplate` to be enabled
+         */
+        vueTemplateData: {
+            type: Object,
+            required: false,
+            default: () => ({}),
+        },
     },
     setup(props, { slots }) {
         // the showdown converter instance ref
         const converter = computed(() => {
-            const instance = new Converter({
+            const instance = new showdown.Converter({
                 extensions: props.extensions || undefined,
             });
             if (props.flavor !== null) {
@@ -126,6 +133,7 @@ const VueShowdown = defineComponent({
         const outputHtml = computed(() => converter.value.makeHtml(inputMarkdown.value));
         return () => props.vueTemplate
             ? h({
+                setup: () => props.vueTemplateData,
                 template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
             })
             : h(props.tag, {
@@ -152,13 +160,14 @@ const VueShowdownPlugin = {
     install(app, { flavor = null, options = {} } = {}) {
         // set default flavor
         if (flavor !== null) {
-            setFlavor(flavor);
+            showdown.setFlavor(flavor);
         }
         // set default options (override flavor)
         Object.entries(options).forEach(([key, value]) => {
-            setOption(key, value);
+            showdown.setOption(key, value);
         });
         // register vue-showdown component globally
+        // eslint-disable-next-line vue/match-component-file-name
         app.component('VueShowdown', VueShowdown);
     },
 };
