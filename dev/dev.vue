@@ -13,7 +13,8 @@
     :markdown="markdownInput"
     :options="options"
     :extensions="extensions"
-    :vue-template="props.vueTemplate"
+    :vue-template="vueTemplate"
+    :vue-template-data="vueTemplateData"
   >
   </VueShowdown>
 
@@ -22,12 +23,19 @@
   <p>Props:</p>
 
   <ul>
-    <li v-for="prop in Object.keys(props)" :key="prop">
-      <span>{{ prop }}</span>
-      <input
-        v-model="props[prop]"
-        :type="typeof props[prop] === 'boolean' ? 'checkbox' : 'text'"
+    <li>
+      <span>vueTemplate</span>
+      <input v-model="vueTemplate" type="checkbox" />
+    </li>
+
+    <li>
+      <span>vueTemplateData</span>
+      <textarea
+        :value="vueTemplateDataJson"
+        :rows="vueTemplateDataJson.split('\n').length + 2"
+        @input="onVueTemplateDataInput"
       />
+      <button @click="onVueTemplateDataSet">set</button>
     </li>
   </ul>
 
@@ -59,14 +67,10 @@
   </ul>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, ref } from 'vue';
+<script lang="ts" setup>
+import { computed, reactive, ref } from 'vue';
 
-export default defineComponent({
-  name: 'Dev',
-
-  setup() {
-    const markdownInput = ref(`\
+const markdownInput = ref(`\
 ## Vue-showdown dev
 
 - [ ] tasklists
@@ -78,59 +82,61 @@ export default defineComponent({
 <VueShowdown markdown="## Enable \`vueTemplate\` to parse vue template"/>
 
 <span v-for="n in 5"> {{ n }}</span>
+
+{{ message }}
 `);
 
-    const validExtensions = ref(['replaceMarkdownByShowdown']);
+const validExtensions = ref(['replaceMarkdownByShowdown']);
 
-    const props = reactive({
-      vueTemplate: false,
-    });
+const vueTemplate = ref(false);
+const vueTemplateData = ref({ message: 'hello' });
+const vueTemplateDataJson = computed(() =>
+  JSON.stringify(vueTemplateData.value, null, 2),
+);
+const vueTemplateDataText = ref('');
+const onVueTemplateDataInput = (event): void => {
+  vueTemplateDataText.value = event.target?.value;
+  event.preventDefault();
+};
+const onVueTemplateDataSet = (): void => {
+  vueTemplateData.value = JSON.parse(vueTemplateDataText.value);
+};
 
-    const extensions = ref([]);
+const extensions = ref([]);
 
-    const options = reactive({
-      omitExtraWLInCodeBlocks: false,
-      noHeaderId: false,
-      prefixHeaderId: false,
-      rawPrefixHeaderId: false,
-      ghCompatibleHeaderId: false,
-      rawHeaderId: false,
-      headerLevelStart: false,
-      parseImgDimensions: false,
-      simplifiedAutoLink: false,
-      excludeTrailingPunctuationFromURLs: false,
-      literalMidWordUnderscores: false,
-      literalMidWordAsterisks: false,
-      strikethrough: false,
-      tables: false,
-      tablesHeaderId: false,
-      ghCodeBlocks: true,
-      tasklists: false,
-      smoothLivePreview: false,
-      smartIndentationFix: false,
-      disableForced4SpacesIndentedSublists: false,
-      simpleLineBreaks: false,
-      requireSpaceBeforeHeadingText: false,
-      ghMentions: false,
-      ghMentionsLink: 'https://github.com/{u}',
-      encodeEmails: true,
-      openLinksInNewWindow: false,
-      backslashEscapesHTMLTags: false,
-      emoji: false,
-      underline: false,
-      completeHTMLDocument: false,
-      metadata: false,
-      splitAdjacentBlockquotes: false,
-    });
-
-    return {
-      markdownInput,
-      validExtensions,
-      props,
-      extensions,
-      options,
-    };
-  },
+const options = reactive({
+  omitExtraWLInCodeBlocks: false,
+  noHeaderId: false,
+  prefixHeaderId: false,
+  rawPrefixHeaderId: false,
+  ghCompatibleHeaderId: false,
+  rawHeaderId: false,
+  headerLevelStart: false,
+  parseImgDimensions: false,
+  simplifiedAutoLink: false,
+  excludeTrailingPunctuationFromURLs: false,
+  literalMidWordUnderscores: false,
+  literalMidWordAsterisks: false,
+  strikethrough: false,
+  tables: false,
+  tablesHeaderId: false,
+  ghCodeBlocks: true,
+  tasklists: false,
+  smoothLivePreview: false,
+  smartIndentationFix: false,
+  disableForced4SpacesIndentedSublists: false,
+  simpleLineBreaks: false,
+  requireSpaceBeforeHeadingText: false,
+  ghMentions: false,
+  ghMentionsLink: 'https://github.com/{u}',
+  encodeEmails: true,
+  openLinksInNewWindow: false,
+  backslashEscapesHTMLTags: false,
+  emoji: false,
+  underline: false,
+  completeHTMLDocument: false,
+  metadata: false,
+  splitAdjacentBlockquotes: false,
 });
 </script>
 
@@ -139,7 +145,6 @@ export default defineComponent({
   box-sizing: border-box;
 }
 textarea {
-  resize: none;
   width: 100%;
 }
 </style>
