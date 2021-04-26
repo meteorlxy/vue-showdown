@@ -1,9 +1,8 @@
-import type { ViteBundlerOptions } from '@vuepress/bundler-vite';
 import { defineUserConfig } from '@vuepress/cli';
 import type { DefaultThemeOptions } from '@vuepress/theme-default';
 import { path } from '@vuepress/utils';
 
-export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
+export default defineUserConfig<DefaultThemeOptions>({
   head: [['link', { rel: 'icon', href: `/logo.png` }]],
 
   locales: {
@@ -20,18 +19,10 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     },
   },
 
-  bundler: '@vuepress/vite',
-
-  bundlerConfig: {
-    viteOptions: {
-      // TODO: remove this temp fix
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      ssr: {
-        noExternal: ['@vuepress/client', '@vuepress/plugin-pwa'],
-      },
-    },
-  },
+  bundler:
+    process.env.NODE_ENV === 'production'
+      ? '@vuepress/webpack'
+      : '@vuepress/vite',
 
   themeConfig: {
     repo: 'meteorlxy/vue-showdown',
