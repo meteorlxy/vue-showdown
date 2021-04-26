@@ -89,6 +89,15 @@ export const VueShowdown = defineComponent({
       required: false,
       default: false,
     },
+
+    /**
+     * Define data which is available in the Vue template. Require `vueTemplate` to be enabled
+     */
+    vueTemplateData: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
 
   setup(props, { slots }) {
@@ -134,6 +143,7 @@ export const VueShowdown = defineComponent({
     return () =>
       props.vueTemplate
         ? h({
+            setup: () => props.vueTemplateData,
             template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
           })
         : h(props.tag, {

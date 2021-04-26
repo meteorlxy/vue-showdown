@@ -204,11 +204,40 @@ Treat the parsed HTML string as vue template. This will allow you to use vue tem
 - type: `Boolean`
 - default: `false`
 
-::: warning ATTENSION
+::: warning ATTENTION
 If you set it to `true`, you have to use the full (runtime + compiler) build of Vue, as we need to compile templates on the client. See [Runtime + Compiler vs. Runtime-only](https://v3.vuejs.org/guide/installation.html#runtime-compiler-vs-runtime-only).
 
 If you have similar request as [#5](https://github.com/meteorlxy/vue-showdown/issues/5), you can enable this feature.
 :::
+
+### vueTemplateData
+
+Define data which is available in the vue template. It will only take effect when [vueTemplate](#vuetemplate) is enabled.
+
+- type: `Object`
+- default: `{}`
+- example:
+
+```vue
+<template>
+  <VueShowdown
+    markdown="## markdown text {{ message }}"
+    :vue-template="true"
+    :vue-template-data="{ message }"
+  />
+</template>
+
+<script>
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const message = ref('hello, vue template in markdown!')
+    return { message };
+  },
+});
+</script>
+```
 
 ## Advance
 

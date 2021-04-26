@@ -210,6 +210,35 @@ app.use(VueShowdownPlugin, {
 当你有类似 [#5](https://github.com/meteorlxy/vue-showdown/issues/5) 的需求时，可以尝试使用该功能。
 :::
 
+### vueTemplateData
+
+定义你在 Vue 模板中可以使用的变量。仅在开启 [vueTemplate](#vuetemplate) 时有效。
+
+- 类型： `Object`
+- 默认值： `{}`
+- 示例：
+
+```vue
+<template>
+  <VueShowdown
+    markdown="## markdown text {{ message }}"
+    :vue-template="true"
+    :vue-template-data="{ message }"
+  />
+</template>
+
+<script>
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const message = ref('hello, vue template in markdown!')
+    return { message };
+  },
+});
+</script>
+```
+
 ## 进阶用法
 
 ### Showdown library
