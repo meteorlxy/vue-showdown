@@ -53,13 +53,13 @@
     "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.1.0",
     "@meteorlxy/prettier-config": "^2.0.0",
     "@vitejs/plugin-vue": "^1.2.1",
-    "@vuepress/bundler-vite": "2.0.0-beta.9",
-    "@vuepress/bundler-webpack": "2.0.0-beta.9",
-    "@vuepress/cli": "2.0.0-beta.9",
-    "@vuepress/client": "2.0.0-beta.9",
-    "@vuepress/plugin-pwa": "2.0.0-beta.9",
-    "@vuepress/plugin-pwa-popup": "2.0.0-beta.9",
-    "@vuepress/theme-default": "2.0.0-beta.9",
+    "@vuepress/bundler-vite": "2.0.0-beta.10",
+    "@vuepress/bundler-webpack": "2.0.0-beta.10",
+    "@vuepress/cli": "2.0.0-beta.10",
+    "@vuepress/client": "2.0.0-beta.10",
+    "@vuepress/plugin-pwa": "2.0.0-beta.10",
+    "@vuepress/plugin-pwa-popup": "2.0.0-beta.10",
+    "@vuepress/theme-default": "2.0.0-beta.10",
     "@vuepress/utils": "2.0.0-beta.8",
     "conventional-changelog-cli": "^2.1.1",
     "eslint": "^7.24.0",
@@ -73,6 +73,6 @@
     "rollup-plugin-typescript2": "^0.30.0",
     "sort-package-json": "^1.49.0",
     "typescript": "^4.2.4",
-    "vite": "^2.1.5"
+    "vite": "^2.2.1"
   }
 }
