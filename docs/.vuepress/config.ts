@@ -24,6 +24,14 @@ export default defineUserConfig<DefaultThemeOptions>({
       ? '@vuepress/webpack'
       : '@vuepress/vite',
 
+  bundlerConfig: {
+    viteOptions: {
+      optimizeDeps: {
+        include: ['showdown'],
+      },
+    },
+  },
+
   themeConfig: {
     repo: 'meteorlxy/vue-showdown',
 
