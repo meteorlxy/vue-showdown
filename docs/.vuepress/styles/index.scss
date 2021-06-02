@@ -1,3 +1,11 @@
+:root {
+  --c-bg-output: #fafbfc;
+}
+
+html.dark {
+  --c-bg-output: #272b2f;
+}
+
 .markdown-input {
   resize: none;
   outline: none;
@@ -5,12 +13,13 @@
   margin: 15px 0;
   padding: 15px;
   font-size: 16px;
-  background-color: #fdfdfd;
+  color: var(--c-text);
+  background-color: var(--c-bg-light);
   border: 1px solid var(--c-border);
   border-radius: 5px;
   box-sizing: border-box;
   &:focus {
-    background-color: #ffffff;
+    background-color: var(--c-bg);
     box-shadow: 0 0 5px 2px var(--c-text-accent);
   }
 }
@@ -18,7 +27,8 @@
 .markdown-output {
   padding: 10px 15px;
   margin: 15px 0;
-  background-color: #fafbfc;
+  color: var(--c-text);
+  background-color: var(--c-bg-output);
   border: 1px solid var(--c-border);
   border-radius: 5px;
 }
