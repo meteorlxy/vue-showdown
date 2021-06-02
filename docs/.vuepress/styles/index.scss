@@ -1,5 +1,3 @@
-@import '@vuepress/theme-default/lib/client/styles/_variables';
-
 .markdown-input {
   resize: none;
   outline: none;
@@ -8,12 +6,12 @@
   padding: 15px;
   font-size: 16px;
   background-color: #fdfdfd;
-  border: 1px solid $borderColor;
+  border: 1px solid var(--c-border);
   border-radius: 5px;
   box-sizing: border-box;
   &:focus {
     background-color: #ffffff;
-    box-shadow: 0 0 1px 1px lighten($accentColor, 50%);
+    box-shadow: 0 0 5px 2px var(--c-text-accent);
   }
 }
 
@@ -21,6 +19,6 @@
   padding: 10px 15px;
   margin: 15px 0;
   background-color: #fafbfc;
-  border: 1px solid $borderColor;
+  border: 1px solid var(--c-border);
   border-radius: 5px;
 }
