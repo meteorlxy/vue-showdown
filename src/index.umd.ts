@@ -1,11 +1,12 @@
+import type { Plugin, Component } from 'vue';
 import { VueShowdownPlugin, VueShowdown } from './index';
 
 export * from './index';
 
 declare global {
   interface Window {
-    VueShowdownPlugin: typeof VueShowdownPlugin;
-    VueShowdown: typeof VueShowdown;
+    VueShowdownPlugin: Plugin;
+    VueShowdown: Component;
   }
 }
 

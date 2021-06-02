@@ -68,9 +68,9 @@ export default [
       external: ['showdown', 'vue'],
       plugins: [
         typescript({
+          check: !hasTSChecked,
           tsconfig: resolve('tsconfig.base.json'),
           tsconfigOverride: {
-            check: !hasTSChecked,
             compilerOptions: {
               declaration: !hasTSChecked,
               declarationDir: hasTSChecked ? undefined : resolve('dist/types'),
