@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { VueShowdownPlugin, showdown } from 'vue-showdown';
+import { showdown, VueShowdownPlugin } from 'vue-showdown';
 import Dev from './dev.vue';
 
 showdown.extension('replaceMarkdownByShowdown', () => [

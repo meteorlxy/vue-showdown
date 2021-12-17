@@ -1,5 +1,5 @@
-import type { Plugin, Component } from 'vue';
-import { VueShowdownPlugin, VueShowdown } from './index';
+import type { Component, Plugin } from 'vue';
+import { VueShowdown, VueShowdownPlugin } from './index';
 
 export * from './index';
 
