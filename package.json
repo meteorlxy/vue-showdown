@@ -27,8 +27,8 @@
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
     "lint": "eslint --ext .js,.ts,.vue .",
-    "version": "npm run lint && npm run build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "version": "npm run lint && npm run build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
   },
   "commitlint": {
     "extends": [
@@ -42,37 +42,31 @@
   },
   "prettier": "@meteorlxy/prettier-config",
   "dependencies": {
-    "@types/showdown": "^1.9.3",
+    "@types/showdown": "^1.9.4",
     "showdown": "^1.9.1",
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^13.0.0",
-    "@commitlint/config-conventional": "^13.0.0",
-    "@meteorlxy/eslint-config-prettier": "^2.2.0",
-    "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.2.0",
-    "@meteorlxy/prettier-config": "^2.0.0",
-    "@vitejs/plugin-vue": "^1.2.3",
-    "@vuepress/bundler-vite": "2.0.0-beta.21",
-    "@vuepress/bundler-webpack": "2.0.0-beta.21",
-    "@vuepress/cli": "2.0.0-beta.21",
-    "@vuepress/client": "2.0.0-beta.21",
-    "@vuepress/plugin-pwa": "2.0.0-beta.21",
-    "@vuepress/plugin-pwa-popup": "2.0.0-beta.21",
-    "@vuepress/theme-default": "2.0.0-beta.21",
-    "@vuepress/utils": "2.0.0-beta.21",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@meteorlxy/eslint-config-prettier": "^2.5.0",
+    "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.5.0",
+    "@meteorlxy/prettier-config": "^2.3.0",
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vuepress/utils": "2.0.0-beta.28",
     "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^7.29.0",
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.3.1",
+    "eslint": "^8.4.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.52.2",
-    "rollup-plugin-dts": "^3.0.2",
+    "rollup": "^2.61.1",
+    "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "sort-package-json": "^1.50.0",
-    "typescript": "^4.3.4",
-    "vite": "^2.3.8"
+    "rollup-plugin-typescript2": "^0.31.1",
+    "sort-package-json": "^1.53.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.3",
+    "vuepress": "2.0.0-beta.28"
   }
 }

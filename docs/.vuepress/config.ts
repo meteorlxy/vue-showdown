@@ -1,6 +1,6 @@
-import { defineUserConfig } from '@vuepress/cli';
-import type { DefaultThemeOptions } from '@vuepress/theme-default';
 import { path } from '@vuepress/utils';
+import { defineUserConfig } from 'vuepress';
+import type { DefaultThemeOptions } from 'vuepress';
 
 export default defineUserConfig<DefaultThemeOptions>({
   head: [['link', { rel: 'icon', href: `/logo.png` }]],
@@ -19,10 +19,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     },
   },
 
-  bundler:
-    process.env.NODE_ENV === 'production'
-      ? '@vuepress/webpack'
-      : '@vuepress/vite',
+  bundler: '@vuepress/vite',
 
   bundlerConfig: {
     viteOptions: {
@@ -112,19 +109,4 @@ export default defineUserConfig<DefaultThemeOptions>({
   },
 
   clientAppEnhanceFiles: path.resolve(__dirname, './clientAppEnhance.ts'),
-
-  plugins: [
-    ['@vuepress/plugin-pwa'],
-    [
-      '@vuepress/plugin-pwa-popup',
-      {
-        locales: {
-          '/zh/': {
-            message: '发现新内容可用',
-            buttonText: '刷新',
-          },
-        },
-      },
-    ],
-  ],
 });
