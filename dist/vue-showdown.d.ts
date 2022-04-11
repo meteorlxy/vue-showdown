@@ -91,15 +91,70 @@ declare const VueShowdown: vue.DefineComponent<{
     };
 }, () => vue.VNode<vue.RendererNode, vue.RendererElement, {
     [key: string]: any;
-}>, unknown, {}, {}, vue.ComponentOptionsMixin, vue.ComponentOptionsMixin, Record<string, any>, string, vue.VNodeProps & vue.AllowedComponentProps & vue.ComponentCustomProps, Readonly<{
-    extensions: Required<(string | (() => showdown.ShowdownExtension | showdown.ShowdownExtension[]) | showdown.ShowdownExtension | showdown.ShowdownExtension[])[] | null | undefined>;
-    markdown: string | null;
-    tag: string;
-    flavor: showdown.Flavor | null;
-    options: showdown.ShowdownOptions;
-    vueTemplate: boolean;
-    vueTemplateData: Record<string, any>;
-} & {}>, {
+}>, unknown, {}, {}, vue.ComponentOptionsMixin, vue.ComponentOptionsMixin, Record<string, any>, string, vue.VNodeProps & vue.AllowedComponentProps & vue.ComponentCustomProps, Readonly<vue.ExtractPropTypes<{
+    /**
+     * Raw markdown content
+     */
+    markdown: {
+        type: PropType<string | null>;
+        required: false;
+        default: null;
+    };
+    /**
+     * HTML tag of the markdown wrapper
+     */
+    tag: {
+        type: PropType<string>;
+        required: false;
+        default: string;
+    };
+    /**
+     * Showdown flavor
+     *
+     * @see https://github.com/showdownjs/showdown#flavors
+     */
+    flavor: {
+        type: PropType<showdown.Flavor | null>;
+        required: false;
+        default: null;
+    };
+    /**
+     * Showdown options
+     *
+     * @see https://github.com/showdownjs/showdown#valid-options
+     */
+    options: {
+        type: PropType<showdown.ShowdownOptions>;
+        required: false;
+        default: () => {};
+    };
+    /**
+     * Showdown extensions
+     *
+     * @see https://github.com/showdownjs/showdown#extensions
+     */
+    extensions: {
+        type: PropType<Required<(string | (() => showdown.ShowdownExtension | showdown.ShowdownExtension[]) | showdown.ShowdownExtension | showdown.ShowdownExtension[])[] | null | undefined>>;
+        required: false;
+        default: null;
+    };
+    /**
+     * Treat the HTML string as Vue template. Require full build of Vue (runtime + complier)
+     */
+    vueTemplate: {
+        type: BooleanConstructor;
+        required: false;
+        default: boolean;
+    };
+    /**
+     * Define data which is available in the Vue template. Require `vueTemplate` to be enabled
+     */
+    vueTemplateData: {
+        type: ObjectConstructor;
+        required: false;
+        default: () => {};
+    };
+}>>, {
     extensions: Required<(string | (() => showdown.ShowdownExtension | showdown.ShowdownExtension[]) | showdown.ShowdownExtension | showdown.ShowdownExtension[])[] | null | undefined>;
     markdown: string | null;
     tag: string;
@@ -125,5 +180,4 @@ declare const VueShowdown: vue.DefineComponent<{
  */
 declare const VueShowdownPlugin: Plugin;
 
-export default VueShowdownPlugin;
-export { VueShowdown, VueShowdownPlugin };
+export { VueShowdown, VueShowdownPlugin, VueShowdownPlugin as default };

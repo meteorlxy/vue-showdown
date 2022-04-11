@@ -1,10 +1,10 @@
 /*!
  * vue-showdown - Use showdown as a vue component
  *
- * @version v3.1.0
+ * @version v3.2.0
  * @link https://vue-showdown.js.org
  * @license MIT
- * @copyright 2018-2021 meteorlxy
+ * @copyright 2018-2022 meteorlxy
  */
 
 'use strict';
@@ -23,14 +23,12 @@ function _interopNamespace(e) {
         var d = Object.getOwnPropertyDescriptor(e, k);
         Object.defineProperty(n, k, d.get ? d : {
           enumerable: true,
-          get: function () {
-            return e[k];
-          }
+          get: function () { return e[k]; }
         });
       }
     });
   }
-  n['default'] = e;
+  n["default"] = e;
   return Object.freeze(n);
 }
 
@@ -147,7 +145,7 @@ const VueShowdown = vue.defineComponent({
                 return props.markdown;
             }
             // from default slot
-            const slot = (_a = slots.default) === null || _a === void 0 ? void 0 : _a.call(slots)[0];
+            const slot = (_a = slots['default']) === null || _a === void 0 ? void 0 : _a.call(slots)[0];
             if ((slot === null || slot === void 0 ? void 0 : slot.type) === vue.Text) {
                 return slot.children;
             }
@@ -200,4 +198,4 @@ const VueShowdownPlugin = {
 exports.showdown = showdown__namespace;
 exports.VueShowdown = VueShowdown;
 exports.VueShowdownPlugin = VueShowdownPlugin;
-exports.default = VueShowdownPlugin;
+exports["default"] = VueShowdownPlugin;

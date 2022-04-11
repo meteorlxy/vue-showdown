@@ -1,10 +1,10 @@
 /*!
  * vue-showdown - Use showdown as a vue component
  *
- * @version v3.1.0
+ * @version v3.2.0
  * @link https://vue-showdown.js.org
  * @license MIT
- * @copyright 2018-2021 meteorlxy
+ * @copyright 2018-2022 meteorlxy
  */
 
 import * as showdown from 'showdown';
@@ -122,7 +122,7 @@ const VueShowdown = defineComponent({
                 return props.markdown;
             }
             // from default slot
-            const slot = (_a = slots.default) === null || _a === void 0 ? void 0 : _a.call(slots)[0];
+            const slot = (_a = slots['default']) === null || _a === void 0 ? void 0 : _a.call(slots)[0];
             if ((slot === null || slot === void 0 ? void 0 : slot.type) === Text) {
                 return slot.children;
             }
@@ -172,5 +172,4 @@ const VueShowdownPlugin = {
     },
 };
 
-export default VueShowdownPlugin;
-export { VueShowdown, VueShowdownPlugin };
+export { VueShowdown, VueShowdownPlugin, VueShowdownPlugin as default };

@@ -1,3 +1,12 @@
+# [3.2.0](https://github.com/meteorlxy/vue-showdown/compare/v3.1.0...v3.2.0) (2022-04-11)
+
+
+### Features
+
+* bump to showdown v2 ([5e727f8](https://github.com/meteorlxy/vue-showdown/commit/5e727f8634da2f2d7bd809591bcfbfbe4a7ab7d1))
+
+
+
 # [3.1.0](https://github.com/meteorlxy/vue-showdown/compare/v3.0.0...v3.1.0) (2021-04-26)
 
 
