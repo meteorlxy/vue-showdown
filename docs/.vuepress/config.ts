@@ -1,6 +1,7 @@
 import { path } from '@vuepress/utils';
 import { defineUserConfig } from 'vuepress';
 import type { DefaultThemeOptions } from 'vuepress';
+import { version } from '../../package.json';
 
 export default defineUserConfig<DefaultThemeOptions>({
   head: [['link', { rel: 'icon', href: `/logo.png` }]],
@@ -47,7 +48,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             link: '/playground/',
           },
           {
-            text: 'Changelog',
+            text: `v${version}`,
             link: 'https://github.com/meteorlxy/vue-showdown/blob/main/CHANGELOG.md',
           },
         ],
