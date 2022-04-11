@@ -1,72 +1,3 @@
-<template>
-  <p>Input:</p>
-
-  <textarea
-    v-model="markdownInput"
-    :rows="markdownInput.split('\n').length + 2"
-  >
-  </textarea>
-
-  <p>Output:</p>
-
-  <VueShowdown
-    :markdown="markdownInput"
-    :options="options"
-    :extensions="extensions"
-    :vue-template="vueTemplate"
-    :vue-template-data="vueTemplateData"
-  >
-  </VueShowdown>
-
-  <hr />
-
-  <p>Props:</p>
-
-  <ul>
-    <li>
-      <span>vueTemplate</span>
-      <input v-model="vueTemplate" type="checkbox" />
-    </li>
-
-    <li>
-      <span>vueTemplateData</span>
-      <textarea
-        :value="vueTemplateDataJson"
-        :rows="vueTemplateDataJson.split('\n').length + 2"
-        @input="onVueTemplateDataInput"
-      />
-      <button @click="onVueTemplateDataSet">set</button>
-    </li>
-  </ul>
-
-  <hr />
-
-  <p>Extensions:</p>
-
-  <ul>
-    <li v-for="ext in validExtensions" :key="ext">
-      <span>{{ ext }}</span>
-
-      <input v-model="extensions" type="checkbox" :value="ext" />
-    </li>
-  </ul>
-
-  <hr />
-
-  <p>Options:</p>
-
-  <ul>
-    <li v-for="opt in Object.keys(options)" :key="opt">
-      <span>{{ opt }}</span>
-
-      <input
-        v-model="options[opt]"
-        :type="typeof options[opt] === 'boolean' ? 'checkbox' : 'text'"
-      />
-    </li>
-  </ul>
-</template>
-
 <script lang="ts" setup>
 import { computed, reactive, ref } from 'vue';
 
@@ -141,11 +72,118 @@ const options = reactive({
 });
 </script>
 
+<template>
+  <div class="container">
+    <div class="container-item left">
+      <p>Props:</p>
+
+      <ul>
+        <li>
+          <span>vueTemplate</span>
+          <input v-model="vueTemplate" type="checkbox" />
+        </li>
+
+        <li>
+          <span>vueTemplateData</span>
+          <textarea
+            :value="vueTemplateDataJson"
+            :rows="vueTemplateDataJson.split('\n').length + 2"
+            @input="onVueTemplateDataInput"
+          />
+          <button @click="onVueTemplateDataSet">set</button>
+        </li>
+      </ul>
+
+      <hr />
+
+      <p>Extensions:</p>
+
+      <ul>
+        <li v-for="ext in validExtensions" :key="ext">
+          <span>{{ ext }}</span>
+
+          <input v-model="extensions" type="checkbox" :value="ext" />
+        </li>
+      </ul>
+
+      <hr />
+
+      <p>Options:</p>
+
+      <ul>
+        <li v-for="opt in Object.keys(options)" :key="opt">
+          <span>{{ opt }}</span>
+
+          <input
+            v-model="options[opt]"
+            :type="typeof options[opt] === 'boolean' ? 'checkbox' : 'text'"
+          />
+        </li>
+      </ul>
+    </div>
+
+    <div class="right">
+      <div class="container-item right-top">
+        <p>Input:</p>
+
+        <textarea
+          v-model="markdownInput"
+          :rows="markdownInput.split('\n').length + 2"
+        >
+        </textarea>
+      </div>
+
+      <div class="container-item right-bottom">
+        <p>Output:</p>
+
+        <VueShowdown
+          :markdown="markdownInput"
+          :options="options"
+          :extensions="extensions"
+          :vue-template="vueTemplate"
+          :vue-template-data="vueTemplateData"
+        >
+        </VueShowdown>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style>
 * {
   box-sizing: border-box;
 }
+body {
+  margin: 0;
+}
 textarea {
   width: 100%;
+}
+.container {
+  display: flex;
+}
+.container-item {
+  padding: 10px;
+  overflow: auto;
+}
+.left {
+  height: 100vh;
+  width: 30vw;
+}
+.right {
+  height: 100vh;
+  width: 70vw;
+}
+.right-top,
+.right-bottom {
+  width: 70vw;
+}
+.right-top {
+  height: 40vh;
+  border-bottom: 1px solid #aaaaaa;
+}
+.right-bottom {
+  height: 60vh;
+  border-bottom: 1px solid #aaaaaa;
 }
 </style>
