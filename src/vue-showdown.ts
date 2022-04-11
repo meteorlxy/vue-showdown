@@ -126,7 +126,7 @@ export const VueShowdown = defineComponent({
       }
 
       // from default slot
-      const slot = slots.default?.()[0];
+      const slot = slots['default']?.()[0];
       if (slot?.type === Text) {
         return slot.children as string;
       }
