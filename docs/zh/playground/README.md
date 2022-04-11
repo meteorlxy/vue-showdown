@@ -95,6 +95,7 @@ const options = reactive({
   backslashEscapesHTMLTags: false,
   emoji: false,
   underline: false,
+  ellipsis: true,
   completeHTMLDocument: false,
   metadata: false,
   splitAdjacentBlockquotes: false,
