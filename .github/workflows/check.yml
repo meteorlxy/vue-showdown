@@ -12,15 +12,15 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node: [12.x, 14.x, 16.x]
+        node: ['12', '14', '16']
 
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 
@@ -30,7 +30,7 @@ jobs:
           echo "::set-output name=dir::$(npm config get cache)"
 
       - name: Set up npm cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: npm-cache
         with:
           path: ${{ steps.npm-cache-dir.outputs.dir }}
