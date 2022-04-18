@@ -9,6 +9,5 @@
   "[markdown]": {
     "files.trimTrailingWhitespace": false
   },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "vetur.validation.template": false
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
