@@ -46,7 +46,7 @@
   },
   "prettier": "@meteorlxy/prettier-config",
   "dependencies": {
-    "@types/showdown": "^1.9.4",
+    "@types/showdown": "^2.0.0",
     "showdown": "^2.0.3",
     "vue": "^3.0.0"
   },
