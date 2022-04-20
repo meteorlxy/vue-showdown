@@ -1,7 +1,7 @@
 /*!
  * vue-showdown - Use showdown as a vue component
  *
- * @version v3.2.0
+ * @version v3.3.0
  * @link https://vue-showdown.js.org
  * @license MIT
  * @copyright 2018-2022 meteorlxy
