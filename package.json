@@ -32,6 +32,7 @@
     "docs:dev": "vuepress dev docs",
     "lint": "eslint --ext .js,.ts,.vue .",
     "prepare": "husky install",
+    "publish": "git push origin main --tags",
     "version": "npm run lint && npm run build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
   },
   "commitlint": {
