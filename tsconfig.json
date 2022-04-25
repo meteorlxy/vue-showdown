@@ -2,6 +2,7 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "resolveJsonModule": true,
     "jsx": "preserve",
     "paths": {
       "vue-showdown": ["src/index.ts"]

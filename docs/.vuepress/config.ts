@@ -1,9 +1,8 @@
 import { path } from '@vuepress/utils';
-import { defineUserConfig } from 'vuepress';
-import type { DefaultThemeOptions } from 'vuepress';
+import { defaultTheme, defineUserConfig, viteBundler } from 'vuepress';
 import { version } from '../../package.json';
 
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig({
   head: [['link', { rel: 'icon', href: `/logo.png` }]],
 
   locales: {
@@ -20,17 +19,15 @@ export default defineUserConfig<DefaultThemeOptions>({
     },
   },
 
-  bundler: '@vuepress/vite',
-
-  bundlerConfig: {
+  bundler: viteBundler({
     viteOptions: {
       optimizeDeps: {
         include: ['showdown'],
       },
     },
-  },
+  }),
 
-  themeConfig: {
+  theme: defaultTheme({
     repo: 'meteorlxy/vue-showdown',
 
     docsDir: 'docs',
@@ -101,7 +98,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         openInNewWindow: '在新窗口打开',
       },
     },
-  },
+  }),
 
   alias: {
     // enable template compiler
