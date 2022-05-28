@@ -12,7 +12,8 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "vue"
   ],
   "typescript.tsdk": "node_modules/typescript/lib"
 }
