@@ -105,6 +105,4 @@ export default defineUserConfig({
     'vue': 'vue/dist/vue.esm-bundler.js',
     'vue-showdown': path.resolve(__dirname, '../../src/index.ts'),
   },
-
-  clientAppEnhanceFiles: path.resolve(__dirname, './clientAppEnhance.ts'),
 });

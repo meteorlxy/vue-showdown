@@ -49,30 +49,31 @@
   "dependencies": {
     "@types/showdown": "^2.0.0",
     "showdown": "^2.1.0",
-    "vue": "^3.0.0"
+    "vue": "^3.2.36"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.4",
-    "@commitlint/config-conventional": "^16.2.4",
-    "@meteorlxy/eslint-config-prettier": "^2.9.0",
-    "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.9.0",
+    "@commitlint/cli": "^17.0.1",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@meteorlxy/eslint-config-prettier": "^2.10.0",
+    "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.10.0",
     "@meteorlxy/prettier-config": "^2.7.0",
-    "@meteorlxy/tsconfig": "^2.7.0",
-    "@vitejs/plugin-vue": "^2.3.2",
-    "@vuepress/utils": "2.0.0-beta.43",
+    "@meteorlxy/tsconfig": "^2.10.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vuepress/client": "2.0.0-beta.46",
+    "@vuepress/utils": "2.0.0-beta.46",
     "conventional-changelog-cli": "^2.2.2",
-    "eslint": "^8.15.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^12.4.1",
+    "eslint": "^8.16.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.2",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.72.1",
-    "rollup-plugin-dts": "^4.2.1",
+    "rollup": "^2.75.0",
+    "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.2",
     "sort-package-json": "^1.57.0",
-    "typescript": "^4.6.4",
-    "vite": "~2.9.8",
-    "vuepress": "2.0.0-beta.43"
+    "typescript": "^4.7.2",
+    "vite": "~2.9.9",
+    "vuepress": "2.0.0-beta.46"
   }
 }
