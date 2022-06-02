@@ -8,14 +8,6 @@ module.exports = {
       parserOptions: {
         project: ['tsconfig.json'],
       },
-      rules: {
-        'import/no-extraneous-dependencies': [
-          'error',
-          {
-            devDependencies: ['docs/.vuepress/**/*.ts', 'vite.config.ts'],
-          },
-        ],
-      },
     },
     {
       files: ['dev/**/*.vue'],
