@@ -81,7 +81,7 @@ export default defineUserConfig({
         contributorsText: '贡献者',
 
         // custom blocks
-        info: '提示',
+        tip: '提示',
         warning: '注意',
         danger: '警告',
 
@@ -100,9 +100,16 @@ export default defineUserConfig({
     },
   }),
 
-  alias: {
-    // enable template compiler
-    'vue': 'vue/dist/vue.esm-bundler.js',
-    'vue-showdown': path.resolve(__dirname, '../../src/index.ts'),
+  alias: (_, isServer) => {
+    const aliases: Record<string, string> = {
+      'vue-showdown': path.resolve(__dirname, '../../src/index.ts'),
+    };
+
+    if (!isServer) {
+      // enable template compiler
+      aliases.vue = 'vue/dist/vue.esm-bundler.js';
+    }
+
+    return aliases;
   },
 });
