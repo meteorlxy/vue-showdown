@@ -1,6 +1,7 @@
 {
   "extends": "@meteorlxy/tsconfig/base.json",
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "lib": ["DOM", "ES2020"],
     "module": "ESNext",
     "moduleResolution": "node",

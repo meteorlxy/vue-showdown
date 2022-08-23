@@ -1,4 +1,4 @@
-import * as showdown from 'showdown';
+import showdown from 'showdown';
 import { VueShowdown } from './vue-showdown';
 import { VueShowdownPlugin } from './vue-showdown-plugin';
 

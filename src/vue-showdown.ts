@@ -1,4 +1,4 @@
-import * as showdown from 'showdown';
+import showdown from 'showdown';
 import type { ConverterOptions, Flavor, ShowdownOptions } from 'showdown';
 import { Text, computed, defineComponent, h } from 'vue';
 import type { PropType } from 'vue';
@@ -126,7 +126,7 @@ export const VueShowdown = defineComponent({
       }
 
       // from default slot
-      const slot = slots['default']?.()[0];
+      const slot = slots.default?.()[0];
       if (slot?.type === Text) {
         return slot.children as string;
       }
