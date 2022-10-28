@@ -17,7 +17,16 @@ import { VueShowdown } from './vue-showdown';
  * @public
  */
 export const VueShowdownPlugin: Plugin = {
-  install(app, { flavor = null, options = {} } = {}) {
+  install(
+    app,
+    {
+      flavor = null,
+      options = {},
+    }: {
+      flavor?: showdown.Flavor | null;
+      options?: showdown.ShowdownOptions;
+    } = {},
+  ) {
     // set default flavor
     if (flavor !== null) {
       showdown.setFlavor(flavor);

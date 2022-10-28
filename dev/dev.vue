@@ -20,17 +20,21 @@ const markdownInput = ref(`\
 const validExtensions = ref(['replaceMarkdownByShowdown']);
 
 const vueTemplate = ref(false);
-const vueTemplateData = ref({ message: 'hello' });
+const vueTemplateData = ref<Record<string, unknown>>({ message: 'hello' });
 const vueTemplateDataJson = computed(() =>
   JSON.stringify(vueTemplateData.value, null, 2),
 );
 const vueTemplateDataText = ref('');
-const onVueTemplateDataInput = (event): void => {
-  vueTemplateDataText.value = event.target?.value;
+const onVueTemplateDataInput = (event: Event): void => {
+  vueTemplateDataText.value =
+    (event.target as HTMLInputElement | null)?.value ?? '';
   event.preventDefault();
 };
 const onVueTemplateDataSet = (): void => {
-  vueTemplateData.value = JSON.parse(vueTemplateDataText.value);
+  vueTemplateData.value = JSON.parse(vueTemplateDataText.value) as Record<
+    string,
+    unknown
+  >;
 };
 
 const extensions = ref([]);
