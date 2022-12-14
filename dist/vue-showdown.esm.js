@@ -1,14 +1,14 @@
 /*!
  * vue-showdown - Use showdown as a vue component
  *
- * @version v3.3.0
+ * @version v4.0.0
  * @link https://vue-showdown.js.org
  * @license MIT
  * @copyright 2018-2022 meteorlxy
  */
 
-import * as showdown from 'showdown';
-export { showdown };
+import showdown from 'showdown';
+export { default as showdown } from 'showdown';
 import { defineComponent, computed, Text, h } from 'vue';
 
 /**
@@ -116,14 +116,13 @@ const VueShowdown = defineComponent({
         });
         // the raw markdown string
         const inputMarkdown = computed(() => {
-            var _a;
             // from props
             if (props.markdown !== null) {
                 return props.markdown;
             }
             // from default slot
-            const slot = (_a = slots['default']) === null || _a === void 0 ? void 0 : _a.call(slots)[0];
-            if ((slot === null || slot === void 0 ? void 0 : slot.type) === Text) {
+            const slot = slots.default?.()[0];
+            if (slot?.type === Text) {
                 return slot.children;
             }
             // fall back to empty string
@@ -157,7 +156,7 @@ const VueShowdown = defineComponent({
  * @public
  */
 const VueShowdownPlugin = {
-    install(app, { flavor = null, options = {} } = {}) {
+    install(app, { flavor = null, options = {}, } = {}) {
         // set default flavor
         if (flavor !== null) {
             showdown.setFlavor(flavor);

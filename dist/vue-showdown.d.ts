@@ -1,5 +1,5 @@
-import * as showdown from 'showdown';
-export { showdown };
+import showdown from 'showdown';
+export { default as showdown } from 'showdown';
 import * as vue from 'vue';
 import { PropType, Plugin } from 'vue';
 
@@ -91,7 +91,7 @@ declare const VueShowdown: vue.DefineComponent<{
     };
 }, () => vue.VNode<vue.RendererNode, vue.RendererElement, {
     [key: string]: any;
-}>, unknown, {}, {}, vue.ComponentOptionsMixin, vue.ComponentOptionsMixin, Record<string, any>, string, vue.VNodeProps & vue.AllowedComponentProps & vue.ComponentCustomProps, Readonly<vue.ExtractPropTypes<{
+}>, unknown, {}, {}, vue.ComponentOptionsMixin, vue.ComponentOptionsMixin, {}, string, vue.VNodeProps & vue.AllowedComponentProps & vue.ComponentCustomProps, Readonly<vue.ExtractPropTypes<{
     /**
      * Raw markdown content
      */

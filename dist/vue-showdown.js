@@ -1,7 +1,7 @@
 /*!
  * vue-showdown - Use showdown as a vue component
  *
- * @version v3.3.0
+ * @version v4.0.0
  * @link https://vue-showdown.js.org
  * @license MIT
  * @copyright 2018-2022 meteorlxy
@@ -12,26 +12,6 @@
   typeof define === 'function' && define.amd ? define(['exports', 'showdown', 'vue'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.VueShowdown = {}, global.showdown, global.Vue));
 })(this, (function (exports, showdown, vue) { 'use strict';
-
-  function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
-    var n = Object.create(null);
-    if (e) {
-      Object.keys(e).forEach(function (k) {
-        if (k !== 'default') {
-          var d = Object.getOwnPropertyDescriptor(e, k);
-          Object.defineProperty(n, k, d.get ? d : {
-            enumerable: true,
-            get: function () { return e[k]; }
-          });
-        }
-      });
-    }
-    n["default"] = e;
-    return Object.freeze(n);
-  }
-
-  var showdown__namespace = /*#__PURE__*/_interopNamespace(showdown);
 
   /**
    * The VueShowdown component
@@ -125,7 +105,7 @@
       setup(props, { slots }) {
           // the showdown converter instance ref
           const converter = vue.computed(() => {
-              const instance = new showdown__namespace.Converter({
+              const instance = new showdown.Converter({
                   extensions: props.extensions || undefined,
               });
               if (props.flavor !== null) {
@@ -138,14 +118,13 @@
           });
           // the raw markdown string
           const inputMarkdown = vue.computed(() => {
-              var _a;
               // from props
               if (props.markdown !== null) {
                   return props.markdown;
               }
               // from default slot
-              const slot = (_a = slots['default']) === null || _a === void 0 ? void 0 : _a.call(slots)[0];
-              if ((slot === null || slot === void 0 ? void 0 : slot.type) === vue.Text) {
+              const slot = slots.default?.()[0];
+              if (slot?.type === vue.Text) {
                   return slot.children;
               }
               // fall back to empty string
@@ -179,14 +158,14 @@
    * @public
    */
   const VueShowdownPlugin = {
-      install(app, { flavor = null, options = {} } = {}) {
+      install(app, { flavor = null, options = {}, } = {}) {
           // set default flavor
           if (flavor !== null) {
-              showdown__namespace.setFlavor(flavor);
+              showdown.setFlavor(flavor);
           }
           // set default options (override flavor)
           Object.entries(options).forEach(([key, value]) => {
-              showdown__namespace.setOption(key, value);
+              showdown.setOption(key, value);
           });
           // register vue-showdown component globally
           // eslint-disable-next-line vue/match-component-file-name
@@ -199,10 +178,8 @@
       window.VueShowdown = VueShowdown;
   }
 
-  exports.showdown = showdown__namespace;
+  exports.showdown = showdown;
   exports.VueShowdown = VueShowdown;
   exports.VueShowdownPlugin = VueShowdownPlugin;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
 
 }));

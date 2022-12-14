@@ -1,3 +1,17 @@
+# [4.0.0](https://github.com/meteorlxy/vue-showdown/compare/v3.3.0...v4.0.0) (2022-12-14)
+
+
+### Build System
+
+* set build target to es2020 ([fa2796f](https://github.com/meteorlxy/vue-showdown/commit/fa2796fa5036769e0abac7f80362b9fc7742418e))
+
+
+### BREAKING CHANGES
+
+* drop support for Node 12 and publish as an esm package
+
+
+
 # [3.3.0](https://github.com/meteorlxy/vue-showdown/compare/v3.2.0...v3.3.0) (2022-04-20)
 
 
