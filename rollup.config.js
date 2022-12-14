@@ -1,10 +1,17 @@
-import * as path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import terser from '@rollup/plugin-terser';
 import dts from 'rollup-plugin-dts';
-import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
-import pkg from './package.json';
 
-const resolve = (...args) => path.resolve(__dirname, ...args);
+// workaround for https://github.com/rollup/plugins/issues/1366
+// eslint-disable-next-line no-underscore-dangle
+global.__filename = fileURLToPath(import.meta.url);
+
+const resolve = (...args) =>
+  path.resolve(path.dirname(fileURLToPath(import.meta.url)), ...args);
+const pkg = JSON.parse(fs.readFileSync(resolve('./package.json')));
 
 const banner = `\
 /*!

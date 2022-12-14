@@ -13,6 +13,7 @@
   },
   "license": "MIT",
   "author": "meteorlxy <meteor.lxy@foxmail.com> (https://www.meteorlxy.cn)",
+  "type": "module",
   "exports": {
     "import": "./dist/vue-showdown.esm.js",
     "require": "./dist/vue-showdown.cjs.js"
@@ -33,7 +34,7 @@
     "lint": "eslint --ext .js,.ts,.vue .",
     "prepare": "husky install",
     "publish": "git push origin main --tags",
-    "version": "npm run lint && npm run build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
+    "version": "pnpm lint && pnpm build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
   },
   "commitlint": {
     "extends": [
@@ -49,31 +50,32 @@
   "dependencies": {
     "@types/showdown": "^2.0.0",
     "showdown": "^2.1.0",
-    "vue": "^3.2.41"
+    "vue": "^3.2.45"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
-    "@meteorlxy/eslint-config-prettier": "^2.18.0",
-    "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.18.1",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@meteorlxy/eslint-config-prettier": "^2.19.0",
+    "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.19.0",
     "@meteorlxy/prettier-config": "^2.11.0",
     "@meteorlxy/tsconfig": "^2.16.0",
-    "@vitejs/plugin-vue": "^3.1.2",
-    "@vuepress/client": "2.0.0-beta.53",
-    "@vuepress/utils": "2.0.0-beta.53",
+    "@rollup/plugin-terser": "^0.2.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vuepress/client": "2.0.0-beta.59",
+    "@vuepress/utils": "2.0.0-beta.59",
     "conventional-changelog-cli": "^2.2.2",
-    "eslint": "^8.26.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
+    "eslint": "^8.29.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.79.1",
-    "rollup-plugin-dts": "^4.2.2",
-    "rollup-plugin-terser": "^7.0.2",
+    "rollup": "^3.7.4",
+    "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-typescript2": "^0.34.1",
-    "sort-package-json": "^2.0.0",
-    "typescript": "^4.8.4",
-    "vite": "~3.1.8",
-    "vuepress": "2.0.0-beta.53"
-  }
+    "sort-package-json": "^2.1.0",
+    "typescript": "^4.9.4",
+    "vite": "~4.0.1",
+    "vuepress": "2.0.0-beta.59"
+  },
+  "packageManager": "pnpm@7.18.1"
 }

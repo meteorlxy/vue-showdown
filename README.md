@@ -56,10 +56,10 @@ git clone https://github.com/meteorlxy/vue-showdown
 cd vue-showdown
 
 # Install dependencies
-npm i
+pnpm i
 
 # Start the dev-server
-npm run dev
+pnpm dev
 ```
 
 ## LICENSE
