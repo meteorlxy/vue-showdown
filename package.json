@@ -15,8 +15,11 @@
   "author": "meteorlxy <meteor.lxy@foxmail.com> (https://www.meteorlxy.cn)",
   "type": "module",
   "exports": {
-    "import": "./dist/vue-showdown.esm.js",
-    "require": "./dist/vue-showdown.cjs.js"
+    ".": {
+      "import": "./dist/vue-showdown.esm.js",
+      "require": "./dist/vue-showdown.cjs.js"
+    },
+    "./package.json": "./package.json"
   },
   "main": "./dist/vue-showdown.cjs.js",
   "unpkg": "./dist/vue-showdown.min.js",
@@ -77,5 +80,8 @@
     "vite": "~4.0.1",
     "vuepress": "2.0.0-beta.59"
   },
-  "packageManager": "pnpm@7.18.1"
+  "packageManager": "pnpm@7.18.1",
+  "engines": {
+    "node": ">=14.18.0"
+  }
 }

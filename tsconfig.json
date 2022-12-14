@@ -2,6 +2,7 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "declaration": false,
     "resolveJsonModule": true,
     "jsx": "preserve",
     "paths": {
