@@ -1,7 +1,7 @@
-import showdown from 'showdown';
 import type { ConverterOptions, Flavor, ShowdownOptions } from 'showdown';
-import { Text, computed, defineComponent, h } from 'vue';
+import showdown from 'showdown';
 import type { PropType } from 'vue';
+import { Text, computed, defineComponent, h } from 'vue';
 
 /**
  * The VueShowdown component
