@@ -1,4 +1,4 @@
-import showdown from 'showdown';
+import showdown, { Flavor, ShowdownOptions } from 'showdown';
 export { default as showdown } from 'showdown';
 import * as vue from 'vue';
 import { PropType, Plugin } from 'vue';
@@ -49,7 +49,7 @@ declare const VueShowdown: vue.DefineComponent<{
      * @see https://github.com/showdownjs/showdown#flavors
      */
     flavor: {
-        type: PropType<showdown.Flavor | null>;
+        type: PropType<Flavor | null>;
         required: false;
         default: null;
     };
@@ -59,7 +59,7 @@ declare const VueShowdown: vue.DefineComponent<{
      * @see https://github.com/showdownjs/showdown#valid-options
      */
     options: {
-        type: PropType<showdown.ShowdownOptions>;
+        type: PropType<ShowdownOptions>;
         required: false;
         default: () => {};
     };
@@ -114,7 +114,7 @@ declare const VueShowdown: vue.DefineComponent<{
      * @see https://github.com/showdownjs/showdown#flavors
      */
     flavor: {
-        type: PropType<showdown.Flavor | null>;
+        type: PropType<Flavor | null>;
         required: false;
         default: null;
     };
@@ -124,7 +124,7 @@ declare const VueShowdown: vue.DefineComponent<{
      * @see https://github.com/showdownjs/showdown#valid-options
      */
     options: {
-        type: PropType<showdown.ShowdownOptions>;
+        type: PropType<ShowdownOptions>;
         required: false;
         default: () => {};
     };
@@ -158,8 +158,8 @@ declare const VueShowdown: vue.DefineComponent<{
     extensions: Required<(string | (() => showdown.ShowdownExtension | showdown.ShowdownExtension[]) | showdown.ShowdownExtension | showdown.ShowdownExtension[])[] | null | undefined>;
     markdown: string | null;
     tag: string;
-    flavor: showdown.Flavor | null;
-    options: showdown.ShowdownOptions;
+    flavor: Flavor | null;
+    options: ShowdownOptions;
     vueTemplate: boolean;
     vueTemplateData: Record<string, any>;
 }>;

@@ -1,3 +1,12 @@
+# [4.1.0](https://github.com/meteorlxy/vue-showdown/compare/v4.0.0...v4.1.0) (2023-05-10)
+
+
+### Features
+
+* drop node 14 ([bba3951](https://github.com/meteorlxy/vue-showdown/commit/bba395150e4466d0eb11cb23a3fc72dad6a5b7c5))
+
+
+
 # [4.0.0](https://github.com/meteorlxy/vue-showdown/compare/v3.3.0...v4.0.0) (2022-12-14)
 
 

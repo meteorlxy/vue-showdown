@@ -1,10 +1,10 @@
 /*!
  * vue-showdown - Use showdown as a vue component
  *
- * @version v4.0.0
+ * @version v4.1.0
  * @link https://vue-showdown.js.org
  * @license MIT
- * @copyright 2018-2022 meteorlxy
+ * @copyright 2018-2023 meteorlxy
  */
 
 (function (global, factory) {
