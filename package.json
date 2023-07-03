@@ -16,8 +16,14 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/vue-showdown.esm.js",
-      "require": "./dist/vue-showdown.cjs.js"
+      "import": {
+        "types": "./dist/vue-showdown.d.ts",
+        "default": "./dist/vue-showdown.esm.js"
+      },
+      "require": {
+        "types": "./dist/vue-showdown.d.ts",
+        "default": "./dist/vue-showdown.cjs.js"
+      }
     },
     "./package.json": "./package.json"
   },
