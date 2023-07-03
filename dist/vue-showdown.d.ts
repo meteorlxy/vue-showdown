@@ -162,7 +162,7 @@ declare const VueShowdown: vue.DefineComponent<{
     options: ShowdownOptions;
     vueTemplate: boolean;
     vueTemplateData: Record<string, any>;
-}>;
+}, {}>;
 
 /**
  * The VueShowdown plugin

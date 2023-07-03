@@ -1,3 +1,12 @@
+## [4.1.1](https://github.com/meteorlxy/vue-showdown/compare/v4.1.0...v4.1.1) (2023-07-03)
+
+
+### Bug Fixes
+
+* fix types definitions (close [#47](https://github.com/meteorlxy/vue-showdown/issues/47)) ([16010a8](https://github.com/meteorlxy/vue-showdown/commit/16010a8bf19ff9b57c18758ec3ffa500de084547))
+
+
+
 # [4.1.0](https://github.com/meteorlxy/vue-showdown/compare/v4.0.0...v4.1.0) (2023-05-10)
 
 
