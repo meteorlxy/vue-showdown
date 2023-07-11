@@ -232,7 +232,7 @@ import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
-    const message = ref('hello, vue template in markdown!')
+    const message = ref('hello, vue template in markdown!');
     return { message };
   },
 });

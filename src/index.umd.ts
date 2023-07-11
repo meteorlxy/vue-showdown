@@ -5,12 +5,12 @@ export * from './index';
 
 declare global {
   interface Window {
-    VueShowdownPlugin: Plugin;
     VueShowdown: Component;
+    VueShowdownPlugin: Plugin;
   }
 }
 
 if (typeof window !== 'undefined') {
-  window.VueShowdownPlugin = VueShowdownPlugin;
   window.VueShowdown = VueShowdown;
+  window.VueShowdownPlugin = VueShowdownPlugin;
 }

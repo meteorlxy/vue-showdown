@@ -22,7 +22,7 @@ Import and use it:
 ```js
 import { createApp } from 'vue';
 import { VueShowdownPlugin } from 'vue-showdown';
-import App from './App.vue'
+import App from './App.vue';
 
 const app = createApp(App);
 
