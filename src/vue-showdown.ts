@@ -104,7 +104,7 @@ export const VueShowdown = defineComponent({
     // the showdown converter instance ref
     const converter = computed(() => {
       const instance = new showdown.Converter({
-        extensions: props.extensions || undefined,
+        extensions: props.extensions ?? undefined,
       });
 
       if (props.flavor !== null) {
