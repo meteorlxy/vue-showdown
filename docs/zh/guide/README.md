@@ -205,7 +205,7 @@ app.use(VueShowdownPlugin, {
 - 默认值： `false`
 
 ::: warning 注意
-如果你设置该 prop 为 `true`，你需要使用 Vue 完整版（运行时 + 编译器），因为我们需要在客户端编译模板。查看 [运行时 + 编译器 vs. 只包含运行时](https://v3.vuejs.org/guide/installation.html#runtime-compiler-vs-runtime-only))。
+如果你设置该 prop 为 `true`，你需要使用 Vue 完整版（运行时 + 编译器），因为我们需要在客户端编译模板。更多细节请参考 [Vue 构建文件指南](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use)。
 
 当你有类似 [#5](https://github.com/meteorlxy/vue-showdown/issues/5) 的需求时，可以尝试使用该功能。
 :::
