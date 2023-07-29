@@ -63,10 +63,10 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.6",
-    "@commitlint/config-conventional": "^17.6.6",
-    "@meteorlxy/eslint-config-prettier": "^2.25.0",
-    "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.27.1",
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "@meteorlxy/eslint-config-prettier": "^2.27.2",
+    "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.27.2",
     "@meteorlxy/prettier-config": "^2.11.0",
     "@meteorlxy/tsconfig": "^2.23.1",
     "@rollup/plugin-terser": "^0.4.3",
@@ -74,20 +74,20 @@
     "@vuepress/client": "2.0.0-beta.66",
     "@vuepress/utils": "2.0.0-beta.66",
     "conventional-changelog-cli": "^3.0.0",
-    "eslint": "^8.44.0",
+    "eslint": "^8.46.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "rimraf": "^5.0.1",
-    "rollup": "^3.26.2",
+    "rollup": "^3.27.0",
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-typescript2": "^0.35.0",
     "sort-package-json": "^2.5.1",
     "typescript": "^5.1.6",
-    "vite": "~4.4.3",
+    "vite": "~4.4.7",
     "vuepress": "2.0.0-beta.66"
   },
-  "packageManager": "pnpm@8.6.7",
+  "packageManager": "pnpm@8.6.10",
   "engines": {
     "node": ">=16.19.0"
   }
