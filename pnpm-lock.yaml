@@ -26,8 +26,8 @@ devDependencies:
     specifier: ^2.27.3
     version: 2.27.3(@typescript-eslint/parser@6.4.1)(eslint@8.47.0)
   '@meteorlxy/eslint-config-prettier-typescript-vue':
-    specifier: ^2.27.3
-    version: 2.27.3(@typescript-eslint/parser@6.4.1)(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6)
+    specifier: ^2.28.0
+    version: 2.28.0(@typescript-eslint/parser@6.4.1)(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6)
   '@meteorlxy/prettier-config':
     specifier: ^2.11.0
     version: 2.11.0
@@ -688,11 +688,11 @@ packages:
     resolution: {integrity: sha512-mrC4y8n88BYvgcgzq9bvTlDgFyi2zuvzmPilRvRc3Uz1iIvq8mDhxJ0rHKFUNzPEScpDvJdIujqiDrulMqiudA==}
     dev: true
 
-  /@meteorlxy/eslint-config-prettier-typescript-vue@2.27.3(@typescript-eslint/parser@6.4.1)(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-I+5yb+H4omSNzhuGXM2RhL0mjfCXZERv7MeyAAeS25RNTrC9hL8YXGOx77A0vCTNL9brYmTh+mi29dbwIC8OYA==}
+  /@meteorlxy/eslint-config-prettier-typescript-vue@2.28.0(@typescript-eslint/parser@6.4.1)(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-LQmosrREYV6GvuFFhR4O+AGce4btcPjxLCB5D5h09OymD7cJutDyfdgq27PvGHXq0R6lA7NLHDwie2c1/TpetA==}
     dependencies:
       '@meteorlxy/eslint-config-prettier': 2.27.3(@typescript-eslint/parser@6.4.1)(eslint@8.47.0)
-      '@meteorlxy/eslint-config-typescript-vue': 2.27.3(@typescript-eslint/parser@6.4.1)(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6)
+      '@meteorlxy/eslint-config-typescript-vue': 2.28.0(@typescript-eslint/parser@6.4.1)(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6)
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
       - eslint
@@ -716,10 +716,10 @@ packages:
       - supports-color
     dev: true
 
-  /@meteorlxy/eslint-config-typescript-vue@2.27.3(@typescript-eslint/parser@6.4.1)(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-a/M1f5u5amMsyaZ3JU3t1xtbOWfSIJXw4C350FISO0jfVexjjhfRfILZR3MB4ONr6qZJapuS2HS5a/IfLAc96Q==}
+  /@meteorlxy/eslint-config-typescript-vue@2.28.0(@typescript-eslint/parser@6.4.1)(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-w2NbyzOR+gCjN1I221iFvvHVJq506DTzgiYKijKdIpOoWUwQhvJzpaAEgmaycOb5mPhbjYMNsB7FSCIVK+GnyA==}
     dependencies:
-      '@meteorlxy/eslint-config-typescript': 2.27.3(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6)
+      '@meteorlxy/eslint-config-typescript': 2.28.0(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6)
       '@meteorlxy/eslint-config-vue': 2.27.3(@typescript-eslint/parser@6.4.1)(eslint@8.47.0)
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
@@ -731,8 +731,8 @@ packages:
       - typescript
     dev: true
 
-  /@meteorlxy/eslint-config-typescript@2.27.3(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-DaM1W0DJy8WGtqJJ09UXpKXQsRWq5JHXCwsR8Um7uRkIL843LIajUsChBywOv+eXKvqMTehVxbE9yA0pDzSpUQ==}
+  /@meteorlxy/eslint-config-typescript@2.28.0(eslint-plugin-import@2.28.1)(eslint@8.47.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-xQGdGvJcMQT1Oecoj443TVPN/uGmOepDbcKVxG2mDbGODo8I6i85iT2/iPh3IwNLN3IlwIVKXItbxeumZWjtOw==}
     dependencies:
       '@meteorlxy/eslint-config': 2.27.3(@typescript-eslint/parser@6.4.1)(eslint@8.47.0)
       '@typescript-eslint/eslint-plugin': 6.4.1(@typescript-eslint/parser@6.4.1)(eslint@8.47.0)(typescript@5.1.6)
