@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed, reactive, ref } from 'vue';
+import CustomComponent from './CustomComponent.vue';
 
 const markdownInput = ref(`\
 ## Vue-showdown dev
@@ -11,6 +12,8 @@ const markdownInput = ref(`\
 - [ ] replaceMarkdownByShowdown: 'markdown' will be replaced by 'showdown'
 
 <VueShowdown markdown="## Enable \`vueTemplate\` to parse vue template"/>
+
+<CustomComponent />
 
 <span v-for="n in 5"> {{ n }}</span>
 
@@ -146,6 +149,7 @@ const options = reactive({
           :extensions="extensions"
           :vue-template="vueTemplate"
           :vue-template-data="vueTemplateData"
+          :vue-template-components="{ CustomComponent }"
         >
         </VueShowdown>
       </div>
