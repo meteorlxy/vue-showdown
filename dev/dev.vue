@@ -23,6 +23,10 @@ const markdownInput = ref(`\
 const validExtensions = ref(['replaceMarkdownByShowdown']);
 
 const vueTemplate = ref(false);
+const vueTemplateComponents = ref({ CustomComponent });
+const vueTemplateComponentsJson = computed(() =>
+  JSON.stringify(Object.keys(vueTemplateComponents.value), null, 2),
+);
 const vueTemplateData = ref<Record<string, unknown>>({ message: 'hello' });
 const vueTemplateDataJson = computed(() =>
   JSON.stringify(vueTemplateData.value, null, 2),
@@ -91,6 +95,15 @@ const options = reactive({
         </li>
 
         <li>
+          <span>vueTemplateComponents</span>
+          <textarea
+            :value="vueTemplateComponentsJson"
+            :rows="vueTemplateComponentsJson.split('\n').length"
+            readonly
+          />
+        </li>
+
+        <li>
           <span>vueTemplateData</span>
           <textarea
             :value="vueTemplateDataJson"
@@ -148,8 +161,8 @@ const options = reactive({
           :options="options"
           :extensions="extensions"
           :vue-template="vueTemplate"
+          :vue-template-components="vueTemplateComponents"
           :vue-template-data="vueTemplateData"
-          :vue-template-components="{ CustomComponent }"
         >
         </VueShowdown>
       </div>

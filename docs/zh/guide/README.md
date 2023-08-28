@@ -210,6 +210,35 @@ app.use(VueShowdownPlugin, {
 当你有类似 [#5](https://github.com/meteorlxy/vue-showdown/issues/5) 的需求时，可以尝试使用该功能。
 :::
 
+### vueTemplateComponents
+
+定义你在 Vue 模板中可以使用的组件。仅在开启 [vueTemplate](#vuetemplate) 时有效。
+
+- 类型： `Object`
+- 默认值： `{}`
+- 示例：
+
+```vue
+<template>
+  <VueShowdown
+    markdown="## markdown text with <my-component />"
+    :vue-template="true"
+    :vue-template-components="{ MyComponent }"
+  />
+</template>
+
+<script>
+import { defineComponent, ref } from 'vue';
+import MyComponent from './MyComponent.vue';
+
+export default defineComponent({
+  setup() {
+    return { MyComponent };
+  },
+});
+</script>
+```
+
 ### vueTemplateData
 
 定义你在 Vue 模板中可以使用的变量。仅在开启 [vueTemplate](#vuetemplate) 时有效。

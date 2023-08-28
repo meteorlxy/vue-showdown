@@ -210,6 +210,35 @@ If you set it to `true`, you have to use the full (runtime + compiler) build of 
 If you have similar request as [#5](https://github.com/meteorlxy/vue-showdown/issues/5), you can enable this feature.
 :::
 
+### vueTemplateComponents
+
+Define components which are available in the vue template. It will only take effect when [vueTemplate](#vuetemplate) is enabled.
+
+- type: `Object`
+- default: `{}`
+- example:
+
+```vue
+<template>
+  <VueShowdown
+    markdown="## markdown text with <my-component />"
+    :vue-template="true"
+    :vue-template-components="{ MyComponent }"
+  />
+</template>
+
+<script>
+import { defineComponent, ref } from 'vue';
+import MyComponent from './MyComponent.vue';
+
+export default defineComponent({
+  setup() {
+    return { MyComponent };
+  },
+});
+</script>
+```
+
 ### vueTemplateData
 
 Define data which is available in the vue template. It will only take effect when [vueTemplate](#vuetemplate) is enabled.
