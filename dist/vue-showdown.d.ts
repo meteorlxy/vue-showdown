@@ -82,6 +82,14 @@ declare const VueShowdown: vue.DefineComponent<{
         default: boolean;
     };
     /**
+     * Define components which are available in the Vue template. Require `vueTemplate` to be enabled
+     */
+    vueTemplateComponents: {
+        type: ObjectConstructor;
+        required: false;
+        default: () => {};
+    };
+    /**
      * Define data which is available in the Vue template. Require `vueTemplate` to be enabled
      */
     vueTemplateData: {
@@ -147,6 +155,14 @@ declare const VueShowdown: vue.DefineComponent<{
         default: boolean;
     };
     /**
+     * Define components which are available in the Vue template. Require `vueTemplate` to be enabled
+     */
+    vueTemplateComponents: {
+        type: ObjectConstructor;
+        required: false;
+        default: () => {};
+    };
+    /**
      * Define data which is available in the Vue template. Require `vueTemplate` to be enabled
      */
     vueTemplateData: {
@@ -161,6 +177,7 @@ declare const VueShowdown: vue.DefineComponent<{
     flavor: Flavor | null;
     options: ShowdownOptions;
     vueTemplate: boolean;
+    vueTemplateComponents: Record<string, any>;
     vueTemplateData: Record<string, any>;
 }, {}>;
 

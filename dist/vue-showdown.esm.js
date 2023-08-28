@@ -1,7 +1,7 @@
 /*!
  * vue-showdown - Use showdown as a vue component
  *
- * @version v4.1.1
+ * @version v4.2.0
  * @link https://vue-showdown.js.org
  * @license MIT
  * @copyright 2018-2023 meteorlxy
@@ -92,6 +92,14 @@ const VueShowdown = defineComponent({
             default: false,
         },
         /**
+         * Define components which are available in the Vue template. Require `vueTemplate` to be enabled
+         */
+        vueTemplateComponents: {
+            type: Object,
+            required: false,
+            default: () => ({}),
+        },
+        /**
          * Define data which is available in the Vue template. Require `vueTemplate` to be enabled
          */
         vueTemplateData: {
@@ -104,7 +112,7 @@ const VueShowdown = defineComponent({
         // the showdown converter instance ref
         const converter = computed(() => {
             const instance = new showdown.Converter({
-                extensions: props.extensions || undefined,
+                extensions: props.extensions ?? undefined,
             });
             if (props.flavor !== null) {
                 instance.setFlavor(props.flavor);
@@ -132,6 +140,7 @@ const VueShowdown = defineComponent({
         const outputHtml = computed(() => converter.value.makeHtml(inputMarkdown.value));
         return () => props.vueTemplate
             ? h({
+                components: props.vueTemplateComponents,
                 setup: () => props.vueTemplateData,
                 template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
             })

@@ -1,3 +1,12 @@
+# [4.2.0](https://github.com/meteorlxy/vue-showdown/compare/v4.1.1...v4.2.0) (2023-08-28)
+
+
+### Features
+
+* add vueTemplateComponents prop ([#50](https://github.com/meteorlxy/vue-showdown/issues/50)) ([000da35](https://github.com/meteorlxy/vue-showdown/commit/000da35571d77e681f22363d870c34a4c0c207c5))
+
+
+
 ## [4.1.1](https://github.com/meteorlxy/vue-showdown/compare/v4.1.0...v4.1.1) (2023-07-03)
 
 
