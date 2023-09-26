@@ -58,7 +58,7 @@
   },
   "prettier": "@meteorlxy/prettier-config",
   "dependencies": {
-    "@types/showdown": "^2.0.1",
+    "@types/showdown": "^2.0.2",
     "showdown": "^2.1.0",
     "vue": "^3.3.4"
   },
@@ -73,21 +73,21 @@
     "@vitejs/plugin-vue": "^4.3.4",
     "@vuepress/client": "2.0.0-beta.66",
     "@vuepress/utils": "2.0.0-beta.66",
-    "conventional-changelog-cli": "^4.0.0",
-    "eslint": "^8.48.0",
+    "conventional-changelog-cli": "^4.1.0",
+    "eslint": "^8.50.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.0.2",
-    "rimraf": "^5.0.1",
-    "rollup": "^3.28.1",
-    "rollup-plugin-dts": "^6.0.0",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.4",
+    "rollup": "^3.29.3",
+    "rollup-plugin-dts": "^6.0.2",
     "rollup-plugin-typescript2": "^0.35.0",
     "sort-package-json": "^2.5.1",
     "typescript": "^5.2.2",
     "vite": "~4.4.9",
     "vuepress": "2.0.0-beta.66"
   },
-  "packageManager": "pnpm@8.6.12",
+  "packageManager": "pnpm@8.8.0",
   "engines": {
     "node": ">=16.19.0"
   }
