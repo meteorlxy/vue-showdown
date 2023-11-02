@@ -149,15 +149,23 @@ export const VueShowdown = defineComponent({
       converter.value.makeHtml(inputMarkdown.value),
     );
 
-    return () =>
-      props.vueTemplate
-        ? h({
-            components: props.vueTemplateComponents,
-            setup: () => props.vueTemplateData,
-            template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
-          })
-        : h(props.tag, {
-            innerHTML: outputHtml.value,
-          });
+    return () => {
+      try {
+        return props.vueTemplate
+          ? h({
+              setup: () => props.vueTemplateData,
+              template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
+              components: props.vueTemplateComponents,
+            })
+          : h(props.tag, {
+              innerHTML: outputHtml.value,
+            });
+      } catch (renderError) {
+        // Handle the exception and return only showdown render without vueTemplate
+        return h(props.tag, {
+          innerHTML: outputHtml.value,
+        });
+      }
+    };
   },
 });
