@@ -1,7 +1,7 @@
 /*!
- * vue-showdown - Use showdown as a vue component
+ * vue-showdown-ntchplayer - Use showdown as a vue component
  *
- * @version v4.2.0
+ * @version v4.2.1
  * @link https://vue-showdown.js.org
  * @license MIT
  * @copyright 2018-2023 meteorlxy
@@ -141,15 +141,25 @@ const VueShowdown = vue.defineComponent({
         });
         // the parsed HTML string
         const outputHtml = vue.computed(() => converter.value.makeHtml(inputMarkdown.value));
-        return () => props.vueTemplate
-            ? vue.h({
-                components: props.vueTemplateComponents,
-                setup: () => props.vueTemplateData,
-                template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
-            })
-            : vue.h(props.tag, {
-                innerHTML: outputHtml.value,
-            });
+        return () => {
+            try {
+                return props.vueTemplate
+                    ? vue.h({
+                        setup: () => props.vueTemplateData,
+                        template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
+                        components: props.vueTemplateComponents,
+                    })
+                    : vue.h(props.tag, {
+                        innerHTML: outputHtml.value,
+                    });
+            }
+            catch (renderError) {
+                // Handle the exception and return only showdown render without vueTemplate
+                return vue.h(props.tag, {
+                    innerHTML: outputHtml.value,
+                });
+            }
+        };
     },
 });
 

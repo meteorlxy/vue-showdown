@@ -1,16 +1,8 @@
 {
-  "name": "vue-showdown",
-  "version": "4.2.0",
+  "name": "vue-showdown-ntchplayer",
+  "version": "4.2.1",
   "description": "Use showdown as a vue component",
-  "keywords": [
-    "vue",
-    "showdown"
-  ],
   "homepage": "https://vue-showdown.js.org",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/meteorlxy/vue-showdown.git"
-  },
   "license": "MIT",
   "author": "meteorlxy <meteor.lxy@foxmail.com> (https://www.meteorlxy.cn)",
   "type": "module",
