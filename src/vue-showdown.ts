@@ -149,23 +149,38 @@ export const VueShowdown = defineComponent({
       converter.value.makeHtml(inputMarkdown.value),
     );
 
-    return () => {
-      try {
-        return props.vueTemplate
-          ? h({
-              setup: () => props.vueTemplateData,
-              template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
-              components: props.vueTemplateComponents,
-            })
-          : h(props.tag, {
-              innerHTML: outputHtml.value,
-            });
-      } catch (renderError) {
-        // Handle the exception and return only showdown render without vueTemplate
-        return h(props.tag, {
-          innerHTML: outputHtml.value,
-        });
-      }
-    };
+    const vueTemplateRender: { value: { type: { template: string } } } =
+      computed(() =>
+        h({
+          setup: () => props.vueTemplateData,
+          template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
+          components: props.vueTemplateComponents,
+        }),
+      );
+
+    // Check if HTML structure is valid
+    function checkHTMLStructure(): boolean {
+      // remove attribut from tag of template
+      const cleanAttributRegex = /<([a-z][a-z0-9]*)[^>]*?(\/?)>/gi;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      const template: string = vueTemplateRender.value.type.template.replaceAll(
+        cleanAttributRegex,
+        (_: string, tagName: string, closeTag: string) =>
+          `<${tagName}${closeTag}>`,
+      );
+
+      // check HTML structure
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(template, 'text/xml');
+      const errorNode = doc.querySelector('parsererror');
+      return !errorNode;
+    }
+
+    return () =>
+      props.vueTemplate && checkHTMLStructure()
+        ? vueTemplateRender.value
+        : h(props.tag, {
+            innerHTML: outputHtml.value,
+          });
   },
 });
