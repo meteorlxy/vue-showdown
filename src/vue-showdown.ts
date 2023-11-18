@@ -149,21 +149,15 @@ export const VueShowdown = defineComponent({
       converter.value.makeHtml(inputMarkdown.value),
     );
 
-    const vueTemplateRender: { value: { type: { template: string } } } =
-      computed(() =>
-        h({
-          setup: () => props.vueTemplateData,
-          template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
-          components: props.vueTemplateComponents,
-        }),
-      );
+    const vueTemplate = computed(
+      () => `<${props.tag}>${outputHtml.value}</${props.tag}>`,
+    );
 
     // Check if HTML structure is valid
     function checkHTMLStructure(): boolean {
       // remove attribut from tag of template
       const cleanAttributRegex = /<([a-z][a-z0-9]*)[^>]*?(\/?)>/gi;
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const template: string = vueTemplateRender.value.type.template.replaceAll(
+      const template: string = vueTemplate.value.replaceAll(
         cleanAttributRegex,
         (_: string, tagName: string, closeTag: string) =>
           `<${tagName}${closeTag}>`,
@@ -178,7 +172,11 @@ export const VueShowdown = defineComponent({
 
     return () =>
       props.vueTemplate && checkHTMLStructure()
-        ? vueTemplateRender.value
+        ? h({
+            components: props.vueTemplateComponents,
+            setup: () => props.vueTemplateData,
+            template: vueTemplate.value,
+          })
         : h(props.tag, {
             innerHTML: outputHtml.value,
           });
