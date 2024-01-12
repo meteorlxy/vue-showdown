@@ -4,7 +4,7 @@
  * @version v4.2.0
  * @link https://vue-showdown.js.org
  * @license MIT
- * @copyright 2018-2023 meteorlxy
+ * @copyright 2018-2024 meteorlxy
  */
 
 (function (global, factory) {

@@ -4,15 +4,12 @@
  * @version v4.2.0
  * @link https://vue-showdown.js.org
  * @license MIT
- * @copyright 2018-2023 meteorlxy
+ * @copyright 2018-2024 meteorlxy
  */
 
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var showdown = require('showdown');
-var vue = require('vue');
+import showdown from 'showdown';
+export { default as showdown } from 'showdown';
+import { defineComponent, computed, Text, h } from 'vue';
 
 /**
  * The VueShowdown component
@@ -37,7 +34,7 @@ var vue = require('vue');
  *
  * @public
  */
-const VueShowdown = vue.defineComponent({
+const VueShowdown = defineComponent({
     name: 'VueShowdown',
     props: {
         /**
@@ -113,7 +110,7 @@ const VueShowdown = vue.defineComponent({
     },
     setup(props, { slots }) {
         // the showdown converter instance ref
-        const converter = vue.computed(() => {
+        const converter = computed(() => {
             const instance = new showdown.Converter({
                 extensions: props.extensions ?? undefined,
             });
@@ -126,28 +123,28 @@ const VueShowdown = vue.defineComponent({
             return instance;
         });
         // the raw markdown string
-        const inputMarkdown = vue.computed(() => {
+        const inputMarkdown = computed(() => {
             // from props
             if (props.markdown !== null) {
                 return props.markdown;
             }
             // from default slot
             const slot = slots.default?.()[0];
-            if (slot?.type === vue.Text) {
+            if (slot?.type === Text) {
                 return slot.children;
             }
             // fall back to empty string
             return '';
         });
         // the parsed HTML string
-        const outputHtml = vue.computed(() => converter.value.makeHtml(inputMarkdown.value));
+        const outputHtml = computed(() => converter.value.makeHtml(inputMarkdown.value));
         return () => props.vueTemplate
-            ? vue.h({
+            ? h({
                 components: props.vueTemplateComponents,
                 setup: () => props.vueTemplateData,
                 template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
             })
-            : vue.h(props.tag, {
+            : h(props.tag, {
                 innerHTML: outputHtml.value,
             });
     },
@@ -183,7 +180,4 @@ const VueShowdownPlugin = {
     },
 };
 
-exports.showdown = showdown;
-exports.VueShowdown = VueShowdown;
-exports.VueShowdownPlugin = VueShowdownPlugin;
-exports.default = VueShowdownPlugin;
+export { VueShowdown, VueShowdownPlugin, VueShowdownPlugin as default };

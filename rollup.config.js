@@ -29,17 +29,17 @@ let hasTSChecked = false;
 export default [
   {
     input: 'index.ts',
-    output: 'vue-showdown.cjs.js',
+    output: 'vue-showdown.cjs',
     format: 'cjs',
   },
   {
     input: 'index.ts',
-    output: 'vue-showdown.esm.js',
+    output: 'vue-showdown.mjs',
     format: 'es',
   },
   {
     input: 'index.ts',
-    output: 'vue-showdown.esm.min.js',
+    output: 'vue-showdown.min.mjs',
     format: 'es',
   },
   {

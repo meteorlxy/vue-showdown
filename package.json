@@ -1,6 +1,6 @@
 {
-  "name": "vue-showdown",
-  "version": "4.2.0",
+  "name": "@applied/vue-showdown",
+  "version": "4.2.2",
   "description": "Use showdown as a vue component",
   "keywords": [
     "vue",
@@ -18,18 +18,18 @@
     ".": {
       "import": {
         "types": "./dist/vue-showdown.d.ts",
-        "default": "./dist/vue-showdown.esm.js"
+        "default": "./dist/vue-showdown.mjs"
       },
       "require": {
         "types": "./dist/vue-showdown.d.ts",
-        "default": "./dist/vue-showdown.cjs.js"
+        "default": "./dist/vue-showdown.cjs"
       }
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/vue-showdown.cjs.js",
+  "main": "./dist/vue-showdown.cjs",
   "unpkg": "./dist/vue-showdown.min.js",
-  "module": "./dist/vue-showdown.esm.js",
+  "module": "./dist/vue-showdown.mjs",
   "browser": "./dist/vue-showdown.min.js",
   "types": "./dist/vue-showdown.d.ts",
   "files": [
