@@ -42,7 +42,7 @@
     "docs:dev": "vuepress dev docs",
     "format": "prettier --write .",
     "lint": "eslint --ext .js,.ts,.vue . && prettier --check .",
-    "prepare": "husky install",
+    "prepare": "husky",
     "publish": "git push origin main --tags",
     "version": "pnpm lint && pnpm build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
   },
@@ -60,34 +60,34 @@
   "dependencies": {
     "@types/showdown": "^2.0.6",
     "showdown": "^2.1.0",
-    "vue": "^3.4.5"
+    "vue": "^3.4.19"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.4",
-    "@commitlint/config-conventional": "^18.4.4",
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.2",
     "@meteorlxy/eslint-config-prettier": "^2.27.3",
     "@meteorlxy/eslint-config-prettier-typescript-vue": "^2.28.1",
     "@meteorlxy/prettier-config": "^2.11.0",
     "@meteorlxy/tsconfig": "^2.29.0",
     "@rollup/plugin-terser": "^0.4.4",
-    "@vitejs/plugin-vue": "^5.0.2",
-    "@vuepress/client": "2.0.0-rc.0",
-    "@vuepress/utils": "2.0.0-rc.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vuepress/bundler-vite": "2.0.0-rc.8",
+    "@vuepress/theme-default": "2.0.0-rc.15",
     "conventional-changelog-cli": "^4.1.0",
     "eslint": "^8.56.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
-    "rollup": "^4.9.4",
+    "rollup": "^4.12.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-typescript2": "^0.36.0",
-    "sort-package-json": "^2.6.0",
+    "sort-package-json": "^2.7.0",
     "typescript": "^5.3.3",
-    "vite": "~5.0.11",
-    "vuepress": "2.0.0-rc.0"
+    "vite": "~5.1.3",
+    "vuepress": "2.0.0-rc.8"
   },
-  "packageManager": "pnpm@8.14.0",
+  "packageManager": "pnpm@8.15.3",
   "engines": {
     "node": ">=18.16.0"
   }

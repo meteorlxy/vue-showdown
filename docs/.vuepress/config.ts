@@ -1,5 +1,7 @@
-import { path } from '@vuepress/utils';
-import { defaultTheme, defineUserConfig, viteBundler } from 'vuepress';
+import { viteBundler } from '@vuepress/bundler-vite';
+import { defaultTheme } from '@vuepress/theme-default';
+import { defineUserConfig } from 'vuepress';
+import { path } from 'vuepress/utils';
 import { version } from '../../package.json';
 
 export default defineUserConfig({

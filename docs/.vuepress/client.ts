@@ -1,5 +1,5 @@
-import { defineClientConfig, resolvers } from '@vuepress/client';
 import VueShowdownPlugin from 'vue-showdown';
+import { defineClientConfig, resolvers } from 'vuepress/client';
 
 export default defineClientConfig({
   enhance({ app }) {
