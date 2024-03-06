@@ -52,8 +52,11 @@
     ]
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown",
-    "*.{js,ts,vue}": "eslint --fix",
+    "*.!(js|ts|vue)": "prettier --write --ignore-unknown",
+    "*.(js|ts|vue)": [
+      "eslint --fix",
+      "prettier --write"
+    ],
     "package.json": "sort-package-json"
   },
   "prettier": "@meteorlxy/prettier-config",
