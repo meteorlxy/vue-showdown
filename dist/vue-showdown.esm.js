@@ -1,7 +1,7 @@
 /*!
- * vue-showdown - Use showdown as a vue component
+ * vue-showdown-ntchplayer - Use showdown as a vue component
  *
- * @version v4.2.0
+ * @version v4.2.2
  * @link https://vue-showdown.js.org
  * @license MIT
  * @copyright 2018-2023 meteorlxy
@@ -138,11 +138,23 @@ const VueShowdown = defineComponent({
         });
         // the parsed HTML string
         const outputHtml = computed(() => converter.value.makeHtml(inputMarkdown.value));
-        return () => props.vueTemplate
+        const vueTemplate = computed(() => `<${props.tag}>${outputHtml.value}</${props.tag}>`);
+        // Check if HTML structure is valid
+        function checkHTMLStructure() {
+            // remove attribut from tag of template
+            const cleanAttributRegex = /<([a-z][a-z0-9]*)[^>]*?(\/?)>/gi;
+            const template = vueTemplate.value.replaceAll(cleanAttributRegex, (_, tagName, closeTag) => `<${tagName}${closeTag}>`);
+            // check HTML structure
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(template, 'text/xml');
+            const errorNode = doc.querySelector('parsererror');
+            return !errorNode;
+        }
+        return () => props.vueTemplate && checkHTMLStructure()
             ? h({
                 components: props.vueTemplateComponents,
                 setup: () => props.vueTemplateData,
-                template: `<${props.tag}>${outputHtml.value}</${props.tag}>`,
+                template: vueTemplate.value,
             })
             : h(props.tag, {
                 innerHTML: outputHtml.value,
