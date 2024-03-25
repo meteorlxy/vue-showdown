@@ -66,15 +66,15 @@
     "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
     "@meteorlxy/eslint-config": "^3.1.0",
     "@meteorlxy/prettier-config": "^3.0.0",
     "@meteorlxy/tsconfig": "^3.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@vitejs/plugin-vue": "^5.0.4",
-    "@vuepress/bundler-vite": "2.0.0-rc.8",
-    "@vuepress/theme-default": "2.0.0-rc.18",
+    "@vuepress/bundler-vite": "2.0.0-rc.9",
+    "@vuepress/theme-default": "2.0.0-rc.21",
     "conventional-changelog-cli": "^4.1.0",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.24.0",
@@ -82,16 +82,16 @@
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
-    "rollup": "^4.12.0",
+    "rollup": "^4.13.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "sort-package-json": "^2.8.0",
-    "typescript": "^5.3.3",
-    "vite": "~5.1.5",
+    "typescript": "^5.4.3",
+    "vite": "~5.2.6",
     "vue-eslint-parser": "^9.4.2",
-    "vuepress": "2.0.0-rc.8"
+    "vuepress": "2.0.0-rc.9"
   },
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@8.15.5",
   "engines": {
     "node": ">=18.16.0"
   }
