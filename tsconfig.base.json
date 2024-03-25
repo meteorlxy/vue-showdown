@@ -1,0 +1,13 @@
+{
+  "extends": "@meteorlxy/tsconfig/base.json",
+  "compilerOptions": {
+    "lib": ["DOM", "ES2022"],
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+
+    "allowSyntheticDefaultImports": true,
+    "noEmitOnError": true,
+    "noImplicitAny": false
+  }
+}
