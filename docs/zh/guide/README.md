@@ -219,14 +219,6 @@ app.use(VueShowdownPlugin, {
 - 示例：
 
 ```vue
-<template>
-  <VueShowdown
-    markdown="## markdown text with <my-component />"
-    :vue-template="true"
-    :vue-template-components="{ MyComponent }"
-  />
-</template>
-
 <script>
 import { defineComponent, ref } from 'vue';
 import MyComponent from './MyComponent.vue';
@@ -237,6 +229,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <VueShowdown
+    markdown="## markdown text with <my-component />"
+    :vue-template="true"
+    :vue-template-components="{ MyComponent }"
+  />
+</template>
 ```
 
 ### vueTemplateData
@@ -248,14 +248,6 @@ export default defineComponent({
 - 示例：
 
 ```vue
-<template>
-  <VueShowdown
-    markdown="## markdown text {{ message }}"
-    :vue-template="true"
-    :vue-template-data="{ message }"
-  />
-</template>
-
 <script>
 import { defineComponent, ref } from 'vue';
 
@@ -266,6 +258,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <VueShowdown
+    markdown="## markdown text {{ message }}"
+    :vue-template="true"
+    :vue-template-data="{ message }"
+  />
+</template>
 ```
 
 ## 进阶用法
@@ -292,14 +292,11 @@ app.use(VueShowdownPlugin);
 所以目前只能通过 `VueShowdown` 组件的 `extensions` prop 来传入 extensions。
 
 ```vue
-<template>
-  <VueShowdown markdown="## markdown text" :extensions="[myExt]" />
-</template>
-
 <script>
 import { defineComponent } from 'vue';
+import type { showdown } from 'vue-showdown';
 
-const myExt = () => [
+const myExt = (): showdown.ShowdownExtension[] => [
   {
     type: 'lang',
     regex: /markdown/g,
@@ -313,6 +310,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <VueShowdown markdown="## markdown text" :extensions="[myExt]" />
+</template>
 ```
 
 或者，你可以通过 `showdown.extension()` 全局注册 extensions，然后在 `extension` prop 中直接通过注册的名称引入。

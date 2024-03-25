@@ -219,14 +219,6 @@ Define components which are available in the vue template. It will only take eff
 - example:
 
 ```vue
-<template>
-  <VueShowdown
-    markdown="## markdown text with <my-component />"
-    :vue-template="true"
-    :vue-template-components="{ MyComponent }"
-  />
-</template>
-
 <script>
 import { defineComponent, ref } from 'vue';
 import MyComponent from './MyComponent.vue';
@@ -237,6 +229,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <VueShowdown
+    markdown="## markdown text with <my-component />"
+    :vue-template="true"
+    :vue-template-components="{ MyComponent }"
+  />
+</template>
 ```
 
 ### vueTemplateData
@@ -248,14 +248,6 @@ Define data which is available in the vue template. It will only take effect whe
 - example:
 
 ```vue
-<template>
-  <VueShowdown
-    markdown="## markdown text {{ message }}"
-    :vue-template="true"
-    :vue-template-data="{ message }"
-  />
-</template>
-
 <script>
 import { defineComponent, ref } from 'vue';
 
@@ -266,6 +258,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <VueShowdown
+    markdown="## markdown text {{ message }}"
+    :vue-template="true"
+    :vue-template-data="{ message }"
+  />
+</template>
 ```
 
 ## Advance
@@ -292,14 +292,11 @@ According to the [official docs about extensions](https://github.com/showdownjs/
 So the only way to set extensions is via the `extensions` prop of the `VueShowdown` component.
 
 ```vue
-<template>
-  <VueShowdown markdown="## markdown text" :extensions="[myExt]" />
-</template>
-
 <script>
 import { defineComponent } from 'vue';
+import type { showdown } from 'vue-showdown';
 
-const myExt = () => [
+const myExt = (): showdown.ShowdownExtension[] => [
   {
     type: 'lang',
     regex: /markdown/g,
@@ -313,6 +310,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <VueShowdown markdown="## markdown text" :extensions="[myExt]" />
+</template>
 ```
 
 Alternatively, you can register extensions globally via `showdown.extension()`, and reference it in the `extension` prop directly by the name that you registered.
