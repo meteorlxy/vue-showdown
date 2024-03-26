@@ -8,7 +8,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "[markdown]": {
-    "files.trimTrailingWhitespace": false
+    "files.trimTrailingWhitespace": false,
   },
   "eslint.experimental.useFlatConfig": true,
   "eslint.validate": [
@@ -17,7 +17,7 @@
     "markdown",
     "typescript",
     "typescriptreact",
-    "vue"
+    "vue",
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
 }
