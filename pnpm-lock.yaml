@@ -23,8 +23,8 @@ devDependencies:
     specifier: ^19.1.0
     version: 19.1.0
   '@meteorlxy/eslint-config':
-    specifier: ^3.3.0
-    version: 3.3.0(eslint-plugin-vue@9.24.0)(eslint@8.57.0)(typescript@5.4.3)(vue-eslint-parser@9.4.2)
+    specifier: ^3.3.1
+    version: 3.3.1(eslint-plugin-vue@9.24.0)(eslint@8.57.0)(typescript@5.4.3)(vue-eslint-parser@9.4.2)
   '@meteorlxy/prettier-config':
     specifier: ^3.2.0
     version: 3.2.0
@@ -681,8 +681,8 @@ packages:
     resolution: {integrity: sha512-1BeEB+DbtmDMUAfvbNUj5Hso8cSl2sBVK2iTyOMAqhfDVLdh+/9+D0JmQHaCeUk/vuJoMhOwbweZvh55wHxm4w==}
     dev: true
 
-  /@meteorlxy/eslint-config@3.3.0(eslint-plugin-vue@9.24.0)(eslint@8.57.0)(typescript@5.4.3)(vue-eslint-parser@9.4.2):
-    resolution: {integrity: sha512-dkuYpdYT4pBrbTthXv9Wo+qkgmexhD2rqC4FYbmi74YVBYjQ3EXSQp5lpadPCrWPqrcXHnCdqmd1BEVoEUq52w==}
+  /@meteorlxy/eslint-config@3.3.1(eslint-plugin-vue@9.24.0)(eslint@8.57.0)(typescript@5.4.3)(vue-eslint-parser@9.4.2):
+    resolution: {integrity: sha512-AohYgOxlRMW0akxcu4Av4Jym+X369Ltfpe+gTGJlPJ4dSBeeciW8MKlfESGZDn7mjw2ddFt1BxQI70hj0b0saw==}
     peerDependencies:
       eslint-plugin-react: ^7.34.1
       eslint-plugin-react-hooks: ^4.6.0

@@ -110,7 +110,7 @@ const options = reactive({
             :rows="vueTemplateDataJson.split('\n').length + 2"
             @input="onVueTemplateDataInput"
           />
-          <button @click="onVueTemplateDataSet">set</button>
+          <button type="button" @click="onVueTemplateDataSet">set</button>
         </li>
       </ul>
 
