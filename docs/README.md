@@ -31,10 +31,6 @@ app.use(VueShowdownPlugin, {
     emoji: true,
   },
 });
-
-const foo = async () => {};
-
-const bar = foo();
 ```
 
 Then use `<VueShowdown />` component in your vue SFC:
