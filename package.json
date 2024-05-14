@@ -63,7 +63,7 @@
   "dependencies": {
     "@types/showdown": "^2.0.6",
     "showdown": "^2.1.0",
-    "vue": "^3.4.26"
+    "vue": "^3.4.27"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
@@ -75,23 +75,23 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "@vuepress/bundler-vite": "2.0.0-rc.9",
     "@vuepress/theme-default": "2.0.0-rc.23",
-    "conventional-changelog-cli": "^4.1.0",
+    "conventional-changelog-cli": "^5.0.0",
     "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.25.0",
+    "eslint-plugin-vue": "^9.26.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.17.1",
+    "rimraf": "^5.0.7",
+    "rollup": "^4.17.2",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "sort-package-json": "^2.10.0",
     "typescript": "^5.4.5",
-    "vite": "~5.2.10",
+    "vite": "~5.2.11",
     "vue-eslint-parser": "^9.4.2",
     "vuepress": "2.0.0-rc.9"
   },
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.1.1",
   "engines": {
     "node": ">=18.16.0"
   }
