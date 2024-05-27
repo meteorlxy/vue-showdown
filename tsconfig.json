@@ -5,9 +5,13 @@
     "paths": {
       "vue-showdown": ["src/index.ts"]
     },
-
     "declaration": false,
     "resolveJsonModule": true
   },
-  "include": ["./src/**/*", "./docs/.vuepress/**/*", "./vite.config.ts"]
+  "include": [
+    "./src/**/*",
+    "./dev/**/*",
+    "./docs/.vuepress/**/*",
+    "vite.config.ts"
+  ]
 }
