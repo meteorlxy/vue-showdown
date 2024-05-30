@@ -69,7 +69,7 @@ export default defineUserConfig({
             link: '/zh/playground/',
           },
           {
-            text: 'Changelog',
+            text: `v${version}`,
             link: 'https://github.com/meteorlxy/vue-showdown/blob/main/CHANGELOG.md',
           },
         ],
