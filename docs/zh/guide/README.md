@@ -20,7 +20,7 @@ npm install vue-showdown
 
 将 vue-showdown 作为 Vue 插件引入：
 
-```js
+```ts
 // 作为 Vue 插件引入
 import { createApp } from 'vue';
 import { VueShowdownPlugin } from 'vue-showdown';
@@ -40,7 +40,7 @@ app.use(VueShowdownPlugin, {
 
 或者将 vue-showdown 作为 Vue 组件引入：
 
-```js
+```ts
 // 作为 Vue 组件引入
 import { createApp } from 'vue';
 import { VueShowdown } from 'vue-showdown';
@@ -95,7 +95,7 @@ app.component('VueShowdown', VueShowdown);
 
 ## 插件选项
 
-```js
+```ts
 import { createApp } from 'vue';
 import { VueShowdownPlugin } from 'vue-showdown';
 
@@ -274,7 +274,7 @@ export default defineComponent({
 
 你可以从 `vue-showdown` 中导入 `showdown` ，以便进行进阶配置。
 
-```js
+```ts
 import { createApp } from 'vue';
 import { VueShowdownPlugin, showdown } from 'vue-showdown';
 
@@ -318,7 +318,7 @@ export default defineComponent({
 
 或者，你可以通过 `showdown.extension()` 全局注册 extensions，然后在 `extension` prop 中直接通过注册的名称引入。
 
-```js
+```ts
 import { createApp } from 'vue';
 import { VueShowdownPlugin, showdown } from 'vue-showdown';
 

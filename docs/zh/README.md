@@ -19,7 +19,7 @@ footer: MIT Licensed | Copyright © 2018-present meteorlxy
 
 引入并使用：
 
-```js
+```ts
 import { createApp } from 'vue';
 import { VueShowdownPlugin } from 'vue-showdown';
 import App from './App.vue';

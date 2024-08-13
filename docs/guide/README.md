@@ -20,7 +20,7 @@ npm install vue-showdown
 
 Import vue-showdown as a vue plugin:
 
-```js
+```ts
 // import as a Vue plugin
 import { createApp } from 'vue';
 import { VueShowdownPlugin } from 'vue-showdown';
@@ -40,7 +40,7 @@ app.use(VueShowdownPlugin, {
 
 Or import vue-showdown as a vue component:
 
-```js
+```ts
 // import as a Vue component
 import { createApp } from 'vue';
 import { VueShowdown } from 'vue-showdown';
@@ -95,7 +95,7 @@ Direct `<script>` import after `vue.js` and `showdown.js`. Then use `vue-showdow
 
 ## Plugin Options
 
-```js
+```ts
 import { createApp } from 'vue';
 import { VueShowdownPlugin } from 'vue-showdown';
 
@@ -274,7 +274,7 @@ export default defineComponent({
 
 You can also import `showdown` itself from `vue-showdown` for advance usages.
 
-```js
+```ts
 import { createApp } from 'vue';
 import { VueShowdownPlugin, showdown } from 'vue-showdown';
 
@@ -318,7 +318,7 @@ export default defineComponent({
 
 Alternatively, you can register extensions globally via `showdown.extension()`, and reference it in the `extension` prop directly by the name that you registered.
 
-```js
+```ts
 import { createApp } from 'vue';
 import { VueShowdownPlugin, showdown } from 'vue-showdown';
 

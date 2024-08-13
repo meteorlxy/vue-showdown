@@ -19,7 +19,7 @@ footer: MIT Licensed | Copyright © 2018-present meteorlxy
 
 Import and use it:
 
-```js
+```ts
 import { createApp } from 'vue';
 import { VueShowdownPlugin } from 'vue-showdown';
 import App from './App.vue';
