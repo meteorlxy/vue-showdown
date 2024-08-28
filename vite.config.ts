@@ -1,5 +1,5 @@
 import { resolve } from 'path';
-import vue from '@vitejs/plugin-vue';
+import vuePlugin from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -10,5 +10,5 @@ export default defineConfig({
       'vue-showdown': resolve(__dirname, 'src'),
     },
   },
-  plugins: [vue()],
+  plugins: [vuePlugin()],
 });
