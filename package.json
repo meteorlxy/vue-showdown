@@ -36,15 +36,19 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && rollup --config rollup.config.js && rimraf dist/types",
+    "build": "rollup --config rollup.config.js && rimraf dist/types",
+    "clean": "rimraf dist",
     "dev": "vite",
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
     "format": "prettier --write .",
     "lint": "eslint . && prettier --check .",
     "prepare": "husky",
-    "publish": "git push origin main --tags",
-    "version": "pnpm lint && pnpm build && conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add dist CHANGELOG.md"
+    "release": "pnpm release:check && pnpm release:version && pnpm release:publish",
+    "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release:check": "pnpm clean && pnpm build && pnpm lint",
+    "release:publish": "pnpm publish",
+    "release:version": "bumpp -r --execute=\"pnpm release:changelog\" --commit \"build: publish v%s\" --all"
   },
   "commitlint": {
     "extends": [
@@ -75,6 +79,7 @@
     "@vitejs/plugin-vue": "^5.1.4",
     "@vuepress/bundler-vite": "2.0.0-rc.15",
     "@vuepress/theme-default": "2.0.0-rc.42",
+    "bumpp": "^9.5.2",
     "conventional-changelog-cli": "^5.0.0",
     "eslint": "^9.11.1",
     "eslint-plugin-vue": "^9.28.0",
