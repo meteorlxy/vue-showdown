@@ -1,9 +1,9 @@
 :root {
-  --c-bg-output: #fafbfc;
+  --vp-c-bg-output: #fafbfc;
 }
 
 [data-theme='dark'] {
-  --c-bg-output: #272b2f;
+  --vp-c-bg-output: #272b2f;
 }
 
 .markdown-input {
@@ -13,22 +13,22 @@
   margin: 15px 0;
   padding: 15px;
   font-size: 16px;
-  color: var(--c-text);
-  background-color: var(--c-bg-light);
-  border: 1px solid var(--c-border);
+  color: var(--vp-c-text);
+  background-color: var(--vp-c-bg-alt);
+  border: 1px solid var(--vp-c-border);
   border-radius: 5px;
   box-sizing: border-box;
   &:focus {
-    background-color: var(--c-bg);
-    box-shadow: 0 0 5px 2px var(--c-text-accent);
+    background-color: var(--vp-c-bg);
+    box-shadow: 0 0 5px 2px var(--vp-c-accent-text);
   }
 }
 
 .markdown-output {
   padding: 10px 15px;
   margin: 15px 0;
-  color: var(--c-text);
-  background-color: var(--c-bg-output);
-  border: 1px solid var(--c-border);
+  color: var(--vp-c-text);
+  background-color: var(--vp-c-bg-output);
+  border: 1px solid var(--vp-c-border);
   border-radius: 5px;
 }
