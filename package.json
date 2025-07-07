@@ -67,43 +67,44 @@
   "dependencies": {
     "@types/showdown": "^2.0.6",
     "showdown": "^2.1.0",
-    "vue": "^3.5.13"
+    "vue": "^3.5.17"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@meteorlxy/eslint-config": "^4.9.1",
-    "@meteorlxy/prettier-config": "^4.9.0",
-    "@meteorlxy/tsconfig": "^4.8.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@meteorlxy/eslint-config": "^6.3.0",
+    "@meteorlxy/prettier-config": "^6.2.0",
+    "@meteorlxy/tsconfig": "^6.0.0",
     "@rollup/plugin-terser": "^0.4.4",
-    "@vitejs/plugin-vue": "^5.2.3",
-    "@vuepress/bundler-vite": "2.0.0-rc.20",
-    "@vuepress/theme-default": "2.0.0-rc.92",
-    "bumpp": "^10.1.0",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vuepress/bundler-vite": "2.0.0-rc.24",
+    "@vuepress/theme-default": "2.0.0-rc.110",
+    "bumpp": "^10.2.0",
     "conventional-changelog-cli": "^5.0.0",
-    "eslint": "^9.24.0",
-    "eslint-plugin-vue": "^10.0.0",
+    "eslint": "^9.30.1",
+    "eslint-plugin-vue": "^10.3.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.0",
-    "prettier": "^3.5.3",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
-    "rollup": "^4.39.0",
+    "rollup": "^4.44.2",
     "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-typescript2": "^0.36.0",
-    "sass-embedded": "^1.86.3",
-    "sort-package-json": "^3.0.0",
+    "sass-embedded": "^1.89.2",
+    "sort-package-json": "^3.4.0",
     "typescript": "^5.8.3",
-    "vite": "~6.2.5",
-    "vue-eslint-parser": "^10.1.3",
-    "vuepress": "2.0.0-rc.20"
+    "vite": "~7.0.2",
+    "vue-eslint-parser": "^10.2.0",
+    "vuepress": "2.0.0-rc.24"
   },
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.12.4",
   "engines": {
     "node": ">=18.16.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild"
+      "esbuild",
+      "unrs-resolver"
     ]
   }
 }
