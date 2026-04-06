@@ -92,7 +92,7 @@
     "sass-embedded": "^1.93.3",
     "sort-package-json": "^3.4.0",
     "typescript": "^5.9.3",
-    "vite": "~7.2.2",
+    "vite": "~7.3.2",
     "vue-eslint-parser": "^10.2.0",
     "vuepress": "2.0.0-rc.24"
   },
